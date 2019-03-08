@@ -341,3 +341,48 @@ body {
 .single-ad-map img {
     width: 60%;
 }
+
+.login-container input {
+    width: 49%;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px 20px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 14px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid rgb(250, 128, 114);
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: rgb(250, 128, 114);
+    color: white;
+}
+
+.login-container a h5 {
+    color: black;
+    text-align: center;
+    font-size: 12px;
+}
+
+.login-container a {
+    text-decoration: none;
+}
+
+.login-container {
+    padding: 0 5% 0 5%;
+}
+
+.login-tittle {
+    font-size: 16px;
+    padding: 0 5% 0 5%;
+}
