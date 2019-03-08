@@ -384,7 +384,18 @@ body {
     padding: 0 5% 0 5%;
 }
 
-.login-tittle {
+.login-img {
     font-size: 16px;
     padding: 0 5% 0 5%;
+    background-color: #374252;
+}
+
+.login-img img {
+    width: 30%;
+    padding-top: 1%;
+}
+
+.login-title {
+    font-size: 14px;
+    padding-left: 5%;
 }
