@@ -1,0 +1,237 @@
+body {
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1vw;
+}
+
+.grid-container {
+    display: grid;
+    max-width: 100%;
+    background-image: url(../img/bg-blue.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    grid-template-areas: 'logo menu menu login empty2' 'main main main main main' 'category category category category category' 'ads ads ads ads ads' 'footer footer footer footer footer' 'credit credit credit credit credit';
+}
+
+.item1 {
+    grid-area: logo;
+    background: rgba(55, 66, 82, 0.7);
+    height: 13vh;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.item1 img {
+    padding-top: 3vh;
+    padding-left: 25vh;
+}
+
+.item2 {
+    grid-area: menu;
+    background: rgba(55, 66, 82, 0.7);
+    height: 10vh;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding-top: 3vh;
+}
+
+.item2 ul li {
+    list-style-type: none;
+    display: inline;
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: center;
+}
+
+.item2 li a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.item3 {
+    grid-area: login;
+    background: rgba(55, 66, 82, 0.7);
+    height: 13vh;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.item3 i {
+    padding: 5vh 5% 0 5%;
+}
+
+.item3 a {
+    color: white;
+}
+
+.item4 {
+    grid-area: empty2;
+    background: rgba(55, 66, 82, 0.7);
+    height: 13vh;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding-right: 25vh
+}
+
+.item4 button {
+    width: 80%;
+    padding: 12px 10px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1vw;
+    margin: 3vh 0;
+    display: inline-block;
+    border: 1px solid rgb(250, 128, 114);
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: rgb(250, 128, 114);
+    color: white;
+}
+
+.item5 {
+    grid-area: main;
+    text-align: center;
+    color: white;
+    padding-top: 12vh;
+    padding-bottom: 25vh;
+}
+
+.item5 input {
+    width: 15%;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1vw;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.item5 select {
+    width: 15%;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1vw;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+.item5 button {
+    width: 10%;
+    padding: 12px 20px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1vw;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid rgb(250, 128, 114);
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: rgb(250, 128, 114);
+    color: white;
+}
+
+.item6 {
+    grid-area: category;
+    background-color: antiquewhite;
+}
+
+#button-wrap {
+    box-shadow: 0 -12px 10px 0 rgba(42, 47, 54, .3);
+    background-color: antiquewhite;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1.5% 0.5%;
+    width: 55%;
+    margin-left: 22%;
+    margin-top: -15vh;
+}
+
+#button-wrap a {
+    text-decoration: none;
+    color: black;
+}
+
+#electronics, #furniture, #cars, #real-estate, #services {
+    box-sizing: border-box;
+    width: 10vw;
+    height: 18vh;
+    background-color: white;
+    text-align: center;
+    padding: 20%;
+    border-radius: 4px;
+}
+
+#electronics:hover, #furniture:hover, #cars:hover, #real-estate:hover, #services:hover {
+    background-color: rgb(250, 128, 114);
+    color: white;
+}
+
+.item7 {
+    grid-area: ads;
+    background-color: antiquewhite;
+    text-align: center;
+}
+
+.ads-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.ads img {
+    width: 60%;
+    padding: 1.5%;
+}
+.ads img:hover {
+    transform: scale(1.1);
+}
+
+.ads {
+    font-size: 0.7vw;
+    width: 25%;
+    padding: 2% 0;
+}
+
+.ads a {
+    text-decoration: none;
+    color: black;
+}
+
+.item8 {
+    grid-area: footer;
+    background-color: #374252;
+    color: white;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.footer {
+    padding: 1% 2%;
+    width: 30%;
+}
+
+.item9 {
+    grid-area: credit;
+    background-color: antiquewhite;
+    text-align: center;
+}
