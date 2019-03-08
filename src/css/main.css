@@ -192,6 +192,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding: 0 10% 0 10%;
 }
 
 .ads img {
@@ -275,6 +276,7 @@ body {
     position: relative;
     min-height: 35vh;
     padding-top: 5vh;
+    padding: 0 7% 0 10%;
 }
 .single-ad-img, .single-ad-data, .single-ad-seller {
     width: 30%;
@@ -286,7 +288,7 @@ body {
 .single-ad-img img { 
     position: absolute; 
     width:30%;
-    left:5vw; 
+    left:7%;
     right:0; 
     opacity:0; 
     animation-name: fade; 
@@ -313,7 +315,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    padding-left: 5vw;
+    padding: 0 5% 0 5%;
     padding-bottom: 1vh;
 }
 
