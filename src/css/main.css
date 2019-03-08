@@ -183,7 +183,8 @@ body {
 .item7 {
     grid-area: ads;
     background-color: antiquewhite;
-    text-align: center;
+    text-align: justify;
+    text-align-last: center;
 }
 
 .ads-container {
@@ -264,5 +265,64 @@ body {
 .item9 {
     grid-area: credit;
     background-color: antiquewhite;
-    text-align: center;
+    text-align: justify;
+}
+
+.single-ad-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    min-height: 35vh;
+    padding-top: 5vh;
+}
+.single-ad-img, .single-ad-data, .single-ad-seller {
+    width: 30%;
+}
+
+.single-ad-data {
+    padding-top: 5vh;
+}
+.single-ad-img img { 
+    position: absolute; 
+    width:30%;
+    left:5vw; 
+    right:0; 
+    opacity:0; 
+    animation-name: fade; 
+    animation-duration: 18s; 
+    animation-iteration-count: infinite; 
+  }
+  .single-ad-img img:nth-child(1) { 
+    animation-delay: 0s;  
+  }
+  .single-ad-img img:nth-child(2) { 
+    animation-delay: 6s;  
+  }
+  .single-ad-img img:nth-child(3) { 
+    animation-delay: 12s;  
+  }
+@keyframes fade {
+  0%   { opacity: 0; }
+  11.11%   { opacity: 1; }
+  33.33%  { opacity: 1; }
+  44.44%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+.detailed-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-left: 5vw;
+}
+
+.single-ad-detailed {
+    width: 50%;
+}
+.single-ad-map {
+    width: 50%;
+}
+
+.single-ad-map img {
+    width: 60%;
 }
