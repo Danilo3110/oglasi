@@ -10,7 +10,7 @@ body {
     background-image: url(../img/bg-blue.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
-    grid-template-areas: 'logo menu menu login empty2' 'main main main main main' 'category category category category category' 'ads ads ads ads ads' 'footer footer footer footer footer' 'credit credit credit credit credit';
+    grid-template-areas: 'logo menu menu login empty2''main main main main main''category category category category category''ads ads ads ads ads''footer footer footer footer footer''credit credit credit credit credit';
 }
 
 .item1 {
@@ -165,7 +165,11 @@ body {
     color: black;
 }
 
-#electronics, #furniture, #cars, #real-estate, #services {
+#electronics,
+#furniture,
+#cars,
+#real-estate,
+#services {
     box-sizing: border-box;
     width: 10vw;
     height: 18vh;
@@ -175,7 +179,11 @@ body {
     border-radius: 4px;
 }
 
-#electronics:hover, #furniture:hover, #cars:hover, #real-estate:hover, #services:hover {
+#electronics:hover,
+#furniture:hover,
+#cars:hover,
+#real-estate:hover,
+#services:hover {
     background-color: rgb(250, 128, 114);
     color: white;
 }
@@ -199,6 +207,7 @@ body {
     width: 60%;
     padding: 1.5%;
 }
+
 .ads img:hover {
     transform: scale(1.1);
 }
@@ -278,39 +287,62 @@ body {
     padding-top: 5vh;
     padding: 0 7% 0 10%;
 }
-.single-ad-img, .single-ad-data, .single-ad-seller {
+
+.single-ad-img,
+.single-ad-data,
+.single-ad-seller {
     width: 30%;
 }
 
 .single-ad-data {
     padding-top: 5vh;
 }
-.single-ad-img img { 
-    position: absolute; 
-    width:30%;
-    left:7%;
-    right:0; 
-    opacity:0; 
-    animation-name: fade; 
-    animation-duration: 18s; 
-    animation-iteration-count: infinite; 
-  }
-  .single-ad-img img:nth-child(1) { 
-    animation-delay: 0s;  
-  }
-  .single-ad-img img:nth-child(2) { 
-    animation-delay: 6s;  
-  }
-  .single-ad-img img:nth-child(3) { 
-    animation-delay: 12s;  
-  }
-@keyframes fade {
-  0%   { opacity: 0; }
-  11.11%   { opacity: 1; }
-  33.33%  { opacity: 1; }
-  44.44%  { opacity: 0; }
-  100% { opacity: 0; }
+
+.single-ad-img img {
+    position: absolute;
+    width: 30%;
+    left: 7%;
+    right: 0;
+    opacity: 0;
+    animation-name: fade;
+    animation-duration: 18s;
+    animation-iteration-count: infinite;
 }
+
+.single-ad-img img:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.single-ad-img img:nth-child(2) {
+    animation-delay: 6s;
+}
+
+.single-ad-img img:nth-child(3) {
+    animation-delay: 12s;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    11.11% {
+        opacity: 1;
+    }
+
+    33.33% {
+        opacity: 1;
+    }
+
+    44.44% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
 .detailed-container {
     display: flex;
     flex-direction: row;
@@ -336,6 +368,7 @@ body {
 .single-ad-detailed {
     width: 50%;
 }
+
 .single-ad-map {
     width: 50%;
 }
