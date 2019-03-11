@@ -165,11 +165,11 @@ body {
     color: black;
 }
 
-#electronics,
-#furniture,
-#cars,
-#real-estate,
-#services {
+#apartments,
+#houses,
+#garages,
+#business,
+#land {
     box-sizing: border-box;
     width: 10vw;
     height: 18vh;
@@ -179,11 +179,11 @@ body {
     border-radius: 4px;
 }
 
-#electronics:hover,
-#furniture:hover,
-#cars:hover,
-#real-estate:hover,
-#services:hover {
+#apartments:hover,
+#houses:hover,
+#garages:hover,
+#business,
+#land:hover {
     background-color: rgb(250, 128, 114);
     color: white;
 }
