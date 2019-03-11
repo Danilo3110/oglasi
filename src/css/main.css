@@ -7,7 +7,7 @@ body {
 .grid-container {
     display: grid;
     max-width: 100%;
-    background-image: url(../img/bg-blue.jpg);
+    background-image: url(../img/home_bg_v2.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
     grid-template-areas: 'logo menu menu login empty2''main main main main main''category category category category category''ads ads ads ads ads''footer footer footer footer footer''credit credit credit credit credit';
@@ -15,7 +15,7 @@ body {
 
 .item1 {
     grid-area: logo;
-    background: rgba(55, 66, 82, 0.7);
+    background: rgba(55, 66, 82, 0.4);
     height: 13vh;
     position: sticky;
     top: 0;
@@ -29,7 +29,7 @@ body {
 
 .item2 {
     grid-area: menu;
-    background: rgba(55, 66, 82, 0.7);
+    background: rgba(55, 66, 82, 0.4);
     height: 10vh;
     color: white;
     position: sticky;
@@ -55,7 +55,7 @@ body {
 
 .item3 {
     grid-area: login;
-    background: rgba(55, 66, 82, 0.7);
+    background: rgba(55, 66, 82, 0.4);
     height: 13vh;
     color: white;
     position: sticky;
@@ -73,7 +73,7 @@ body {
 
 .item4 {
     grid-area: empty2;
-    background: rgba(55, 66, 82, 0.7);
+    background: rgba(55, 66, 82, 0.4);
     height: 13vh;
     position: sticky;
     top: 0;
