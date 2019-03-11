@@ -182,7 +182,7 @@ body {
 #apartments:hover,
 #houses:hover,
 #garages:hover,
-#business,
+#business:hover,
 #land:hover {
     background-color: rgb(250, 128, 114);
     color: white;
