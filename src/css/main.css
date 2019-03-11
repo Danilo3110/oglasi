@@ -223,61 +223,6 @@ body {
     color: black;
 }
 
-.item8 {
-    grid-area: footer;
-    background-color: #374252;
-    color: white;
-    text-align: center;
-}
-
-.footer-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.footer {
-    padding: 1% 2%;
-    width: 30%;
-}
-
-.footer a {
-    text-decoration: none;
-    color: white;
-}
-
-.footer button {
-    width: 30%;
-    padding: 12px 20px;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 1vw;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid rgb(250, 128, 114);
-    border-radius: 4px;
-    box-sizing: border-box;
-    background-color: rgb(250, 128, 114);
-    color: white;
-}
-
-.footer input {
-    width: 40%;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 1vw;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.item9 {
-    grid-area: credit;
-    background-color: antiquewhite;
-    text-align: justify;
-}
-
 .single-ad-container {
     display: flex;
     flex-direction: row;
@@ -375,6 +320,61 @@ body {
 
 .single-ad-map img {
     width: 60%;
+}
+
+.item8 {
+    grid-area: footer;
+    background-color: #374252;
+    color: white;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.footer {
+    padding: 1% 2%;
+    width: 30%;
+}
+
+.footer a {
+    text-decoration: none;
+    color: white;
+}
+
+.footer button {
+    width: 30%;
+    padding: 12px 20px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1vw;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid rgb(250, 128, 114);
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: rgb(250, 128, 114);
+    color: white;
+}
+
+.footer input {
+    width: 40%;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1vw;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.item9 {
+    grid-area: credit;
+    background-color: antiquewhite;
+    text-align: justify;
 }
 
 .login-container input {
