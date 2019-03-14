@@ -15,7 +15,7 @@ body {
 
 .item1 {
     grid-area: logo;
-    background: rgba(55, 66, 82, 0.4);
+    background: rgba(55, 66, 82, 0.8);
     height: 13vh;
     position: sticky;
     top: 0;
@@ -29,7 +29,7 @@ body {
 
 .item2 {
     grid-area: menu;
-    background: rgba(55, 66, 82, 0.4);
+    background: rgba(55, 66, 82, 0.8);
     height: 10vh;
     color: white;
     position: sticky;
@@ -55,7 +55,7 @@ body {
 
 .item3 {
     grid-area: login;
-    background: rgba(55, 66, 82, 0.4);
+    background: rgba(55, 66, 82, 0.8);
     height: 13vh;
     color: white;
     position: sticky;
@@ -73,7 +73,7 @@ body {
 
 .item4 {
     grid-area: empty2;
-    background: rgba(55, 66, 82, 0.4);
+    background: rgba(55, 66, 82, 0.8);
     height: 13vh;
     position: sticky;
     top: 0;
@@ -195,7 +195,7 @@ body {
 }
 
 .item7 h1 {
-    background-color: rgb(250, 128, 114, .7);
+    background-color: rgb(250, 128, 114);
     color: white;
     box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.10);
     padding: 1% 0;
