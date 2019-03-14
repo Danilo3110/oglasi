@@ -144,12 +144,12 @@ body {
 
 .item6 {
     grid-area: category;
-    background-color: antiquewhite;
+    background-color: #F9F9F9;
 }
 
 #button-wrap {
     box-shadow: 0 -12px 10px 0 rgba(42, 47, 54, .3);
-    background-color: antiquewhite;
+    background-color: #F9F9F9;
     border-radius: 4px;
     display: flex;
     flex-direction: row;
@@ -190,7 +190,7 @@ body {
 
 .item7 {
     grid-area: ads;
-    background-color: antiquewhite;
+    background-color: #F9F9F9;
     text-align: justify;
     text-align-last: center;
 }
