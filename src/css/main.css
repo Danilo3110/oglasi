@@ -286,6 +286,49 @@ button:hover {
     width: 20%;
 }
 
+.single-ad-map {
+    width: 33%;
+    padding-top: 2%;
+}
+
+#map-text {
+    text-align: center;
+}
+
+.single-ad-tour {
+    padding-left: 3%;
+    width: 25%;
+    padding-bottom: 2%;
+}
+
+.single-ad-tour input {
+    width: 75%;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1vw;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.single-ad-tour button {
+    width: 75%;
+    padding: 12px 20px;
+    margin: 8px 0;
+}
+
+.single-ad-rest {
+    padding-right: 3%;
+    padding-top: 2%;
+    width: 25%;
+}
+
+.single-ad-map img {
+    width: 100%;
+}
+
 .single-ad-img img {
     position: absolute;
     width: 40%;
@@ -299,7 +342,7 @@ button:hover {
 }
 
 .single-ad-detailed {
-    padding: 0 3%;
+    padding: 0 3% 2% 3%;
 }
 
 .single-ad-img img:nth-child(1) {
