@@ -99,18 +99,29 @@ body {
     padding-right: 25vh
 }
 
-.item4 button {
-    width: 80%;
-    padding: 12px 10px;
+button {
     font-family: 'Quicksand', sans-serif;
     font-size: 1vw;
-    margin: 3vh 0;
     display: inline-block;
     border: 1px solid rgb(250, 128, 114);
     border-radius: 4px;
     box-sizing: border-box;
     background-color: rgb(250, 128, 114);
     color: white;
+    cursor: pointer;
+    outline-color: rgb(236, 50, 50);
+}
+
+button:hover {
+    transition: 0.5s ease;
+    border: 1px solid rgba(250, 100, 100);
+    background-color: rgb(250, 100, 100);
+}
+
+.item4 button {
+    width: 80%;
+    padding: 12px 10px;
+    margin: 3vh 0;
 }
 
 .item5 {
@@ -149,15 +160,7 @@ body {
 .item5 button {
     width: 10%;
     padding: 12px 20px;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 1vw;
     margin: 8px 0;
-    display: inline-block;
-    border: 1px solid rgb(250, 128, 114);
-    border-radius: 4px;
-    box-sizing: border-box;
-    background-color: rgb(250, 128, 114);
-    color: white;
 }
 
 .item6 {
@@ -242,8 +245,8 @@ body {
 }
 
 .ads:hover {
-    transform: scale(1.05, 1.05);
-    transition: 0.4s ease-in-out;
+    transform: scale(1.04, 1.04);
+    transition: 0.7s ease;
 }
 
 .ads-descr {
@@ -277,6 +280,7 @@ body {
 .single-ad-img {
     width: 40%;
 }
+
 .single-ad-data,
 .single-ad-seller {
     width: 20%;
@@ -343,15 +347,7 @@ hr {
 .single-ad-seller button {
     width: 60%;
     padding: 12px 20px;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 1vw;
     margin: 8px 0;
-    display: inline-block;
-    border: 1px solid rgb(250, 128, 114);
-    border-radius: 4px;
-    box-sizing: border-box;
-    background-color: rgb(250, 128, 114);
-    color: white;
 }
 
 .single-ad-seller i {
@@ -384,15 +380,7 @@ hr {
 .footer button {
     width: 30%;
     padding: 12px 20px;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 1vw;
     margin: 8px 0;
-    display: inline-block;
-    border: 1px solid rgb(250, 128, 114);
-    border-radius: 4px;
-    box-sizing: border-box;
-    background-color: rgb(250, 128, 114);
-    color: white;
 }
 
 .footer input {
@@ -428,15 +416,8 @@ hr {
 .login-container button {
     width: 100%;
     padding: 12px 20px;
-    font-family: 'Quicksand', sans-serif;
     font-size: 14px;
     margin: 8px 0;
-    display: inline-block;
-    border: 1px solid rgb(250, 128, 114);
-    border-radius: 4px;
-    box-sizing: border-box;
-    background-color: rgb(250, 128, 114);
-    color: white;
 }
 
 .login-container a h5 {
