@@ -34,8 +34,8 @@ function renderAds() {
                         </div>
                         <a href="ad.html"><img src="${ad.image}" alt=""></a><br>
                         <h2 class="ads-descr">${ad.description}</h2>
-                        <h3 class="ads-descr">cena: ${ad.price.toLocaleString('sr-RS') <= 0 ? 'po dogovoru'
-                                                    : ad.price.toLocaleString('sr-RS')}&euro;</h3>
+                        <h3 class="ads-descr">cena: ${ad.price.toLocaleString('sr-RS') == 0 ? 'po dogovoru'
+                                                    : ad.price.toLocaleString('sr-RS') + '&euro;'}</h3>
                         <hr>
                         <h3 class="ads-descr">kontakt: ${ad.contacts}</h3>
                         </div>`);
