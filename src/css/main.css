@@ -437,6 +437,7 @@ hr {
 
 .login-container input {
     width: 49%;
+    font-size: 14px;
 }
 
 .login-container button {
