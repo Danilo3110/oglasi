@@ -429,12 +429,6 @@ hr {
     width: 40%;
 }
 
-.item9 {
-    grid-area: credit;
-    background-color: antiquewhite;
-    text-align: center;
-}
-
 .login-container input {
     width: 49%;
     font-size: 14px;
