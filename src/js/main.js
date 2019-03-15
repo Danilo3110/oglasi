@@ -1,3 +1,7 @@
+const api = axios.create({
+    baseURL: 'http://localhost:3000'
+});
+
 const baseOfRealEstate = [];
 class RealEstate {
     constructor(location, image, description, price, contacts) {

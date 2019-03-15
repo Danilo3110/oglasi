@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/ucha-jedi-frontend/oglasi/issues"
   },
-  "homepage": "https://github.com/ucha-jedi-frontend/oglasi#readme"
+  "homepage": "https://github.com/ucha-jedi-frontend/oglasi#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "axios": "^0.18.0"
+  }
 }
