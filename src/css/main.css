@@ -112,6 +112,18 @@ button {
     outline-color: rgb(236, 50, 50);
 }
 
+input {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1vw;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    z-index: 1;
+}
+
 button:hover {
     transition: 0.5s ease;
     border: 1px solid rgba(250, 100, 100);
@@ -134,15 +146,6 @@ button:hover {
 
 .item5 input {
     width: 15%;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 1vw;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    z-index: 1;
 }
 
 .item5 select {
@@ -303,14 +306,6 @@ button:hover {
 
 .single-ad-tour input {
     width: 75%;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 1vw;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
 }
 
 .single-ad-tour button {
@@ -428,32 +423,16 @@ hr {
 
 .footer input {
     width: 40%;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 1vw;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
 }
 
 .item9 {
     grid-area: credit;
     background-color: antiquewhite;
-    text-align: justify;
+    text-align: center;
 }
 
 .login-container input {
     width: 49%;
-    font-family: 'Quicksand', sans-serif;
-    font-size: 14px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
 }
 
 .login-container button {
