@@ -23,8 +23,9 @@ body {
 }
 
 .item1 img {
-    padding-top: 3vh;
+    padding-top: 1vh;
     padding-left: 25vh;
+    width: 30%;
 }
 
 .item2 {
@@ -397,6 +398,10 @@ hr {
     background-color: #374252;
     color: white;
     text-align: center;
+}
+
+.item8 img {
+    width: 30%;
 }
 
 .footer-container {
