@@ -10,7 +10,7 @@ body {
     background-image: url(../img/home_bg_v2.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
-    grid-template-areas: 'logo menu menu login empty2''main main main main main''category category category category category''ads ads ads ads ads''footer footer footer footer footer''credit credit credit credit credit';
+    grid-template-areas: 'logo logo menu login empty2''main main main main main''category category category category category''ads ads ads ads ads''footer footer footer footer footer''credit credit credit credit credit';
 }
 
 .item1 {
@@ -23,9 +23,8 @@ body {
 }
 
 .item1 img {
-    padding-top: 1vh;
-    padding-left: 25vh;
-    width: 30%;
+    padding-left: 10vw;
+    width: 50%;
 }
 
 .item2 {
@@ -97,7 +96,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 1;
-    padding-right: 25vh
+    padding-right: 10vw;
 }
 
 button {
@@ -406,7 +405,7 @@ hr {
 }
 
 .item8 img {
-    width: 30%;
+    width: 40%;
 }
 
 .footer-container {
