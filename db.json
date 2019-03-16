@@ -14,7 +14,7 @@
       "pricePerSquareMeter": 2677,
       "imgUrl":"img/kopernikus1a.jpg",
       "visitsCount": 1254,
-      "legalised": "da"
+      "legalised": "Uknjiženo"
     },
     {
       "id": 2,
@@ -30,7 +30,7 @@
       "pricePerSquareMeter": 1484,
       "imgUrl":"img/nbg.jpg",
       "visitsCount": 3422,
-      "legalised": "da"
+      "legalised": "Uknjiženo"
     },
     {
       "id": 3,
@@ -46,7 +46,7 @@
       "pricePerSquareMeter": 1227,
       "imgUrl":"img/odlican-uknjizen.jpg",
       "visitsCount": 235,
-      "legalised": "da"
+      "legalised": "Uknjiženo"
     },
     {
       "id": 4,
@@ -78,7 +78,7 @@
       "pricePerSquareMeter": 1000,
       "imgUrl":"img/telep.jpg",
       "visitsCount": 5241,
-      "legalised": "da"
+      "legalised": "Uknjiženo"
     },
     {
       "id": 6,
@@ -94,7 +94,7 @@
       "pricePerSquareMeter": 1409,
       "imgUrl":"img/novi-beograd.jpg",
       "visitsCount": 5241,
-      "legalised": "da"
+      "legalised": "Uknjiženo"
     },
     {
       "id": 7,
@@ -110,7 +110,7 @@
       "pricePerSquareMeter": 730,
       "imgUrl":"img/subotica.jpg",
       "visitsCount": 1132,
-      "legalised": "da"
+      "legalised": "Uknjiženo"
     },
     {
       "id": 8,
@@ -126,7 +126,7 @@
       "pricePerSquareMeter": 842,
       "imgUrl":"img/odlican-uknjizen.jpg",
       "visitsCount": 449,
-      "legalised": "ne"
+      "legalised": "nije uknjizen"
     }
   ],
   "listingDescriptions": [
