@@ -3,22 +3,39 @@
     {
       "id": 1,
       "descriptionId": 1,
-      "street": "Savski nasip",
-      "area": "Beograd",
-      "m2": 44,
-      "floor": 1,
-      "state": "NEW",
-      "roomCount": 100,
-      "price": 199999,
-      "imgUrl":"https://xdn.tf.rs/2017/12/29/comtrade-2-830x553.jpg",
-      "visitsCount": 0
+      "street": "Maksima Gorkog",
+      "surface": "Beograd",
+      "m2": 62,
+      "floor": "2/2",
+      "state": "Renovirano",
+      "roomCount": 3,
+      "price": 166000,
+      "pricePerSquareMeter": 2677,
+      "imgUrl":"img/kopernikus1.jpg",
+      "visitsCount": 1254
     }
   ],
   "listingDescriptions": [
     {
       "id": 1,
-      "text": "..."
+      "additionalinfo": "...",
+      "listingNumber": "",
+      "listingCreated": "",
+      "listingChecked": "",
+      "yearOfConstruction": "",
+      "infrastructure": "",
+      "equipment": "",
+      "publicTrasport": "",
+      "geolocation": ""
     }
+  ],
+  "listingSeller": [
+      {
+        "id": 1,
+        "sellerName": "Expertus",
+        "sellerAddress": "",
+        "sellerPhone": ""
+      }
   ],
   "users": [
     {
