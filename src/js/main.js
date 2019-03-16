@@ -36,7 +36,7 @@ async function renderFullAds() {
     const responseListings = await api.get(`/listings/${idOfsmallAds}`);
     if (responseListings.status < 400) {
         const listings = responseListings.data;
-        
+
         const responseListingDescriptions = await api.get(`/listingDescriptions/${listings.descriptionId}`);
         const listingD = responseListingDescriptions.data;
         const responseListingSeller = await api.get(`/listingSeller/${listingD.authorId}`);
@@ -72,8 +72,8 @@ async function renderFullAds() {
                 <h3>${listingS.sellerName}</h3>
                 Adresa: ${listingS.sellerAddress}<br><br>
                 Mesto: ${listings.city}<br><br>
-                Tel: ${ad.contacts}<br><br>
-                Tel: ${ad.contacts}<br><br>
+                Tel: ${listingS.sellerPhone}<br><br>
+                Tel: ${listingS.sellerPhone}<br><br>
                 <button type="submit">Pošalji&nbsp;poruku</button><br><br>
                 <i class="fas fa-exclamation-triangle" title="Prijavi grešku"></i>
                 <i class="fas fa-print" title="Odštampaj oglas"></i>
@@ -111,7 +111,6 @@ async function renderFullAds() {
             </div>`);
         $ad.appendTo($fullContainer);
     }
-    sessionStorage.removeItem('idOfsmallAds');
 };
 
 $(document).on('load', renderAds());
@@ -125,5 +124,5 @@ $('#aSearch').click(advancedSearch);
 
 function fullAds(id) {
     sessionStorage.setItem('idOfsmallAds', id);
-    location.href = "ad.html#button-wrap";
+    location.href = "ad.html#item7";
 };
