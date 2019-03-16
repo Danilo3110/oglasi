@@ -33,40 +33,45 @@ async function renderAds() {
 
 async function renderFullAds() {
     const idOfsmallAds = JSON.parse(sessionStorage.getItem('idOfsmallAds'));
-    const responseListings = await api.get(`/listings`);
-    const listings = responseListings.data;
-    for (const ad of listings) {
-        if (ad.id === idOfsmallAds) {
-            const $fullContainer = $('.item7');
-            const $ad = $(`<h2>${ad.description}</h2>
-            <h3>${ad.location}</h3>
+    const responseListings = await api.get(`/listings/${idOfsmallAds}`);
+    if (responseListings.status < 400) {
+        const listings = responseListings.data;
+        
+        const responseListingDescriptions = await api.get(`/listingDescriptions/${listings.descriptionId}`);
+        const listingD = responseListingDescriptions.data;
+        const responseListingSeller = await api.get(`/listingSeller/${listingD.authorId}`);
+        const listingS = responseListingSeller.data;
+
+        const $fullContainer = $('.item7');
+        const $ad = $(`<h2>${listings.street}, ${listings.m2}, ${listings.state}</h2>
+            <h3>${listings.city}</h3>
             <div class="single-ad-container">
             <div class="single-ad-img">
-                <img src="${ad.image}" alt="">
-                <img src="${ad.image}" alt="">
-                <img src="${ad.image}" alt="">
-                <img src="${ad.image}" alt="">
-                <img src="${ad.image}" alt="">
+                <img src="${listings.imgUrl}" alt="">
+                <img src="${listings.imgUrl}" alt="">
+                <img src="${listings.imgUrl}" alt="">
+                <img src="${listings.imgUrl}" alt="">
+                <img src="${listings.imgUrl}" alt="">
             </div>
             <div class="single-ad-data">
                 <div>
                     <h4>Podaci o nekretnini</h4>
-                    Broj soba: 3<br><br>
-                    Cena: ${ad.price.toLocaleString('sr-RS') == 0 ? 'po dogovoru'
-                          : ad.price.toLocaleString('sr-RS') + '&euro;'}<br><br>
-                    Sprat: 2/2<br><br>
-                    Uknjiženost: Uknjiženo<br><br>
-                    Površina: 62 m2<br><br>
-                    Stanje: Renovirano<br><br>
-                    Ulica: Maksima Gorkog<br><br>
-                    Linije JGP: 19, 21, 22, 29, 46, 55, E1
+                    Broj soba: ${listings.roomCount}<br><br>
+                    Cena: ${listings.price.toLocaleString('sr-RS') == 0 ? 'po dogovoru'
+                          : listings.price.toLocaleString('sr-RS') + '&euro;'}<br><br>
+                    Sprat: ${listings.floor}<br><br>
+                    Uknjiženost: ${listings.legalised}<br><br>
+                    Površina: ${listings.m2}<br><br>
+                    Stanje: ${listings.state}<br><br>
+                    Ulica: ${listings.street}<br><br>
+                    Linije JGP: ${listingD.publicTrasport}
                 </div>
             </div>
             <div class="single-ad-seller">
                 <h4>Kontakt</h4>
-                <h3>Expertus consulting</h3>
-                Adresa: Kozjačka 20/3<br><br>
-                Mesto: Beograd<br><br>
+                <h3>${listingS.sellerName}</h3>
+                Adresa: ${listingS.sellerAddress}<br><br>
+                Mesto: ${listings.city}<br><br>
                 Tel: ${ad.contacts}<br><br>
                 Tel: ${ad.contacts}<br><br>
                 <button type="submit">Pošalji&nbsp;poruku</button><br><br>
@@ -78,7 +83,7 @@ async function renderFullAds() {
             <hr>
             <div class="single-ad-detailed">
                 <h3>Dodatne&nbsp;informacije</h3>
-                ${ad.description}
+                ${listingD.additionalinfo}
             </div>
             <hr>
             <div class="single-ad-tour">
@@ -97,16 +102,15 @@ async function renderFullAds() {
                 Lokacija stana
             </div>
             <div class="single-ad-rest">
-                Šifra oglasa: 3044713<br><br>
-                Datum kreiranja: 15.03.2019 (00:39)<br><br>
-                Oglas proverila agencija: 15.03.2019 (20:38)<br><br>
-                Godina izgradnje: 2008<br><br>
-                Infrastruktura: TERASA<br><br>
-                Opremljenost: CATV
+                Šifra oglasa: ${listingD.listingNumber}<br><br>
+                Datum kreiranja: ${listingD.listingCreated}<br><br>
+                Oglas proverila agencija: ${listingD.listingChecked}<br><br>
+                Godina izgradnje: ${listingD.yearOfConstruction}<br><br>
+                Infrastruktura: ${listingD.infrastructure}<br><br>
+                Opremljenost: ${listingD.equipment}
             </div>`);
-            $ad.appendTo($fullContainer);
-        }
-    });
+        $ad.appendTo($fullContainer);
+    }
     sessionStorage.removeItem('idOfsmallAds');
 };
 
