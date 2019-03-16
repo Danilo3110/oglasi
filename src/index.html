@@ -43,7 +43,7 @@
             <h4>Pretražite&nbsp;više&nbsp;od&nbsp;15,000,000&nbsp;oglasa&nbsp;i&nbsp;nikad&nbsp;lakše&nbsp;pronađite&nbsp;svoj&nbsp;idealan&nbsp;dom</h4>
             <input type="text" placeholder="tražim">
             <select name="location">
-                <option disabled selected>lokacija</option>
+                <option selected>lokacija</option>
                 <option value="beograd">Beograd</option>
                 <option value="kragujevac">Kragujevac</option>
                 <option value="jagodina">Jagodina</option>
@@ -83,14 +83,15 @@
                 <option value="novipazar">Novi Pazar</option>
             </select>
             <select name="category">
-                <option disabled selected>kategorija</option>
+                <option selected>kategorija</option>
                 <option value="apartment">Stanovi</option>
                 <option value="house">Kuće</option>
                 <option value="garage">Garaže</option>
                 <option value="business">Business&nbsp;rent</option>
                 <option value="land">Zemljište</option>
             </select>
-            <button type="submit">Pretraži</button>
+            <button type="submit">Pretraži</button><br>
+            <a onclick="advacedSearch()">Napredna&nbsp;pretraga</a>
         </div>
         <div class="item6">
             <div id="button-wrap">
@@ -116,7 +117,59 @@
                 </a>
             </div>
         </div>
-        <div class="item9"></div>
+        <div class="item-search show">
+            <h4>Napredna&nbsp;pretraga:</h4>
+            <hr>
+            <input type="number" id="price-min" min="1" step="1" placeholder="Cena min &euro;">
+            <input type="number" id="price-max" min="1" step="1" placeholder="Cena max &euro;">
+            <input type="number" id="m2-min" min="1" step="1" placeholder="Kvadratura min m&sup2;">
+            <input type="number" id="m2-max" min="1" step="1" placeholder="Kvadratura max m&sup2;"><br>
+            <input type="number" id="floor" min="1" step="1" placeholder="Broj spratova">
+            <select name="heating">
+                <option selected>Grejanje</option>
+                <option value="centralno">Centralno</option>
+                <option value="gas">Gas</option>
+                <option value="elektricno">Elektricno</option>
+                <option value="cvrstagoriva">Čvrsta&nbsp;goriva</option>
+                <option value="podno">Podno</option>
+                <option value="etazno">Etažno</option>
+            </select>
+            <input type="text" placeholder="Ulica">
+            <input type="text" placeholder="Šifra oglasa">
+            <hr><br>
+            <h5>Ostalo</h5>
+            <ul>
+                <li><input type="checkbox" name="podrum" id="podrum">
+                    <label for="podrum">Podrum</label></li>
+                <li> <input type="checkbox" name="parking" id="parking">
+                    <label for="parking">Parking</label></li>
+                <li><input type="checkbox" name="garaza" id="garaza">
+                    <label for="garaza">Garaža</label></li>
+                <li><input type="checkbox" name="terasa" id="terasa">
+                    <label for="terasa">Terasa</label></li>
+                <li><input type="checkbox" name="dvoriste" id="dvoriste">
+                    <label for="dvoriste">Dvorište</label></li>
+                <li><input type="checkbox" name="internet" id="internet">
+                    <label for="internet">Internet</label></li>
+                <li><input type="checkbox" name="kablovska" id="kablovska">
+                    <label for="kablovska">Kablovska</label></li>
+                <li><input type="checkbox" name="telefon" id="telefon">
+                    <label for="telefon">Telefon</label></li>
+                <li><input type="checkbox" name="klima" id="klima">
+                    <label for="klima">Klima</label></li>
+                <li><input type="checkbox" name="lift" id="lift">
+                    <label for="lift">Lift</label></li>
+            </ul>
+            <ul>
+                <li><input type="checkbox" name="novogradnja" id="novogradnja">
+                    <label for="novogradnja">Novogradnja</label></li>
+                <li><input type="checkbox" name="uknjizeno" id="uknjizeno">
+                    <label for="uknjizeno">Uknjiženo</label></li>
+                <li> <input type="checkbox" name="legalizovano" id="legalizovano">
+                    <label for="legalizovano">Legalizovano</label></li>
+            </ul>
+            <hr>
+        </div>
         <div class="item7">
             <h1>Najnoviji&nbsp;oglasi</h1>
             <div class="ads-container"></div>
@@ -145,7 +198,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 </body>
 

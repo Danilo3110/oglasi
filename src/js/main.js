@@ -43,3 +43,8 @@ function renderAds() {
     });
 };
 $(document).on('load', renderAds());
+
+function advacedSearch() {
+    //return $('.item-search').toggleClass('show');
+    $(".show").slideToggle(1200);
+};
