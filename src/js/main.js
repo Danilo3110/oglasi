@@ -11,6 +11,8 @@ async function renderAds() {
     const responseListings = await api.get(`/listings`);
     const listings = responseListings.data;
     for (const ad of listings) {
+        const responselistingSeller = await api.get(`/listingSeller/${ad.authorId}`);
+        const listingSeller = responselistingSeller.data;
         const $adsContainer = $('.ads-container');
         const $ad = $(`<div class="ads" id="${ad.id}">
                         <div class="ads-descr">
@@ -18,11 +20,11 @@ async function renderAds() {
                         <i class="fas fa-map-marker-alt fa-lg"></i></h3>
                         </div>
                         <img src="${ad.imgUrl}" alt=""><br>
-                        <h2 class="ads-descr">${ad.description}</h2>
+                        <h2 class="ads-descr">${ad.street}, ${ad.state}, ${ad.m2}, sprat ${ad.floor}</h2>
                         <h3 class="ads-descr">cena: ${ad.price.toLocaleString('sr-RS') == 0 ? 'po dogovoru'
                                                     : ad.price.toLocaleString('sr-RS') + '&euro;'}</h3>
                         <hr>
-                        <h3 class="ads-descr">kontakt: ${ad.contacts}</h3>
+                        <h3 class="ads-descr">kontakt: ${listingSeller.sellerPhone}</h3>
                         </div>`);
         $ad.appendTo($adsContainer);
         $(`#${ad.id}`).on('click', () => fullAds(ad.id));

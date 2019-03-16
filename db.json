@@ -2,6 +2,7 @@
   "listings": [
     {
       "id": 1,
+      "authorId" : 1,
       "descriptionId": 1,
       "street": "Maksima Gorkog",
       "city": "Beograd",
@@ -16,6 +17,7 @@
     },
     {
       "id": 2,
+      "authorId" : 2,
       "descriptionId": 2,
       "street": "Jurija Gagarina",
       "city": "Beograd",
@@ -30,6 +32,7 @@
     },
     {
       "id": 3,
+      "authorId" : 3,
       "descriptionId": 3,
       "street": "Olge Alkalaj",
       "city": "Beograd",
@@ -44,6 +47,7 @@
     },
     {
       "id": 4,
+      "authorId" : 4,
       "descriptionId": 4,
       "street": "Neznanog Junaka",
       "city": "Beograd",
@@ -60,6 +64,7 @@
   "listingDescriptions": [
     {
       "id": 1,
+      "authorId" : 1,
       "additionalinfo": "Stan u dobro održavanoj zgradi bez lifta. Sunčan i miran, bez buke. Kompletno je adaptiran i sređen. Korišćeni materijali visokog kvaliteta. Ostaju svi ugradni elementi rađeni po meri. Sastoji se od velikog dnevnog boravka sa trpezarijom i kuhinjom-koncipirano kao open space, dve spavaće sobe i kupatila. bez terase. Iznad stana je ravna ploča. Ulaz preko terase koju dele samo dva stana. Postoji mogućnost korišćenja zajedničkog dvorišta.",
       "listingNumber": "542",
       "listingCreated": "15.03.2019 (00:39)",
@@ -72,6 +77,7 @@
     },
     {
       "id": 2,
+      "authorId" : 2,
       "additionalinfo": "Stan u dobro održavanoj zgradi bez lifta. Sunčan i miran, bez buke. Kompletno je adaptiran i sređen. Korišćeni materijali visokog kvaliteta. Ostaju svi ugradni elementi rađeni po meri. Sastoji se od velikog dnevnog boravka sa trpezarijom i kuhinjom-koncipirano kao open space, dve spavaće sobe i kupatila. bez terase. Iznad stana je ravna ploča. Ulaz preko terase koju dele samo dva stana. Postoji mogućnost korišćenja zajedničkog dvorišta.",
       "listingNumber": "866",
       "listingCreated": "11.03.2019 (10:32)",
@@ -84,6 +90,7 @@
     },
     {
       "id": 3,
+      "authorId" : 3,
       "additionalinfo": "Stan u dobro održavanoj zgradi bez lifta. Sunčan i miran, bez buke. Kompletno je adaptiran i sređen. Korišćeni materijali visokog kvaliteta. Ostaju svi ugradni elementi rađeni po meri. Sastoji se od velikog dnevnog boravka sa trpezarijom i kuhinjom-koncipirano kao open space, dve spavaće sobe i kupatila. bez terase. Iznad stana je ravna ploča. Ulaz preko terase koju dele samo dva stana. Postoji mogućnost korišćenja zajedničkog dvorišta.",
       "listingNumber": "143",
       "listingCreated": "15.11.2019 (08:44)",
@@ -96,6 +103,7 @@
     },
     {
       "id": 4,
+      "authorId" : 4,
       "additionalinfo": "Stan u dobro održavanoj zgradi bez lifta. Sunčan i miran, bez buke. Kompletno je adaptiran i sređen. Korišćeni materijali visokog kvaliteta. Ostaju svi ugradni elementi rađeni po meri. Sastoji se od velikog dnevnog boravka sa trpezarijom i kuhinjom-koncipirano kao open space, dve spavaće sobe i kupatila. bez terase. Iznad stana je ravna ploča. Ulaz preko terase koju dele samo dva stana. Postoji mogućnost korišćenja zajedničkog dvorišta.",
       "listingNumber": "106",
       "listingCreated": "22.11.2019 (09:44)",
