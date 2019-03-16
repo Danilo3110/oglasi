@@ -31,9 +31,11 @@ async function renderAds() {
     }
 };
 
-function renderFullAds() {
+async function renderFullAds() {
     const idOfsmallAds = JSON.parse(sessionStorage.getItem('idOfsmallAds'));
-    baseOfRealEstate.forEach(function (ad) {
+    const responseListings = await api.get(`/listings`);
+    const listings = responseListings.data;
+    for (const ad of listings) {
         if (ad.id === idOfsmallAds) {
             const $fullContainer = $('.item7');
             const $ad = $(`<h2>${ad.description}</h2>
@@ -119,5 +121,5 @@ $('#aSearch').click(advancedSearch);
 
 function fullAds(id) {
     sessionStorage.setItem('idOfsmallAds', id);
-    location.href = "ad.html";
+    location.href = "ad.html#button-wrap";
 };
