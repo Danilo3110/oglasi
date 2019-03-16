@@ -3,16 +3,16 @@
     {
       "id": 1,
       "descriptionId": 1,
-      "street": "Savski nasip",
+      "street": "Maksima Gorkog",
       "surface": "Beograd",
-      "m2": 44,
-      "floor": 1,
-      "state": "NEW",
-      "roomCount": 100,
-      "price": 199999,
-      "pricePerSquareMeter": 1463,
-      "imgUrl":"https://xdn.tf.rs/2017/12/29/comtrade-2-830x553.jpg",
-      "visitsCount": 0
+      "m2": 62,
+      "floor": "2/2",
+      "state": "Renovirano",
+      "roomCount": 3,
+      "price": 166000,
+      "pricePerSquareMeter": 2677,
+      "imgUrl":"img/kopernikus1.jpg",
+      "visitsCount": 1254
     }
   ],
   "listingDescriptions": [
