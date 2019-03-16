@@ -20,7 +20,7 @@ async function renderAds() {
                         <i class="fas fa-map-marker-alt fa-lg"></i></h3>
                         </div>
                         <img src="${ad.imgUrl}" alt=""><br>
-                        <h2 class="ads-descr">${ad.street}, ${ad.state}, ${ad.m2}, sprat ${ad.floor}</h2>
+                        <h2 class="ads-descr">${ad.street}, ${ad.m2}, sprat ${ad.floor}</h2>
                         <h3 class="ads-descr">cena: ${ad.price.toLocaleString('sr-RS') == 0 ? 'po dogovoru'
                                                     : ad.price.toLocaleString('sr-RS') + '&euro;'}</h3>
                         <hr>
