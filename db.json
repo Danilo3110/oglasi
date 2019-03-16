@@ -4,7 +4,7 @@
       "id": 1,
       "descriptionId": 1,
       "street": "Maksima Gorkog",
-      "surface": "Beograd",
+      "city": "Beograd",
       "m2": "62m2",
       "floor": "2/2",
       "state": "Renovirano",
@@ -13,6 +13,48 @@
       "pricePerSquareMeter": 2677,
       "imgUrl":"img/kopernikus1.jpg",
       "visitsCount": 1254
+    },
+    {
+      "id": 2,
+      "descriptionId": 2,
+      "street": "Jurija Gagarina",
+      "city": "Beograd",
+      "m2": "66m2",
+      "floor": "4/13",
+      "state": "Renovirano",
+      "roomCount": 3,
+      "price": 98000,
+      "pricePerSquareMeter": 1484,
+      "imgUrl":"img/nbg.jpg",
+      "visitsCount": 3422
+    },
+    {
+      "id": 3,
+      "descriptionId": 3,
+      "street": "Olge Alkalaj",
+      "city": "Beograd",
+      "m2": "44m2",
+      "floor": "1/8",
+      "state": "Izvorno",
+      "roomCount": 2,
+      "price": 54000,
+      "pricePerSquareMeter": 1227,
+      "imgUrl":"img/odlican-uknjizen.jpg",
+      "visitsCount": 235
+    },
+    {
+      "id": 4,
+      "descriptionId": 4,
+      "street": "Neznanog Junaka",
+      "city": "Beograd",
+      "m2": "138m2",
+      "floor": "1/1",
+      "state": "Renovirano",
+      "roomCount": 5,
+      "price": 285000,
+      "pricePerSquareMeter": 2065,
+      "imgUrl":"img/dedinje.jpg",
+      "visitsCount": 4421
     }
   ],
   "listingDescriptions": [
@@ -27,6 +69,42 @@
       "equipment": "CATV",
       "publicTrasport": "19, 21, 22, 29, 46, 55, E1",
       "geolocation": ""
+    },
+    {
+      "id": 2,
+      "additionalinfo": "Stan u dobro održavanoj zgradi bez lifta. Sunčan i miran, bez buke. Kompletno je adaptiran i sređen. Korišćeni materijali visokog kvaliteta. Ostaju svi ugradni elementi rađeni po meri. Sastoji se od velikog dnevnog boravka sa trpezarijom i kuhinjom-koncipirano kao open space, dve spavaće sobe i kupatila. bez terase. Iznad stana je ravna ploča. Ulaz preko terase koju dele samo dva stana. Postoji mogućnost korišćenja zajedničkog dvorišta.",
+      "listingNumber": "866",
+      "listingCreated": "11.03.2019 (10:32)",
+      "listingChecked": "11.03.2019 (17:11)",
+      "yearOfConstruction": "1974",
+      "infrastructure": "Terasa",
+      "equipment": "CATV",
+      "publicTrasport": "89, 95",
+      "geolocation": ""
+    },
+    {
+      "id": 3,
+      "additionalinfo": "Stan u dobro održavanoj zgradi bez lifta. Sunčan i miran, bez buke. Kompletno je adaptiran i sređen. Korišćeni materijali visokog kvaliteta. Ostaju svi ugradni elementi rađeni po meri. Sastoji se od velikog dnevnog boravka sa trpezarijom i kuhinjom-koncipirano kao open space, dve spavaće sobe i kupatila. bez terase. Iznad stana je ravna ploča. Ulaz preko terase koju dele samo dva stana. Postoji mogućnost korišćenja zajedničkog dvorišta.",
+      "listingNumber": "143",
+      "listingCreated": "15.11.2019 (08:44)",
+      "listingChecked": "16.11.2019 (15:22)",
+      "yearOfConstruction": "1966",
+      "infrastructure": "Terasa",
+      "equipment": "CATV",
+      "publicTrasport": "31",
+      "geolocation": ""
+    },
+    {
+      "id": 4,
+      "additionalinfo": "Stan u dobro održavanoj zgradi bez lifta. Sunčan i miran, bez buke. Kompletno je adaptiran i sređen. Korišćeni materijali visokog kvaliteta. Ostaju svi ugradni elementi rađeni po meri. Sastoji se od velikog dnevnog boravka sa trpezarijom i kuhinjom-koncipirano kao open space, dve spavaće sobe i kupatila. bez terase. Iznad stana je ravna ploča. Ulaz preko terase koju dele samo dva stana. Postoji mogućnost korišćenja zajedničkog dvorišta.",
+      "listingNumber": "106",
+      "listingCreated": "22.11.2019 (09:44)",
+      "listingChecked": "23.11.2019 (17:22)",
+      "yearOfConstruction": "1998",
+      "infrastructure": "Terasa",
+      "equipment": "CATV",
+      "publicTrasport": "40, 41, 59, 78",
+      "geolocation": ""
     }
   ],
   "listingSeller": [
@@ -35,6 +113,24 @@
         "sellerName": "Expertus",
         "sellerAddress": "Kozjačka 20/3",
         "sellerPhone": "063/770-9316"
+      },
+      {
+        "id": 2,
+        "sellerName": "Djole Nekretnine",
+        "sellerAddress": "Beogradska 15",
+        "sellerPhone": "060/185-8574"
+      },
+      {
+        "id": 3,
+        "sellerName": "AS Nekretnine",
+        "sellerAddress": "Vojvode Dobrnjca 8",
+        "sellerPhone": "062/520-530"
+      },
+      {
+        "id": 4,
+        "sellerName": "Prima Nekretnine",
+        "sellerAddress": "Jurija Gagarina 255",
+        "sellerPhone": "011/2280-784"
       }
   ],
   "users": [
