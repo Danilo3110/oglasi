@@ -16,7 +16,6 @@ body {
 .item1 {
     grid-area: logo;
     background: rgba(55, 66, 82, 0.8);
-    min-height: 5%;
     position: sticky;
     top: 0;
     z-index: 1;
@@ -30,7 +29,6 @@ body {
 .item2 {
     grid-area: menu;
     background: rgba(55, 66, 82, 0.8);
-    min-height: 5%;
     color: white;
     position: sticky;
     top: 0;
@@ -74,7 +72,6 @@ body {
 .item3 {
     grid-area: login;
     background: rgba(55, 66, 82, 0.8);
-    min-height: 5%;
     color: white;
     position: sticky;
     top: 0;
@@ -82,7 +79,7 @@ body {
 }
 
 .item3 i {
-    padding: 20% 10% 0 10%;
+    padding: 20% 10%;
 }
 
 .item3 a {
@@ -92,11 +89,15 @@ body {
 .item4 {
     grid-area: empty2;
     background: rgba(55, 66, 82, 0.8);
-    min-height: 5%;
     position: sticky;
     top: 0;
     z-index: 1;
-    padding-right: 15%;
+}
+
+.item4 button {
+    width: 80%;
+    padding: 12px 10px;
+    margin: 10% 0;
 }
 
 button {
@@ -195,12 +196,6 @@ select {
     z-index: 1;
 }
 
-.item4 button {
-    width: 80%;
-    padding: 12px 10px;
-    margin: 10% 0;
-}
-
 .item5 {
     grid-area: main;
     text-align: center;
@@ -218,7 +213,7 @@ select {
 }
 
 .item5 button {
-    width: 10%;
+    width: 10vw;
     padding: 12px 20px;
     margin: 8px 0;
 }
