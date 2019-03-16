@@ -4,12 +4,13 @@
       "id": 1,
       "descriptionId": 1,
       "street": "Savski nasip",
-      "area": "Beograd",
+      "surface": "Beograd",
       "m2": 44,
       "floor": 1,
       "state": "NEW",
       "roomCount": 100,
       "price": 199999,
+      "pricePerSquareMeter": 1463,
       "imgUrl":"https://xdn.tf.rs/2017/12/29/comtrade-2-830x553.jpg",
       "visitsCount": 0
     }
@@ -17,8 +18,24 @@
   "listingDescriptions": [
     {
       "id": 1,
-      "text": "..."
+      "additionalinfo": "...",
+      "listingNumber": "",
+      "listingCreated": "",
+      "listingChecked": "",
+      "yearOfConstruction": "",
+      "infrastructure": "",
+      "equipment": "",
+      "publicTrasport": "",
+      "geolocation": ""
     }
+  ],
+  "listingSeller": [
+      {
+        "id": 1,
+        "sellerName": "Expertus",
+        "sellerAddress": "",
+        "sellerPhone": ""
+      }
   ],
   "users": [
     {
