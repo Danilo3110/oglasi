@@ -4,7 +4,7 @@ const serverUrl = `http://localhost:3000`;
 const api = axios.create({
     baseURL: `${serverUrl}`
 });
-api.defaults.timeout = 2000;
+api.defaults.timeout = 4000;
 
 async function renderAds() {
     const responseListings = await api.get(`/listings`);
