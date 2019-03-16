@@ -319,6 +319,7 @@ select {
 .ads:hover {
     transform: scale(1.04, 1.04);
     transition: 0.7s ease;
+    cursor: pointer;
 }
 
 .ads-descr {
