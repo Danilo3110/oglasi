@@ -133,7 +133,7 @@ $(document).ready(function () {
         if ($(window).scrollTop() > 100)
             $(".item1").css({ "background-color": "rgba(55, 66, 82, 0.95)" }) && $(".item2").css({ "background-color": "rgba(55, 66, 82, 0.95)" }) && $(".item3").css({ "background-color": "rgba(55, 66, 82, 0.95)" }) && $(".item4").css({ "background-color": "rgba(55, 66, 82, 0.95)" });
         else
-            $(".item1").css({ "background-color": "rgba(55, 66, 82, 0.5)" }) && $(".item2").css({ "background-color": "rgba(55, 66, 82, 0.5)" }) && $(".item3").css({ "background-color": "rgba(55, 66, 82, 0.5)" }) && $(".item4").css({ "background-color": "rgba(55, 66, 82, 0.5)" });;
+            $(".item1").css({ "background-color": "rgba(55, 66, 82, 0.7)" }) && $(".item2").css({ "background-color": "rgba(55, 66, 82, 0.7)" }) && $(".item3").css({ "background-color": "rgba(55, 66, 82, 0.7)" }) && $(".item4").css({ "background-color": "rgba(55, 66, 82, 0.7)" });;
     });
 });
 

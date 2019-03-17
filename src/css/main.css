@@ -15,8 +15,8 @@ body {
 
 .item1 {
     grid-area: logo;
-    background: rgba(55, 66, 82, 0.8);
-    transition: background-color 1s linear;
+    background: rgba(55, 66, 82, 0.7);
+    transition: background-color 0.5s linear;
     position: sticky;
     top: 0;
     z-index: 1;
@@ -29,8 +29,8 @@ body {
 
 .item2 {
     grid-area: menu;
-    background: rgba(55, 66, 82, 0.8);
-    transition: background-color 1s linear;
+    background: rgba(55, 66, 82, 0.7);
+    transition: background-color 0.5s linear;
     color: white;
     position: sticky;
     top: 0;
@@ -73,8 +73,8 @@ body {
 
 .item3 {
     grid-area: login;
-    background: rgba(55, 66, 82, 0.8);
-    transition: background-color 1s linear;
+    background: rgba(55, 66, 82, 0.7);
+    transition: background-color 0.5s linear;
     color: white;
     position: sticky;
     top: 0;
@@ -91,8 +91,8 @@ body {
 
 .item4 {
     grid-area: empty2;
-    background: rgba(55, 66, 82, 0.8);
-    transition: background-color 1s linear;
+    background: rgba(55, 66, 82, 0.7);
+    transition: background-color 0.5s linear;
     position: sticky;
     top: 0;
     z-index: 1;
