@@ -21,7 +21,7 @@ async function renderAds() {
                         <img src="${ad.imgUrl}" alt=""><br>
                         <h2 class="ads-descr">${ad.street}, ${ad.state}, ${ad.m2}</h2>
                         <h3 class="ads-descr">cena: ${ad.price.toLocaleString('sr-RS') == 0 ? 'po dogovoru'
-                                                    : ad.price.toLocaleString('sr-RS') + '&euro;'}</h3>
+                : ad.price.toLocaleString('sr-RS') + '&euro;'}</h3>
                         <hr>
                         <h3 class="ads-descr">kontakt: ${listingSeller.sellerPhone}</h3>
                         </div>`);
@@ -57,7 +57,7 @@ async function renderFullAds() {
                     <h4>Podaci o nekretnini</h4>
                     Broj soba: ${listings.roomCount}<br><br>
                     Cena: ${listings.price.toLocaleString('sr-RS') == 0 ? 'po dogovoru'
-                          : listings.price.toLocaleString('sr-RS') + '&euro;'}<br><br>
+                : listings.price.toLocaleString('sr-RS') + '&euro;'}<br><br>
                     Sprat: ${listings.floor}<br><br>
                     Uknjiženost: ${listings.legalised}<br><br>
                     Površina: ${listings.m2}<br><br>
@@ -111,7 +111,7 @@ async function renderFullAds() {
         $ad.appendTo($fullContainer);
         $('html, body').animate({
             scrollTop: $('.item6').offset().top
-          }, 1000)
+        }, 1000)
     }
 };
 
@@ -125,23 +125,22 @@ $('#aSearch').click(advancedSearch);
 
 function fullAds(id) {
     sessionStorage.setItem('idOfsmallAds', id);
-    window.open('ad.html','','');
+    window.open('ad.html', '', '');
 };
 
-$(document).ready(function(){
-    $(window).scroll(function(){
-    if($(window).scrollTop()>100)
-    $(".item1").css({"background-color" : "rgba(55, 66, 82, 0.95)"}) && $(".item2").css({"background-color" : "rgba(55, 66, 82, 0.95)"}) && $(".item3").css({"background-color" : "rgba(55, 66, 82, 0.95)"}) && $(".item4").css({"background-color" : "rgba(55, 66, 82, 0.95)"}) ;
-    else
-    $(".item1").css({"background-color" : "rgba(55, 66, 82, 0.5)"}) && $(".item2").css({"background-color" : "rgba(55, 66, 82, 0.5)"}) && $(".item3").css({"background-color" : "rgba(55, 66, 82, 0.5)"}) && $(".item4").css({"background-color" : "rgba(55, 66, 82, 0.5)"});;
+$(document).ready(function () {
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > 100)
+            $(".item1").css({ "background-color": "rgba(55, 66, 82, 0.95)" }) && $(".item2").css({ "background-color": "rgba(55, 66, 82, 0.95)" }) && $(".item3").css({ "background-color": "rgba(55, 66, 82, 0.95)" }) && $(".item4").css({ "background-color": "rgba(55, 66, 82, 0.95)" });
+        else
+            $(".item1").css({ "background-color": "rgba(55, 66, 82, 0.5)" }) && $(".item2").css({ "background-color": "rgba(55, 66, 82, 0.5)" }) && $(".item3").css({ "background-color": "rgba(55, 66, 82, 0.5)" }) && $(".item4").css({ "background-color": "rgba(55, 66, 82, 0.5)" });;
     });
 });
 
-$( document ).ready(function() {
-    $('.ads-click-scroll').on('click', function(){
+$(document).ready(function () {
+    $('.ads-click-scroll').on('click', function () {
         $('html, body').animate({
             scrollTop: $('.ads-click-scroll').offset().top
         }, 1000);
     });
-    
-    });
+});
