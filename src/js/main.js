@@ -87,7 +87,7 @@ async function renderFullAds() {
             <hr>
             <div class="single-ad-tour">
                 <h4>Zakažite obilazak</h4>
-                <div>Izaberite termin koj vama odgovara! Ostavite podatke i kontaktiraćemo vas u najkraćem mogućem
+                <div>Izaberite termin koji vama odgovara! Ostavite podatke i kontaktiraćemo vas u najkraćem mogućem
                     roku.</div>
                 <div>
                     <input type="text" placeholder="ime i prezime"><br>
@@ -115,7 +115,6 @@ async function renderFullAds() {
 $(document).on('load', renderAds());
 
 function advancedSearch() {
-    //return $('.item-search').toggleClass('show');
     $(".show").slideToggle(1200);
 };
 
