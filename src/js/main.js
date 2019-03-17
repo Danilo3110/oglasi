@@ -109,6 +109,9 @@ async function renderFullAds() {
                 Opremljenost: ${listingD.equipment}
             </div>`);
         $ad.appendTo($fullContainer);
+        $('html, body').animate({
+            scrollTop: $('.item6').offset().top
+          }, 1000)
     }
 };
 
@@ -122,5 +125,23 @@ $('#aSearch').click(advancedSearch);
 
 function fullAds(id) {
     sessionStorage.setItem('idOfsmallAds', id);
-    location.href = "ad.html#item7";
+    window.open('ad.html','','');
 };
+
+$(document).ready(function(){
+    $(window).scroll(function(){
+    if($(window).scrollTop()>100)
+    $(".item1").css({"background-color" : "rgba(55, 66, 82, 0.95)"}) && $(".item2").css({"background-color" : "rgba(55, 66, 82, 0.95)"}) && $(".item3").css({"background-color" : "rgba(55, 66, 82, 0.95)"}) && $(".item4").css({"background-color" : "rgba(55, 66, 82, 0.95)"}) ;
+    else
+    $(".item1").css({"background-color" : "rgba(55, 66, 82, 0.5)"}) && $(".item2").css({"background-color" : "rgba(55, 66, 82, 0.5)"}) && $(".item3").css({"background-color" : "rgba(55, 66, 82, 0.5)"}) && $(".item4").css({"background-color" : "rgba(55, 66, 82, 0.5)"});;
+    });
+});
+
+$( document ).ready(function() {
+    $('.ads-click-scroll').on('click', function(){
+        $('html, body').animate({
+            scrollTop: $('.ads-click-scroll').offset().top
+        }, 1000);
+    });
+    
+    });
