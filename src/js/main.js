@@ -132,7 +132,7 @@ $(document).ready(() => {
     $(window).scroll(() => {
         return $(window).scrollTop() > 100 ?
             $('.item1, .item2, .item3, .item4').css('background', 'rgba(55, 66, 82, 0.95)') :
-            $('.item1, .item2, .item3, .item4').css('background', 'rgba(55, 66, 82, 0.7)')
+            $('.item1, .item2, .item3, .item4').css('background', 'rgba(55, 66, 82, 0.7)');
     });
 });
 

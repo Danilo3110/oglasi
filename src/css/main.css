@@ -16,7 +16,7 @@ body {
 .item1 {
     grid-area: logo;
     background: rgba(55, 66, 82, 0.7);
-    transition: background-color 0.5s linear;
+    transition: background 0.7s linear;
     position: sticky;
     top: 0;
     z-index: 1;
@@ -30,7 +30,7 @@ body {
 .item2 {
     grid-area: menu;
     background: rgba(55, 66, 82, 0.7);
-    transition: background-color 0.5s linear;
+    transition: background 0.7s linear;
     color: white;
     position: sticky;
     top: 0;
@@ -74,7 +74,7 @@ body {
 .item3 {
     grid-area: login;
     background: rgba(55, 66, 82, 0.7);
-    transition: background-color 0.5s linear;
+    transition: background 0.7s linear;
     color: white;
     position: sticky;
     top: 0;
@@ -92,7 +92,7 @@ body {
 .item4 {
     grid-area: empty2;
     background: rgba(55, 66, 82, 0.7);
-    transition: background-color 0.5s linear;
+    transition: background 0.7s linear;
     position: sticky;
     top: 0;
     z-index: 1;
@@ -520,10 +520,15 @@ hr {
     width: 13.5%;
 }
 
+.item-search ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 .item-search ul li {
     list-style-type: none;
-    padding: 2px;
-    display: inline-flex;
+    padding: 0px 5px;
 }
 
 .login-container input {
