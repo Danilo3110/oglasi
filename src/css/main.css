@@ -520,15 +520,10 @@ hr {
     width: 13.5%;
 }
 
-.item-search ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
 .item-search ul li {
     list-style-type: none;
-    padding: 0px 5px;
+    padding: 6px;
+    display: inline-flex;
 }
 
 .login-container input {
