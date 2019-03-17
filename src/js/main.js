@@ -128,33 +128,16 @@ function fullAds(id) {
     window.open('ad.html', '', '');
 };
 
-$(document).ready(function () {
-    $(window).scroll(function () {
-        if ($(window).scrollTop() > 100)
-            $(".item1").css({
-                "background-color": "rgba(55, 66, 82, 0.95)"
-            }) && $(".item2").css({
-                "background-color": "rgba(55, 66, 82, 0.95)"
-            }) && $(".item3").css({
-                "background-color": "rgba(55, 66, 82, 0.95)"
-            }) && $(".item4").css({
-                "background-color": "rgba(55, 66, 82, 0.95)"
-            });
-        else
-            $(".item1").css({
-                "background-color": "rgba(55, 66, 82, 0.5)"
-            }) && $(".item2").css({
-                "background-color": "rgba(55, 66, 82, 0.5)"
-            }) && $(".item3").css({
-                "background-color": "rgba(55, 66, 82, 0.5)"
-            }) && $(".item4").css({
-                "background-color": "rgba(55, 66, 82, 0.5)"
-            });;
+$(document).ready(() => {
+    $(window).scroll(() => {
+        return $(window).scrollTop() > 100 ?
+            $('.item1, .item2, .item3, .item4').css('background', 'rgba(55, 66, 82, 0.95)') :
+            $('.item1, .item2, .item3, .item4').css('background', 'rgba(55, 66, 82, 0.7)')
     });
 });
 
-$(document).ready(function () {
-    $('.ads-click-scroll').on('click', function () {
+$(document).ready(() => {
+    $('.ads-click-scroll').on('click', () => {
         $('html, body').animate({
             scrollTop: $('.ads-click-scroll').offset().top
         }, 1000);
