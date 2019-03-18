@@ -121,6 +121,9 @@ $(document).on('load', renderAds());
 
 function advancedSearch() {
     $(".show").slideToggle(1200);
+    $('html, body').animate({
+        scrollTop: $('#aSearch').offset().top
+    }, 1000);
 };
 
 $('#aSearch').click(advancedSearch);
