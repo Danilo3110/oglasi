@@ -13,6 +13,15 @@ body {
     grid-template-areas: 'logo menu menu login empty2''main main main main main''category category category category category''item-search item-search item-search item-search item-search''ads ads ads ads ads''footer footer footer footer footer';
 }
 
+.grid-container-publish-ad {
+    display: grid;
+    max-width: 100%;
+    background-color: #F9F9F9;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    grid-template-areas: 'logo menu menu login empty2''main main main main main''category category category category category''item-search item-search item-search item-search item-search''ads ads ads ads ads''footer footer footer footer footer';
+}
+
 .item1 {
     grid-area: logo;
     background: rgba(55, 66, 82, 0.7);
@@ -250,7 +259,19 @@ select {
     margin-top: -15vh;
 }
 
-#button-wrap a {
+#button-wrap-publish-ad {
+    box-shadow: 0 -12px 10px 0 rgba(42, 47, 54, .3);
+    background-color: #F9F9F9;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1.5% 0.5%;
+    width: 55%;
+    margin-left: 22%;
+}
+
+#button-wrap a, #button-wrap-publish-ad a {
     text-decoration: none;
     color: black;
 }
