@@ -81,7 +81,7 @@ body {
 }
 
 .item3 i {
-    padding: 8% 10%;
+    padding: 2.5vh 1vw 0 1vw;
 }
 
 .item3 a {
@@ -100,7 +100,7 @@ body {
 .item4 button {
     width: 80%;
     padding: 10px 8px;
-    margin: 2% 0;
+    margin: 2.5% 0;
 }
 
 button {
