@@ -470,7 +470,7 @@ hr {
 
 .item8 {
     grid-area: footer;
-    background-color: #374252;
+    background: rgba(55, 66, 82, 0.95);
     color: white;
     text-align: center;
 }

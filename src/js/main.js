@@ -41,6 +41,8 @@ async function renderFullAds() {
         const responseListingSeller = await api.get(`/listingSeller/${listingD.authorId}`);
         const listingS = responseListingSeller.data;
 
+        $('html head').find('title').text(`Šifra oglasa: ${listingD.listingNumber}`);
+
         const $fullContainer = $('.item7');
         const $ad = $(`<h2>${listings.street}, ${listings.m2}, ${listings.state}</h2>
             <h3>${listings.city}</h3>

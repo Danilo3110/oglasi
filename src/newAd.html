@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="sr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/ico" sizes="32x32" href="Favicon.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Quicksand|Roboto:100" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+    <script src="js/vendor/jquery.js"></script>
+    <script src="../node_modules/axios/dist/axios.js"></script>
+    <script src="js/main.js" defer></script>
+    <title>Novi oglas</title>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="item1">
+            <a href="index.html"><img src="img/logo6.png" alt=""></a>
+        </div>
+        <div class="item2">
+            <ul>
+                <li><a href="#">Oglasi</a></li>
+                <li><a href="#">O&nbsp;nama</a></li>
+                <li><a href="#">Kontakt</a></li>
+            </ul>
+        </div>
+        <div class="item3">
+            <a href="" onclick="window.open('login.html', 
+                'windowname1', 
+                'width=500, height=320, top=180, left=480')"><i
+                    class="fas fa-sign-in-alt fa-lg"></i></a>
+            <a href=""><i class="fas fa-user-plus fa-lg"></i></a>
+        </div>
+        <div class="item4">
+            <button type="submit"><i class="far fa-plus-square fa-lg"></i>&nbsp;&nbsp;Dodaj&nbsp;oglas</button>
+        </div>
+        <div class="item5">
+            <h1>Brzo,&nbsp;besplatno&nbsp;&amp;&nbsp;jednostavno</h1>
+            <h4>Pretražite&nbsp;više&nbsp;od&nbsp;15,000,000&nbsp;oglasa&nbsp;i&nbsp;pronađite&nbsp;sve&nbsp;što&nbsp;vam&nbsp;treba&nbsp;na&nbsp;jednom&nbsp;mestu</h4>
+            <input type="text" placeholder="tražim">
+            <select name="location">
+                <option disabled selected>lokacija</option>
+                <option value="beograd">Beograd</option>
+                <option value="kragujevac">Kragujevac</option>
+                <option value="jagodina">Jagodina</option>
+                <option value="nis">Niš</option>
+                <option value="pirot">Pirot</option>
+                <option value="loznica">Loznica</option>
+                <option value="leskovac">Leskovac</option>
+                <option value="vranje">Vranje</option>
+                <option value="zajecar">Zaječar</option>
+                <option value="bor">Bor</option>
+                <option value="smederevo">Smederevo</option>
+                <option value="pozarevac">Požarevac</option>
+                <option value="sabac">Šabac</option>
+                <option value="valjevo">Valjevo</option>
+                <option value="cacak">Čačak</option>
+                <option value="kraljevo">Kraljevo</option>
+                <option value="krusevac">Kruševac</option>
+                <option value="uzice">Užice</option>
+                <option value="novisad">Novi Sad</option>
+                <option value="sombor">Sombor</option>
+                <option value="subotica">Subotica</option>
+                <option value="vrbas">Vrbas</option>
+                <option value="kikinda">Kikinda</option>
+                <option value="zrenjanin">Zrenjanin</option>
+                <option value="pancevo">Pančevo</option>
+                <option value="vrsac">Vršac</option>
+                <option value="ruma">Ruma</option>
+                <option value="sremskamitrovica">Sremska&nbsp;Mitrovica</option>
+                <option value="arandjelovac">Aranđelovac</option>
+                <option value="negotin">Negotin</option>
+                <option value="kladovo">Kladovo</option>
+                <option value="sid">Šid</option>
+                <option value="aleksinac">Aleksinac</option>
+                <option value="kursumlija">Kuršumlija</option>
+                <option value="prokuplje">Prokuplje</option>
+                <option value="majdanpek">Majdanpek</option>
+                <option value="novipazar">Novi Pazar</option>
+            </select>
+            <select name="category">
+                <option disabled selected>kategorija</option>
+                <option value="tech">Tehnika</option>
+                <option value="furniture">Nameštaj</option>
+                <option value="cars">Vozila</option>
+                <option value="real-estate">Nekretnine</option>
+                <option value="services">Usluge</option>
+            </select>
+            <button type="submit">Pretraži</button><br>
+            <a id="aSearch">Napredna&nbsp;pretraga</a>
+        </div>
+        <div class="item6">
+            <div id="button-wrap">
+                <a href="#">
+                    <div id="apartments"><i class="fas fa-building"></i><br>Stanovi<h6>11&nbsp;novih&nbsp;oglasa</h6>
+                    </div>
+                </a>
+                <a href="#">
+                    <div id="houses"><i class="fas fa-home"></i><br>Kuće<h6>4&nbsp;nova&nbsp;oglasa</h6>
+                    </div>
+                </a>
+                <a href="#">
+                    <div id="garages"><i class="fas fa-warehouse"></i><br>Garaže<h6>14&nbsp;novih&nbsp;oglasa</h6>
+                    </div>
+                </a>
+                <a href="#">
+                    <div id="business"><i class="far fa-building"></i><br>Business&nbsp;rent<h6>3&nbsp;nova&nbsp;oglasa</h6>
+                    </div>
+                </a>
+                <a href="#">
+                    <div id="land"><i class="fas fa-tree"></i><br>Zemljište<h6>17&nbsp;novih&nbsp;oglasa</h6>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="item-search show">
+            <h4>Napredna&nbsp;pretraga:</h4>
+            <hr>
+            <input type="number" id="price-min" min="1" step="1" placeholder="Cena min &euro;">
+            <input type="number" id="price-max" min="1" step="1" placeholder="Cena max &euro;">
+            <input type="number" id="m2-min" min="1" step="1" placeholder="Kvadratura min m&sup2;">
+            <input type="number" id="m2-max" min="1" step="1" placeholder="Kvadratura max m&sup2;"><br>
+            <input type="number" id="floor" min="1" step="1" placeholder="Broj spratova">
+            <select name="heating">
+                <option selected>Grejanje</option>
+                <option value="centralno">Centralno</option>
+                <option value="gas">Gas</option>
+                <option value="elektricno">Elektricno</option>
+                <option value="cvrstagoriva">Čvrsta&nbsp;goriva</option>
+                <option value="podno">Podno</option>
+                <option value="etazno">Etažno</option>
+            </select>
+            <input type="text" placeholder="Ulica">
+            <input type="text" placeholder="Šifra oglasa">
+            <hr><br>
+            <h5>Ostalo</h5>
+            <ul>
+                <li><input type="checkbox" name="podrum" id="podrum">
+                    <label for="podrum">Podrum</label></li>
+                <li> <input type="checkbox" name="parking" id="parking">
+                    <label for="parking">Parking</label></li>
+                <li><input type="checkbox" name="garaza" id="garaza">
+                    <label for="garaza">Garaža</label></li>
+                <li><input type="checkbox" name="terasa" id="terasa">
+                    <label for="terasa">Terasa</label></li>
+                <li><input type="checkbox" name="dvoriste" id="dvoriste">
+                    <label for="dvoriste">Dvorište</label></li>
+                <li><input type="checkbox" name="internet" id="internet">
+                    <label for="internet">Internet</label></li>
+                <li><input type="checkbox" name="kablovska" id="kablovska">
+                    <label for="kablovska">Kablovska</label></li>
+                <li><input type="checkbox" name="telefon" id="telefon">
+                    <label for="telefon">Telefon</label></li>
+                <li><input type="checkbox" name="klima" id="klima">
+                    <label for="klima">Klima</label></li>
+                <li><input type="checkbox" name="lift" id="lift">
+                    <label for="lift">Lift</label></li>
+            </ul>
+            <ul>
+                <li><input type="checkbox" name="novogradnja" id="novogradnja">
+                    <label for="novogradnja">Novogradnja</label></li>
+                <li><input type="checkbox" name="uknjizeno" id="uknjizeno">
+                    <label for="uknjizeno">Uknjiženo</label></li>
+                <li> <input type="checkbox" name="legalizovano" id="legalizovano">
+                    <label for="legalizovano">Legalizovano</label></li>
+            </ul>
+            <hr>
+        </div>
+        <div class="item7" id="item7"></div>
+        <div class="item8">
+            <div class="footer-container">
+                <div class="footer">
+                    <img src="img/logo6.png" alt=""><br>
+                    <h4>Projekat Oglasi</h4>
+                    <div>
+                        &copy; Nikola Munćan<br>
+                        &copy; Danilo Lukić<br>
+                        &copy; Darko Mingovski
+                    </div>
+                </div>
+                <div class="footer">
+                    <h4>Brzi&nbsp;linkovi</h4>
+                    <a href="#">Kako&nbsp;ovaj&nbsp;sajt&nbsp;funkcioniše?</a><br><br>
+                    <a href="#">Često&nbsp;postavljana&nbsp;pitanja</a><br><br>
+                    <a href="#">Novosti</a>
+                </div>
+                <div class="footer">
+                    <h4>Novi&nbsp;oglasi&nbsp;svaki&nbsp;dan&nbsp;na&nbsp;vašem&nbsp;email-u!<br>&nbsp;Pretplatite
+                        se!</h4>
+                    <input type="text" placeholder="unesite email ovde">
+                    <button type="submit">Pretplati&nbsp;se</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
