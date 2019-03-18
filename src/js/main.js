@@ -113,7 +113,7 @@ async function renderFullAds() {
         $ad.appendTo($fullContainer);
         $('html, body').animate({
             scrollTop: $('.item6').offset().top
-        }, 1000)
+        }, 700)
     }
 };
 
@@ -145,6 +145,6 @@ $(document).ready(() => {
     $('.ads-click-scroll').on('click', () => {
         $('html, body').animate({
             scrollTop: $('.ads-click-scroll').offset().top
-        }, 1000);
+        }, 700);
     });
 });
