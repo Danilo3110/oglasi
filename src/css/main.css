@@ -221,13 +221,13 @@ select {
     margin: 8px 0;
 }
 
-.item5 a {
+.item5 a, #closeSearch {
     text-decoration: underline;
     color: white;
     cursor: pointer;
 }
 
-.item5 a:hover {
+.item5 a:hover, #closeSearch:hover {
     transition: 0.5s ease;
     color: rgb(236, 50, 50);
 }
@@ -519,6 +519,16 @@ hr {
     list-style-type: none;
     padding: 6px;
     display: inline-flex;
+}
+
+.item-search button {
+    width: 10vw;
+    padding: 12px 20px;
+    margin: 8px 0;
+}
+
+#closeSearch{
+    color: black;
 }
 
 .login-container input {

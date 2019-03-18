@@ -126,7 +126,7 @@ function advancedSearch() {
     }, 850);
 };
 
-$('#aSearch').click(advancedSearch);
+$('#aSearch, #closeSearch').click(advancedSearch);
 
 function fullAds(id) {
     sessionStorage.setItem('idOfsmallAds', id);
