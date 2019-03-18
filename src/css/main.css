@@ -216,6 +216,12 @@ select {
     padding-bottom: 25vh;
 }
 
+.item5-publish-ad {
+    grid-area: main;
+    text-align: center;
+    color: white;
+}
+
 .item5 input {
     width: 15%;
 }
