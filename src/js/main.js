@@ -113,17 +113,17 @@ async function renderFullAds() {
         $ad.appendTo($fullContainer);
         $('html, body').animate({
             scrollTop: $('.item6').offset().top
-        }, 700)
+        }, 850)
     }
 };
 
 $(document).on('load', renderAds());
 
 function advancedSearch() {
-    $(".show").slideToggle(1200);
+    $(".show").slideToggle(850);
     $('html, body').animate({
         scrollTop: $('#aSearch').offset().top
-    }, 1000);
+    }, 850);
 };
 
 $('#aSearch').click(advancedSearch);
@@ -145,6 +145,6 @@ $(document).ready(() => {
     $('.ads-click-scroll').on('click', () => {
         $('html, body').animate({
             scrollTop: $('.ads-click-scroll').offset().top
-        }, 700);
+        }, 850);
     });
 });
