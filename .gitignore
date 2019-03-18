@@ -6,6 +6,6 @@
 .idea
 oglasi.iml
 
-
+node_modules
 
 package-lock.json
