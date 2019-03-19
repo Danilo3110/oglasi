@@ -42,53 +42,53 @@
             <h1>Brzo,&nbsp;besplatno&nbsp;&amp;&nbsp;jednostavno</h1>
             <h4>Pretražite&nbsp;više&nbsp;od&nbsp;15,000,000&nbsp;oglasa&nbsp;i&nbsp;nikad&nbsp;lakše&nbsp;pronađite&nbsp;svoj&nbsp;idealan&nbsp;dom</h4>
             <input type="text" placeholder="tražim">
-            <select name="location">
-                <option selected>lokacija</option>
-                <option value="beograd">Beograd</option>
-                <option value="kragujevac">Kragujevac</option>
-                <option value="jagodina">Jagodina</option>
-                <option value="nis">Niš</option>
-                <option value="pirot">Pirot</option>
-                <option value="loznica">Loznica</option>
-                <option value="leskovac">Leskovac</option>
-                <option value="vranje">Vranje</option>
-                <option value="zajecar">Zaječar</option>
-                <option value="bor">Bor</option>
-                <option value="smederevo">Smederevo</option>
-                <option value="pozarevac">Požarevac</option>
-                <option value="sabac">Šabac</option>
-                <option value="valjevo">Valjevo</option>
-                <option value="cacak">Čačak</option>
-                <option value="kraljevo">Kraljevo</option>
-                <option value="krusevac">Kruševac</option>
-                <option value="uzice">Užice</option>
-                <option value="novisad">Novi Sad</option>
-                <option value="sombor">Sombor</option>
-                <option value="subotica">Subotica</option>
-                <option value="vrbas">Vrbas</option>
-                <option value="kikinda">Kikinda</option>
-                <option value="zrenjanin">Zrenjanin</option>
-                <option value="pancevo">Pančevo</option>
-                <option value="vrsac">Vršac</option>
-                <option value="ruma">Ruma</option>
-                <option value="sremskamitrovica">Sremska&nbsp;Mitrovica</option>
-                <option value="arandjelovac">Aranđelovac</option>
-                <option value="negotin">Negotin</option>
-                <option value="kladovo">Kladovo</option>
-                <option value="sid">Šid</option>
-                <option value="aleksinac">Aleksinac</option>
-                <option value="kursumlija">Kuršumlija</option>
-                <option value="prokuplje">Prokuplje</option>
-                <option value="majdanpek">Majdanpek</option>
-                <option value="novipazar">Novi Pazar</option>
+            <select name="city">
+                <option selected disabled>lokacija</option>
+                <option value="Beograd">Beograd</option>
+                <option value="Kragujevac">Kragujevac</option>
+                <option value="Jagodina">Jagodina</option>
+                <option value="Niš">Niš</option>
+                <option value="Pirot">Pirot</option>
+                <option value="Loznica">Loznica</option>
+                <option value="Leskovac">Leskovac</option>
+                <option value="Vranje">Vranje</option>
+                <option value="Zaječar">Zaječar</option>
+                <option value="Bor">Bor</option>
+                <option value="Smederevo">Smederevo</option>
+                <option value="Požarevac">Požarevac</option>
+                <option value="Šabac">Šabac</option>
+                <option value="Valjevo">Valjevo</option>
+                <option value="Čačak">Čačak</option>
+                <option value="Kraljevo">Kraljevo</option>
+                <option value="Kruševac">Kruševac</option>
+                <option value="Užice">Užice</option>
+                <option value="Novi Sad">Novi&nbsp;Sad</option>
+                <option value="Sombor">Sombor</option>
+                <option value="Subotica">Subotica</option>
+                <option value="Vrbas">Vrbas</option>
+                <option value="Kikinda">Kikinda</option>
+                <option value="Zrenjanin">Zrenjanin</option>
+                <option value="Pančevo">Pančevo</option>
+                <option value="Vršac">Vršac</option>
+                <option value="Ruma">Ruma</option>
+                <option value="Sremska Mitrovica">Sremska&nbsp;Mitrovica</option>
+                <option value="Aranđelovac">Aranđelovac</option>
+                <option value="Negotin">Negotin</option>
+                <option value="Kladovo">Kladovo</option>
+                <option value="Šid">Šid</option>
+                <option value="Aleksinac">Aleksinac</option>
+                <option value="Kuršumlija">Kuršumlija</option>
+                <option value="Prokuplje">Prokuplje</option>
+                <option value="Majdanpek">Majdanpek</option>
+                <option value="Novi Pazar">Novi&nbsp;Pazar</option>
             </select>
             <select name="category">
-                <option selected>kategorija</option>
-                <option value="apartment">Stanovi</option>
-                <option value="house">Kuće</option>
-                <option value="garage">Garaže</option>
-                <option value="business">Business&nbsp;rent</option>
-                <option value="land">Zemljište</option>
+                <option selected disabled>kategorija</option>
+                <option value="Stanovi">Stanovi</option>
+                <option value="Kuće">Kuće</option>
+                <option value="Garaže">Garaže</option>
+                <option value="Business rent">Business&nbsp;rent</option>
+                <option value="Zemljište">Zemljište</option>
             </select>
             <button type="submit">Pretraži</button><br>
             <a id="aSearch">Napredna&nbsp;pretraga&nbsp;<i class="fas fa-sliders-h"></i></a>
@@ -127,46 +127,46 @@
                 <input type="number" id="m2-max" min="1" step="1" placeholder="Kvadratura max m&sup2;"><br>
                 <input type="number" id="floor" min="1" step="1" placeholder="Broj spratova">
                 <select name="heating">
-                    <option selected>Grejanje</option>
-                    <option value="centralno">Centralno</option>
-                    <option value="gas">Gas</option>
-                    <option value="elektricno">Elektricno</option>
-                    <option value="cvrstagoriva">Čvrsta&nbsp;goriva</option>
-                    <option value="podno">Podno</option>
-                    <option value="etazno">Etažno</option>
+                    <option selected disabled>Grejanje</option>
+                    <option value="Centralno">Centralno</option>
+                    <option value="Gas">Gas</option>
+                    <option value="Elektricno">Elektricno</option>
+                    <option value="Čvrsta goriva">Čvrsta&nbsp;goriva</option>
+                    <option value="Podno">Podno</option>
+                    <option value="Etažno">Etažno</option>
                 </select>
                 <input type="text" placeholder="Ulica">
                 <input type="text" placeholder="Šifra oglasa">
                 <hr>
                 <h5>Ostalo</h5>
                 <ul>
-                    <li><input type="checkbox" name="podrum" id="podrum">
+                    <li><input type="checkbox" name="Podrum" id="podrum">
                         <label for="podrum">Podrum</label></li>
-                    <li> <input type="checkbox" name="parking" id="parking">
+                    <li> <input type="checkbox" name="Parking" id="parking">
                         <label for="parking">Parking</label></li>
-                    <li><input type="checkbox" name="garaza" id="garaza">
+                    <li><input type="checkbox" name="Garaža" id="garaza">
                         <label for="garaza">Garaža</label></li>
-                    <li><input type="checkbox" name="terasa" id="terasa">
+                    <li><input type="checkbox" name="Terasa" id="terasa">
                         <label for="terasa">Terasa</label></li>
-                    <li><input type="checkbox" name="dvoriste" id="dvoriste">
+                    <li><input type="checkbox" name="Dvorište" id="dvoriste">
                         <label for="dvoriste">Dvorište</label></li>
-                    <li><input type="checkbox" name="internet" id="internet">
+                    <li><input type="checkbox" name="Internet" id="internet">
                         <label for="internet">Internet</label></li>
-                    <li><input type="checkbox" name="kablovska" id="kablovska">
+                    <li><input type="checkbox" name="Kablovska" id="kablovska">
                         <label for="kablovska">Kablovska</label></li>
-                    <li><input type="checkbox" name="telefon" id="telefon">
+                    <li><input type="checkbox" name="Telefon" id="telefon">
                         <label for="telefon">Telefon</label></li>
-                    <li><input type="checkbox" name="klima" id="klima">
+                    <li><input type="checkbox" name="Klima" id="klima">
                         <label for="klima">Klima</label></li>
-                    <li><input type="checkbox" name="lift" id="lift">
+                    <li><input type="checkbox" name="Lift" id="lift">
                         <label for="lift">Lift</label></li>
                 </ul>
                 <ul>
-                    <li><input type="checkbox" name="novogradnja" id="novogradnja">
+                    <li><input type="checkbox" name="Novogradnja" id="novogradnja">
                         <label for="novogradnja">Novogradnja</label></li>
-                    <li><input type="checkbox" name="uknjizeno" id="uknjizeno">
+                    <li><input type="checkbox" name="Uknjiženo" id="uknjizeno">
                         <label for="uknjizeno">Uknjiženo</label></li>
-                    <li> <input type="checkbox" name="legalizovano" id="legalizovano">
+                    <li> <input type="checkbox" name="Legalizovano" id="legalizovano">
                         <label for="legalizovano">Legalizovano</label></li>
                 </ul>
                 <hr>

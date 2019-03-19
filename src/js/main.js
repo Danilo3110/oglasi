@@ -120,7 +120,7 @@ async function renderFullAds() {
 $(document).on('load', renderAds());
 
 function advancedSearch() {
-    $(".show").slideToggle(850);
+    $('.show').slideToggle(850);
     $('html, body').animate({
         scrollTop: $('#aSearch').offset().top
     }, 850);
@@ -151,23 +151,24 @@ $(document).ready(() => {
 
 function createAdObject() {
     let adObj = {};
-    $("#writeAd").find("input, textarea, select").each(function() {
-        adObj[this.name] = $(this).val(); 
+    $('#writeAd').find('input, textarea, select').each(function () {
+        adObj[this.name] = $(this).val();
     });
+
     let path = adObj.imgUrl;
-    if (path.substr(0, 12) == "C:\\fakepath\\") {
-        adObj.imgUrl = "img/" + path.substr(12);
+    if (path.substr(0, 12) == 'C:\\fakepath\\') {
+        adObj.imgUrl = 'img/' + path.substr(12);
     };
     console.log(adObj);
     api.post('/listings', adObj)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
 };
 
 function deleteAds() {
-    api.delete('/listings/' + 8)
+    api.delete('/listings/' + 9);
 }

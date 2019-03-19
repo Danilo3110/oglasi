@@ -603,6 +603,19 @@ hr {
     padding-left: 5%;
 }
 
-#writeAd select, #writeAd input {
+#writeAd select,
+#writeAd input {
     width: 370px;
+}
+
+#writeAd ul li {
+    list-style-type: none;
+    padding: 6px;
+    display: inline-flex;
+}
+
+#writeAd button {
+    width: 10vw;
+    padding: 12px 20px;
+    margin: 8px 0;
 }
