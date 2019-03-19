@@ -155,6 +155,11 @@ function createAdObject() {
         adObj[this.name] = $(this).val();
     });
 
+    $("#writeAd").find("input:checked").each(function () {
+        // adObj[this.name] += $(this).is(':checked') ? `${$(this).val()}, ` : '';
+        $(this).is(':checked') == true ? (adObj[this.name] += `${$(this).val()}, `) : (adObj[this.name] = "");
+    });
+
     let path = adObj.imgUrl;
     if (path.substr(0, 12) == 'C:\\fakepath\\') {
         adObj.imgUrl = 'img/' + path.substr(12);
