@@ -120,7 +120,7 @@ async function renderFullAds() {
 $(document).on('load', renderAds());
 
 function advancedSearch() {
-    $(".show").slideToggle(850);
+    $('.show').slideToggle(850);
     $('html, body').animate({
         scrollTop: $('#aSearch').offset().top
     }, 850);
@@ -157,9 +157,10 @@ function createAdObject() {
     $("#writeAd").find("input:checked").each(function () { 
         $(this).is(':checked') == true? (adObj[this.name] = "da") : (adObj[this.name] = "ne");
     });
+
     let path = adObj.imgUrl;
-    if (path.substr(0, 12) == "C:\\fakepath\\") {
-        adObj.imgUrl = "img/" + path.substr(12);
+    if (path.substr(0, 12) == 'C:\\fakepath\\') {
+        adObj.imgUrl = 'img/' + path.substr(12);
     };
     console.log(adObj);
     api.post('/listings', adObj)
@@ -172,5 +173,5 @@ function createAdObject() {
 };
 
 function deleteAds() {
-    api.delete('/listings/' + 8)
+    api.delete('/listings/' + 9);
 }
