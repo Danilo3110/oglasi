@@ -154,9 +154,6 @@ function createAdObject() {
     $("#writeAd").find("input, textarea, select").each(function () {
         adObj[this.name] = $(this).val();
     });
-    $("#writeAd").find("input:checked").each(function () { 
-        $(this).is(':checked') == true? (adObj[this.name] = "da") : (adObj[this.name] = "ne");
-    });
 
     $("#writeAd").find("input:checked").each(function () {
         // adObj[this.name] += $(this).is(':checked') ? `${$(this).val()}, ` : '';
@@ -169,10 +166,10 @@ function createAdObject() {
     };
     console.log(adObj);
     api.post('/listings', adObj)
-        .then(function (response) {
+        .then((response) => {
             console.log(response);
         })
-        .catch(function (error) {
+        .catch((error) => {
             console.log(error);
         });
 };
