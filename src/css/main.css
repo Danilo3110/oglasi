@@ -602,3 +602,7 @@ hr {
     font-size: 14px;
     padding-left: 5%;
 }
+
+#writeAd select, #writeAd input {
+    width: 370px;
+}
