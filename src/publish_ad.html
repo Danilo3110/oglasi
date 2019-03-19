@@ -40,43 +40,23 @@
         </div>
         <div class="item5-publish-ad"></div>
         <div class="item6">
-            <div id="button-wrap-publish-ad">
-                <a href="#">
-                    <div id="apartments"><i class="fas fa-building"></i><br>Stanovi<h6>11&nbsp;novih&nbsp;oglasa</h6>
-                    </div>
-                </a>
-                <a href="#">
-                    <div id="houses"><i class="fas fa-home"></i><br>Kuće<h6>4&nbsp;nova&nbsp;oglasa</h6>
-                    </div>
-                </a>
-                <a href="#">
-                    <div id="garages"><i class="fas fa-warehouse"></i><br>Garaže<h6>14&nbsp;novih&nbsp;oglasa</h6>
-                    </div>
-                </a>
-                <a href="#">
-                    <div id="business"><i class="far fa-building"></i><br>Business&nbsp;rent<h6>3&nbsp;nova&nbsp;oglasa</h6>
-                    </div>
-                </a>
-                <a href="#">
-                    <div id="land"><i class="fas fa-tree"></i><br>Zemljište<h6>17&nbsp;novih&nbsp;oglasa</h6>
-                    </div>
-                </a>
-            </div>
         </div>
         <div class="item-search show">
         </div>
         <div class="item7">
             <h2>Nov&nbsp;oglas</h2>
             <form id="writeAd">
-                <select name="category">
-                    <option selected>kategorija</option>
-                    <option value="apartment">Stanovi</option>
-                    <option value="house">Kuće</option>
-                    <option value="garage">Garaže</option>
-                    <option value="business">Business&nbsp;rent</option>
-                    <option value="land">Zemljište</option>
-                </select><br>
-                <hr>
+                    <select name="category">
+                            <option selected>kategorija</option>
+                            <option value="apartment">Stanovi</option>
+                            <option value="house">Kuće</option>
+                            <option value="garage">Garaže</option>
+                            <option value="business">Business&nbsp;rent</option>
+                            <option value="land">Zemljište</option>
+                        </select><br>
+                        <hr>
+                <div class="form-container">
+                    <div class="form-left">
                 <h4>Lokacija</h4>
                 <select name="city">
                     <option selected>lokacija</option>
@@ -119,13 +99,15 @@
                     <option value="novipazar">Novi Pazar</option>
                 </select><br>
                 <input type="text" name="street" placeholder="Ulica"><br>
-                <input type="checkbox" name="map" id="mapa">
+                <input type="checkbox" name="map" id="mapa" value="ne">
                 <label for="mapa">Sa&nbsp;prikazom&nbsp;na&nbsp;mapi</label>
+                <input type="checkbox" name="map1" id="mapa1">
+                <label for="mapa1">Sa&nbsp;prikazom&nbsp;na&nbsp;mapi</label>
                 <hr>
                 <h4>Opis</h4>
                 <input type="text" name="title" placeholder="Naslov"><br>
                 <textarea name="additionalinfo" id="" cols="50" rows="10" placeholder="Opis oglasa"></textarea><br>
-                Izaberite slike: <input type="file" name="imgUrl" multiple><br>
+                Izaberite slike:<br> <input type="file" name="imgUrl" multiple><br>
                 <hr>
                 <h4>Cena</h4>
                 <input type="number" name="price" id="" min="1" step="1" placeholder="Cena&nbsp;&euro;"><br>
@@ -134,7 +116,8 @@
                     <option value="podogovoru">Po&nbsp;dogovoru</option>
                     <option value="infoAgent">Informacija&nbsp;kod&nbsp;agenta</option>
                 </select>
-                <hr>
+            </div>
+            <div class="form-right">
                 <h4>Površina</h4>
                 <input type="number" id="" name="m2" min="1" step="1" placeholder="Kvadratura (m&sup2;)"><br>
                 <input type="text" id="" name="land-m2" placeholder="Površina&nbsp;zemljišta">
@@ -159,9 +142,10 @@
                 <input type="text" name="infrastructure" id="" placeholder="Infrastruktura"><br>
                 <input type="text" name="equipment" id="" placeholder="Oprema"><br>
                 <input type="text" name="publicTransport" id="" placeholder="Linije javnog prevoza"><br>
-                
+            </div>
+            </div>
             </form>
-            <button onclick="createAdObject()">Pošalji podatke</button>&nbsp;&nbsp;&nbsp;<button onclick="deleteAds()">Obriši oglas sa id=8</button>
+            <button class="writeAd" onclick="createAdObject()">Pošalji podatke</button>&nbsp;&nbsp;&nbsp;<button class="writeAd" onclick="deleteAds()">Obriši oglas sa id=8</button>
         </div>
         <div class="item8">
             <div class="footer-container">

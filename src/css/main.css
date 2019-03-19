@@ -603,6 +603,35 @@ hr {
     padding-left: 5%;
 }
 
+.form-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;   
+    align-items: stretch;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.10);
+    background-color: white;
+    margin: 0 5%;
+}
+
+.form-left {
+    margin-left: 14%;
+}
+
+.form-right {
+    margin-right: 14%;
+}
+
 #writeAd select, #writeAd input {
-    width: 370px;
+    width: 25vw;
+}
+
+#writeAd textarea {
+    width: 24.5vw;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.writeAd {
+    width: 20%;
+    padding: 10px 8px;
+    margin: 2.5% 0;
 }

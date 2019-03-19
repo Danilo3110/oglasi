@@ -21,7 +21,7 @@ async function renderAds() {
                         <img src="${ad.imgUrl}" alt=""><br>
                         <h2 class="ads-descr">${ad.street}, ${ad.state}, ${ad.m2}</h2>
                         <h3 class="ads-descr">cena: ${ad.price.toLocaleString('sr-RS') == 0 ? 'po dogovoru'
-                                                    : ad.price.toLocaleString('sr-RS') + '&euro;'}</h3>
+                : ad.price.toLocaleString('sr-RS') + '&euro;'}</h3>
                         <hr>
                         <h3 class="ads-descr">kontakt: ${listingSeller.sellerPhone}</h3>
                         </div>`);
@@ -59,7 +59,7 @@ async function renderFullAds() {
                     <h4>Podaci o nekretnini</h4>
                     Broj soba: ${listings.roomCount}<br><br>
                     Cena: ${listings.price.toLocaleString('sr-RS') == 0 ? 'po dogovoru'
-                          : listings.price.toLocaleString('sr-RS') + '&euro;'}<br><br>
+                : listings.price.toLocaleString('sr-RS') + '&euro;'}<br><br>
                     Sprat: ${listings.floor}<br><br>
                     Uknjiženost: ${listings.legalised}<br><br>
                     Površina: ${listings.m2}<br><br>
@@ -151,8 +151,11 @@ $(document).ready(() => {
 
 function createAdObject() {
     let adObj = {};
-    $("#writeAd").find("input, textarea, select").each(function() {
-        adObj[this.name] = $(this).val(); 
+    $("#writeAd").find("input, textarea, select").each(function () {
+        adObj[this.name] = $(this).val();
+    });
+    $("#writeAd").find("input:checked").each(function () { 
+        $(this).is(':checked') == true? (adObj[this.name] = "da") : (adObj[this.name] = "ne");
     });
     let path = adObj.imgUrl;
     if (path.substr(0, 12) == "C:\\fakepath\\") {
@@ -160,12 +163,12 @@ function createAdObject() {
     };
     console.log(adObj);
     api.post('/listings', adObj)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
 };
 
 function deleteAds() {
