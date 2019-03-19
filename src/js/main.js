@@ -148,3 +148,26 @@ $(document).ready(() => {
         }, 850);
     });
 });
+
+function createAdObject() {
+    let adObj = {};
+    $("#writeAd").find("input, textarea, select").each(function() {
+        adObj[this.name] = $(this).val(); 
+    });
+    let path = adObj.imgUrl;
+    if (path.substr(0, 12) == "C:\\fakepath\\") {
+        adObj.imgUrl = "img/" + path.substr(12);
+    };
+    console.log(adObj);
+    api.post('/listings', adObj)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+};
+
+function deleteAds() {
+    api.delete('/listings/' + 8)
+}

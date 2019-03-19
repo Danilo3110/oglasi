@@ -78,7 +78,7 @@
                 </select><br>
                 <hr>
                 <h4>Lokacija</h4>
-                <select name="location">
+                <select name="city">
                     <option selected>lokacija</option>
                     <option value="beograd">Beograd</option>
                     <option value="kragujevac">Kragujevac</option>
@@ -118,16 +118,17 @@
                     <option value="majdanpek">Majdanpek</option>
                     <option value="novipazar">Novi Pazar</option>
                 </select><br>
-                <input type="text" placeholder="Ulica"><br>
-                <input type="checkbox" name="mapa" id="mapa">
+                <input type="text" name="street" placeholder="Ulica"><br>
+                <input type="checkbox" name="map" id="mapa">
                 <label for="mapa">Sa&nbsp;prikazom&nbsp;na&nbsp;mapi</label>
                 <hr>
                 <h4>Opis</h4>
-                <input type="text" placeholder="Naslov"><br>
-                <textarea name="" id="" cols="50" rows="10" placeholder="Opis oglasa"></textarea>
+                <input type="text" name="title" placeholder="Naslov"><br>
+                <textarea name="additionalinfo" id="" cols="50" rows="10" placeholder="Opis oglasa"></textarea><br>
+                Izaberite slike: <input type="file" name="imgUrl" multiple><br>
                 <hr>
                 <h4>Cena</h4>
-                <input type="number" id="" min="1" step="1" placeholder="Cena&nbsp;&euro;"><br>
+                <input type="number" name="price" id="" min="1" step="1" placeholder="Cena&nbsp;&euro;"><br>
                 <select name="other">
                     <option selected>Opcija&nbsp;cene</option>
                     <option value="podogovoru">Po&nbsp;dogovoru</option>
@@ -135,8 +136,8 @@
                 </select>
                 <hr>
                 <h4>Površina</h4>
-                <input type="number" id="" min="1" step="1" placeholder="Kvadratura (m&sup2;)"><br>
-                <input type="text" id="" placeholder="Površina&nbsp;zemljišta">
+                <input type="number" id="" name="m2" min="1" step="1" placeholder="Kvadratura (m&sup2;)"><br>
+                <input type="text" id="" name="land-m2" placeholder="Površina&nbsp;zemljišta">
                 <hr>
                 <h4>Ostali&nbsp;parametri</h4>
                 <select name="state">
@@ -146,9 +147,21 @@
                     <option value="izvorno">Izvorno&nbsp;stanje</option>
                     <option value="rusenje">Namenjeno&nbsp;rušenju</option>
                 </select><br>
-                <input type="text" id="" placeholder="Godina&nbsp;izgradnje">
+                <select name="legalised">
+                    <option selected>Da&nbsp;li&nbsp;je&nbsp;objekat&nbsp;uknjižen?</option>
+                    <option value="yes">Da</option>
+                    <option value="no">Ne</option>
+                    <option value="legalasing">U&nbsp;postupku</option>
+                </select><br>
+                <input type="text" name="yearOfConstruction" id="" placeholder="Godina&nbsp;izgradnje"><br>
+                <input type="text" name="floor" id="" placeholder="Sprat"><br>
+                <input type="text" name="roomCount" id="" placeholder="Broj&nbsp;soba"><br>
+                <input type="text" name="infrastructure" id="" placeholder="Infrastruktura"><br>
+                <input type="text" name="equipment" id="" placeholder="Oprema"><br>
+                <input type="text" name="publicTransport" id="" placeholder="Linije javnog prevoza"><br>
+                
             </form>
-
+            <button onclick="createAdObject()">Pošalji podatke</button>&nbsp;&nbsp;&nbsp;<button onclick="deleteAds()">Obriši oglas sa id=8</button>
         </div>
         <div class="item8">
             <div class="footer-container">
