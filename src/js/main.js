@@ -155,8 +155,7 @@ function createAdObject() {
         adObj[this.name] = $(this).val();
     });
 
-    $("#writeAd").find("input:checked").each(function () {
-        // adObj[this.name] += $(this).is(':checked') ? `${$(this).val()}, ` : '';
+    $("#writeAd").find('input:checked').each(function () {
         $(this).is(':checked') == true ? (adObj[this.name] += `${$(this).val()}, `) : (adObj[this.name] = "");
     });
 

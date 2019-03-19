@@ -606,7 +606,7 @@ hr {
 .form-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;   
+    justify-content: space-between;
     align-items: stretch;
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.10);
     background-color: white;
@@ -622,11 +622,13 @@ hr {
     margin-right: 14%;
 }
 
-#writeAd select, #writeAd input {
+#writeAd select,
+#writeAd input {
     width: 25vw;
 }
 
 #writeAd textarea {
+    resize: none;
     width: 24.5vw;
     font-family: 'Quicksand', sans-serif;
 }
