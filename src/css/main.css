@@ -635,3 +635,15 @@ hr {
     padding: 10px 8px;
     margin: 2.5% 0;
 }
+
+#writeAd ul li {
+    list-style-type: none;
+    padding: 6px;
+    display: inline-flex;
+}
+
+#writeAd button {
+    width: 15vw;
+    padding: 12px 20px;
+    margin: 8px 0;
+}
