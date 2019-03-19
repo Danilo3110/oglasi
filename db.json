@@ -1,8 +1,7 @@
 {
-  "listings": [
-    {
+  "listings": [{
       "id": 1,
-      "authorId" : 1,
+      "authorId": 1,
       "descriptionId": 1,
       "street": "Maksima Gorkog",
       "city": "Beograd",
@@ -12,13 +11,13 @@
       "roomCount": 3,
       "price": 166000,
       "pricePerSquareMeter": 2677,
-      "imgUrl":"img/kopernikus1a.jpg",
+      "imgUrl": "img/kopernikus1a.jpg",
       "visitsCount": 1254,
       "legalised": "Uknjiženo"
     },
     {
       "id": 2,
-      "authorId" : 2,
+      "authorId": 2,
       "descriptionId": 2,
       "street": "Jurija Gagarina",
       "city": "Beograd",
@@ -28,13 +27,13 @@
       "roomCount": 3,
       "price": 98000,
       "pricePerSquareMeter": 1484,
-      "imgUrl":"img/nbg.jpg",
+      "imgUrl": "img/nbg.jpg",
       "visitsCount": 3422,
       "legalised": "Uknjiženo"
     },
     {
       "id": 3,
-      "authorId" : 3,
+      "authorId": 3,
       "descriptionId": 3,
       "street": "Olge Alkalaj",
       "city": "Beograd",
@@ -44,13 +43,13 @@
       "roomCount": 2,
       "price": 54000,
       "pricePerSquareMeter": 1227,
-      "imgUrl":"img/odlican-uknjizen.jpg",
+      "imgUrl": "img/odlican-uknjizen.jpg",
       "visitsCount": 235,
       "legalised": "Uknjiženo"
     },
     {
       "id": 4,
-      "authorId" : 4,
+      "authorId": 4,
       "descriptionId": 4,
       "street": "Neznanog Junaka",
       "city": "Beograd",
@@ -60,13 +59,13 @@
       "roomCount": 5,
       "price": 285000,
       "pricePerSquareMeter": 2065,
-      "imgUrl":"img/dedinje.jpg",
+      "imgUrl": "img/dedinje.jpg",
       "visitsCount": 4421,
       "legalised": "U postupku"
     },
     {
       "id": 5,
-      "authorId" : 5,
+      "authorId": 5,
       "descriptionId": 5,
       "street": "Cara Lazara",
       "city": "Novi Sad",
@@ -76,13 +75,13 @@
       "roomCount": 3,
       "price": 71000,
       "pricePerSquareMeter": 1000,
-      "imgUrl":"img/telep.jpg",
+      "imgUrl": "img/telep.jpg",
       "visitsCount": 5241,
       "legalised": "Uknjiženo"
     },
     {
       "id": 6,
-      "authorId" : 6,
+      "authorId": 6,
       "descriptionId": 6,
       "street": "Bulevar Nikole Tesle",
       "city": "Beograd",
@@ -92,13 +91,13 @@
       "roomCount": 3,
       "price": 155000,
       "pricePerSquareMeter": 1409,
-      "imgUrl":"img/novi-beograd.jpg",
+      "imgUrl": "img/novi-beograd.jpg",
       "visitsCount": 5241,
       "legalised": "Uknjiženo"
     },
     {
       "id": 7,
-      "authorId" : 7,
+      "authorId": 7,
       "descriptionId": 7,
       "street": "Ivana Broza",
       "city": "Subotica",
@@ -108,13 +107,13 @@
       "roomCount": 2,
       "price": 38000,
       "pricePerSquareMeter": 730,
-      "imgUrl":"img/subotica.jpg",
+      "imgUrl": "img/subotica.jpg",
       "visitsCount": 1132,
       "legalised": "Uknjiženo"
     },
     {
       "id": 8,
-      "authorId" : 8,
+      "authorId": 8,
       "descriptionId": 8,
       "street": "Bulevar Slobode",
       "city": "Novi Sad",
@@ -124,15 +123,14 @@
       "roomCount": 2,
       "price": 48000,
       "pricePerSquareMeter": 842,
-      "imgUrl":"img/odlican-uknjizen.jpg",
+      "imgUrl": "img/odlican-uknjizen.jpg",
       "visitsCount": 449,
       "legalised": "nije uknjizen"
     }
   ],
-  "listingDescriptions": [
-    {
+  "listingDescriptions": [{
       "id": 1,
-      "authorId" : 1,
+      "authorId": 1,
       "additionalinfo": "Stan u dobro održavanoj zgradi bez lifta. Sunčan i miran, bez buke. Kompletno je adaptiran i sređen. Korišćeni materijali visokog kvaliteta. Ostaju svi ugradni elementi rađeni po meri. Sastoji se od velikog dnevnog boravka sa trpezarijom i kuhinjom-koncipirano kao open space, dve spavaće sobe i kupatila. bez terase. Iznad stana je ravna ploča. Ulaz preko terase koju dele samo dva stana. Postoji mogućnost korišćenja zajedničkog dvorišta.",
       "listingNumber": "542",
       "listingCreated": "15.03.2019 (00:39)",
@@ -145,7 +143,7 @@
     },
     {
       "id": 2,
-      "authorId" : 2,
+      "authorId": 2,
       "additionalinfo": "Stan u dobro održavanoj zgradi bez lifta. Sunčan i miran, bez buke. Kompletno je adaptiran i sređen. Korišćeni materijali visokog kvaliteta. Ostaju svi ugradni elementi rađeni po meri. Sastoji se od velikog dnevnog boravka sa trpezarijom i kuhinjom-koncipirano kao open space, dve spavaće sobe i kupatila. bez terase. Iznad stana je ravna ploča. Ulaz preko terase koju dele samo dva stana. Postoji mogućnost korišćenja zajedničkog dvorišta.",
       "listingNumber": "866",
       "listingCreated": "11.03.2019 (10:32)",
@@ -158,7 +156,7 @@
     },
     {
       "id": 3,
-      "authorId" : 3,
+      "authorId": 3,
       "additionalinfo": "Stan u dobro održavanoj zgradi bez lifta. Sunčan i miran, bez buke. Kompletno je adaptiran i sređen. Korišćeni materijali visokog kvaliteta. Ostaju svi ugradni elementi rađeni po meri. Sastoji se od velikog dnevnog boravka sa trpezarijom i kuhinjom-koncipirano kao open space, dve spavaće sobe i kupatila. bez terase. Iznad stana je ravna ploča. Ulaz preko terase koju dele samo dva stana. Postoji mogućnost korišćenja zajedničkog dvorišta.",
       "listingNumber": "143",
       "listingCreated": "15.11.2019 (08:44)",
@@ -171,7 +169,7 @@
     },
     {
       "id": 4,
-      "authorId" : 4,
+      "authorId": 4,
       "additionalinfo": "Stan u dobro održavanoj zgradi bez lifta. Sunčan i miran, bez buke. Kompletno je adaptiran i sređen. Korišćeni materijali visokog kvaliteta. Ostaju svi ugradni elementi rađeni po meri. Sastoji se od velikog dnevnog boravka sa trpezarijom i kuhinjom-koncipirano kao open space, dve spavaće sobe i kupatila. bez terase. Iznad stana je ravna ploča. Ulaz preko terase koju dele samo dva stana. Postoji mogućnost korišćenja zajedničkog dvorišta.",
       "listingNumber": "106",
       "listingCreated": "22.11.2019 (09:44)",
@@ -184,7 +182,7 @@
     },
     {
       "id": 5,
-      "authorId" : 5,
+      "authorId": 5,
       "additionalinfo": "Stan u dobro održavanoj zgradi bez lifta. Sunčan i miran, bez buke. Kompletno je adaptiran i sređen. Korišćeni materijali visokog kvaliteta. Ostaju svi ugradni elementi rađeni po meri. Sastoji se od velikog dnevnog boravka sa trpezarijom i kuhinjom-koncipirano kao open space, dve spavaće sobe i kupatila. bez terase. Iznad stana je ravna ploča. Ulaz preko terase koju dele samo dva stana. Postoji mogućnost korišćenja zajedničkog dvorišta.",
       "listingNumber": "7411",
       "listingCreated": "08.12.2018 (09:44)",
@@ -197,7 +195,7 @@
     },
     {
       "id": 6,
-      "authorId" : 6,
+      "authorId": 6,
       "additionalinfo": "Stan u dobro održavanoj zgradi bez lifta. Sunčan i miran, bez buke. Kompletno je adaptiran i sređen. Korišćeni materijali visokog kvaliteta. Ostaju svi ugradni elementi rađeni po meri. Sastoji se od velikog dnevnog boravka sa trpezarijom i kuhinjom-koncipirano kao open space, dve spavaće sobe i kupatila. bez terase. Iznad stana je ravna ploča. Ulaz preko terase koju dele samo dva stana. Postoji mogućnost korišćenja zajedničkog dvorišta.",
       "listingNumber": "543",
       "listingCreated": "08.12.2018 (09:44)",
@@ -210,7 +208,7 @@
     },
     {
       "id": 7,
-      "authorId" : 7,
+      "authorId": 7,
       "additionalinfo": "Stan u dobro održavanoj zgradi bez lifta. Sunčan i miran, bez buke. Kompletno je adaptiran i sređen. Korišćeni materijali visokog kvaliteta. Ostaju svi ugradni elementi rađeni po meri. Sastoji se od velikog dnevnog boravka sa trpezarijom i kuhinjom-koncipirano kao open space, dve spavaće sobe i kupatila. bez terase. Iznad stana je ravna ploča. Ulaz preko terase koju dele samo dva stana. Postoji mogućnost korišćenja zajedničkog dvorišta.",
       "listingNumber": "3323",
       "listingCreated": "08.12.2018 (09:44)",
@@ -223,7 +221,7 @@
     },
     {
       "id": 8,
-      "authorId" : 8,
+      "authorId": 8,
       "additionalinfo": "Stan u dobro održavanoj zgradi bez lifta. Sunčan i miran, bez buke. Kompletno je adaptiran i sređen. Korišćeni materijali visokog kvaliteta. Ostaju svi ugradni elementi rađeni po meri. Sastoji se od velikog dnevnog boravka sa trpezarijom i kuhinjom-koncipirano kao open space, dve spavaće sobe i kupatila. bez terase. Iznad stana je ravna ploča. Ulaz preko terase koju dele samo dva stana. Postoji mogućnost korišćenja zajedničkog dvorišta.",
       "listingNumber": "3323",
       "listingCreated": "08.12.2018 (09:44)",
@@ -235,59 +233,57 @@
       "geolocation": ""
     }
   ],
-  "listingSeller": [
-      {
-        "id": 1,
-        "sellerName": "Expertus",
-        "sellerAddress": "Kozjačka 20/3",
-        "sellerPhone": "063/770-9316"
-      },
-      {
-        "id": 2,
-        "sellerName": "Djole Nekretnine",
-        "sellerAddress": "Beogradska 15",
-        "sellerPhone": "060/185-8574"
-      },
-      {
-        "id": 3,
-        "sellerName": "AS Nekretnine",
-        "sellerAddress": "Vojvode Dobrnjca 8",
-        "sellerPhone": "062/520-530"
-      },
-      {
-        "id": 4,
-        "sellerName": "Prima Nekretnine",
-        "sellerAddress": "Jurija Gagarina 255",
-        "sellerPhone": "011/2280-784"
-      },
-      {
-        "id": 5,
-        "sellerName": "Prima Nekretnine",
-        "sellerAddress": "Jurija Gagarina 255",
-        "sellerPhone": "011/2280-784"
-      },
-      {
-        "id": 6,
-        "sellerName": "AS Nekretnine",
-        "sellerAddress": "Vojvode Dobrnjca 8",
-        "sellerPhone": "062/520-530"
-      },
-      {
-        "id": 7,
-        "sellerName": "Expertus",
-        "sellerAddress": "Kozjačka 20/3",
-        "sellerPhone": "063/770-9316"
-      },
-      {
-        "id": 8,
-        "sellerName": "Djole Nekretnine",
-        "sellerAddress": "Beogradska 15",
-        "sellerPhone": "060/185-8574"
-      }
+  "listingSeller": [{
+      "id": 1,
+      "sellerName": "Expertus",
+      "sellerAddress": "Kozjačka 20/3",
+      "sellerPhone": "063/770-9316"
+    },
+    {
+      "id": 2,
+      "sellerName": "Djole Nekretnine",
+      "sellerAddress": "Beogradska 15",
+      "sellerPhone": "060/185-8574"
+    },
+    {
+      "id": 3,
+      "sellerName": "AS Nekretnine",
+      "sellerAddress": "Vojvode Dobrnjca 8",
+      "sellerPhone": "062/520-530"
+    },
+    {
+      "id": 4,
+      "sellerName": "Prima Nekretnine",
+      "sellerAddress": "Jurija Gagarina 255",
+      "sellerPhone": "011/2280-784"
+    },
+    {
+      "id": 5,
+      "sellerName": "Prima Nekretnine",
+      "sellerAddress": "Jurija Gagarina 255",
+      "sellerPhone": "011/2280-784"
+    },
+    {
+      "id": 6,
+      "sellerName": "AS Nekretnine",
+      "sellerAddress": "Vojvode Dobrnjca 8",
+      "sellerPhone": "062/520-530"
+    },
+    {
+      "id": 7,
+      "sellerName": "Expertus",
+      "sellerAddress": "Kozjačka 20/3",
+      "sellerPhone": "063/770-9316"
+    },
+    {
+      "id": 8,
+      "sellerName": "Djole Nekretnine",
+      "sellerAddress": "Beogradska 15",
+      "sellerPhone": "060/185-8574"
+    }
 
   ],
-  "users": [
-    {
+  "users": [{
       "id": 1,
       "email": "lukic3@sbb.rs",
       "password": "Danilo2016",

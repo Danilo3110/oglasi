@@ -236,13 +236,15 @@ select {
     margin: 8px 0;
 }
 
-.item5 a, #closeSearch {
+.item5 a,
+#closeSearch {
     text-decoration: underline;
     color: white;
     cursor: pointer;
 }
 
-.item5 a:hover, #closeSearch:hover {
+.item5 a:hover,
+#closeSearch:hover {
     transition: 0.5s ease;
     color: rgb(236, 50, 50);
 }
@@ -277,7 +279,8 @@ select {
     margin-left: 22%;
 }
 
-#button-wrap a, #button-wrap-publish-ad a {
+#button-wrap a,
+#button-wrap-publish-ad a {
     text-decoration: none;
     color: black;
 }
@@ -554,7 +557,7 @@ hr {
     margin: 8px 0;
 }
 
-#closeSearch{
+#closeSearch {
     color: black;
 }
 
