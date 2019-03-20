@@ -220,7 +220,6 @@ function createAdObjects() {
         imgUrls.push('img/' + i.name);
         listingsObj.imgUrl = imgUrls;
     };
-
     (async () => {return await postAds(listingsObj);})();
 };
 
