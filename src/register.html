@@ -47,8 +47,8 @@
             <form id="writeAd">
                 <select name="category">
                     <option selected disabled>kategorija</option>
-                    <option value="personal">Fizičko lice</option>
-                    <option value="business">Pravno lice</option>
+                    <option value="Fizičko&nbsp;lice">Fizičko&nbsp;lice</option>
+                    <option value="Pravno&nbsp;lice">Pravno&nbsp;lice</option>
                 </select><br>
                 <hr>
                 <div class="form-container">
@@ -56,17 +56,17 @@
                         <input type="text" name="username" placeholder="Korisničko&nbsp;ime"><br>
                         <input type="email" name="email" placeholder="Email"><br>
                         <input type="password" name="password" placeholder="Lozinka"><br>
-                        <input type="password" name="password-repeat" placeholder="Ponovite&nbsp;lozinku"><br>
+                        <input type="password" name="passwordRepeat" placeholder="Ponovite&nbsp;lozinku"><br>
                     </div>
                     <div class="form-right">
                         <input type="text" name="address" placeholder="Ulica&nbsp;i&nbsp;broj"><br>
                         <input type="text" name="city" placeholder="Mesto"><br>
-                        <input type="tel" name="fixed" placeholder="Fiksni&nbsp;telefon"><br>
+                        <input type="tel" name="telephone" placeholder="Fiksni&nbsp;telefon"><br>
                         <input type="tel" name="mobile" placeholder="Mobilni&nbsp;telefon"><br>
                         <hr>
                     </div>
                 </div>
-                <button type="button" onclick="">Pošalji&nbsp;podatke</button>&nbsp;&nbsp;&nbsp;
+                <button type="button" onclick="createUser()">Pošalji&nbsp;podatke</button>&nbsp;&nbsp;&nbsp;
                 <button type="reset">Obriši podatke</button>
             </form>
         </div>

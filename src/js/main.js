@@ -149,6 +149,26 @@ $(document).ready(() => {
     });
 });
 
+function createUser() {
+    const usersObj = {};
+
+    $("#writeAd").find("input, select").each(function () {
+        usersObj[this.name] = $(this).val();
+    });
+    delete usersObj.passwordRepeat;
+    console.log(usersObj);
+
+    (async () => {postUsers(usersObj);})();
+};
+
+async function postUsers(obj) {
+    return await api.post('/users', obj)
+        .then((response) => alert(`Uspesno ste se registrovali`))
+        .catch((error) => {
+            alert(error);
+        });
+};
+
 function createAdObjects() {
     const listingsObj = {};
     const option = [];
@@ -164,11 +184,9 @@ function createAdObjects() {
     listingsObj['listingNumber'] = listingNumber;
     listingsObj['authorId'] = listingNumber;
 
-    $("#writeAd")
-        .find("input:not(:checkbox), textarea, select")
-        .each(function () {
-            listingsObj[this.name] = $(this).val();
-        });
+    $("#writeAd").find("input:not(:checkbox), textarea, select").each(function () {
+        listingsObj[this.name] = $(this).val();
+    });
 
     $('#writeAd').find('input:checked').each(function () {
         option.push(this.value);
