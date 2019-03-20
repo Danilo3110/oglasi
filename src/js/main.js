@@ -196,5 +196,5 @@ async function deleteAds() {
         .then((response) => alert(`Uspesno ste obrisali oglas`))
         .catch((error) => {
             alert(error);
-        });;
-}
+        });
+};
