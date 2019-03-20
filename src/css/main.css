@@ -633,12 +633,6 @@ hr {
     font-family: 'Quicksand', sans-serif;
 }
 
-.writeAd {
-    width: 20%;
-    padding: 10px 8px;
-    margin: 2.5% 0;
-}
-
 #writeAd ul li {
     list-style-type: none;
     padding: 6px;
