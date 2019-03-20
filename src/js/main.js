@@ -172,6 +172,8 @@ async function postUsers(obj) {
 function createAdObjects() {
     const listingsObj = {};
     const option = [];
+    const imgUrls = [];
+    const files = $("#imgUrl")[0].files;
 
     const currentDate = new Date();
     const listingCreated = currentDate.toLocaleString('sr-RS');
@@ -193,10 +195,11 @@ function createAdObjects() {
         listingsObj['options'] = option.join(', ');
     });
 
-    const path = listingsObj.imgUrl;
-    if (path.substr(0, 12) == 'C:\\fakepath\\') {
-        listingsObj.imgUrl = 'img/' + path.substr(12);
-    };
+    for (const i of files)
+     { 
+         imgUrls.push('img/' + i.name);
+         listingsObj.imgUrl = imgUrls;
+     };
 
     (async () => {return await postAds(listingsObj);})();
 };
