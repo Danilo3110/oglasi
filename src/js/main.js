@@ -149,33 +149,45 @@ $(document).ready(() => {
     });
 });
 
-function createAdObject() {
-    const adObj = {};
-    const option = [];
+function createAdObjects() {
+    const listingsObj = {};
+    const options = [];
 
     const currentDate = new Date();
     const listingCreated = currentDate.toLocaleString('sr-RS');
     const randomCheckingTime = Math.floor(Math.random() * Math.floor(24));
     const listingChecked = new Date(currentDate.setHours(currentDate.getHours() + randomCheckingTime)).toLocaleString('sr-RS');
-    adObj['listingCreated'] = listingCreated;
-    adObj['listingChecked'] = listingChecked;
+    listingsObj['listingCreated'] = listingCreated;
+    listingsObj['listingChecked'] = listingChecked;
+
+    const listingNumber = Math.floor(Math.random() * 999);
+    listingsObj['listingNumber'] = listingNumber;
+    listingsObj['authorId'] = listingNumber;
 
     $('#writeAd').find("input, textarea, select").each(function () {
-        adObj[this.name] = $(this).val();
+        listingsObj[this.name] = $(this).val();
     });
 
     $('#writeAd').find('input:checked').each(function () {
-        //$(this).is(':checked') == true ? (adObj[this.name] += `${$(this).val()}, `) : (adObj[this.name] = "");
-        option.push(this.value);
-        adObj.option = option.join(', ');
+        options.push(this.value);
+        listingsObj.options = options.join(', ');
     });
 
-    const path = adObj.imgUrl;
+    const path = listingsObj.imgUrl;
     if (path.substr(0, 12) == 'C:\\fakepath\\') {
-        adObj.imgUrl = 'img/' + path.substr(12);
+        listingsObj.imgUrl = 'img/' + path.substr(12);
     };
-    console.log(adObj);
-    //api.post('/listings', adObj);
+
+    console.log(listingsObj);
+    postAds(listingsObj);
+};
+
+function postAds(obj) {
+    return api.post('/listings', obj)
+        .then((response) => console.log(response))
+        .catch((error) => {
+            console.log(error);
+        });
 };
 
 function deleteAds() {
