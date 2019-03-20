@@ -1,6 +1,5 @@
 {
-  "listings": [
-    {
+  "listings": [{
       "id": 1,
       "authorId": 1,
       "descriptionId": 1,
@@ -129,164 +128,7 @@
       "legalised": "nije uknjizen"
     }
   ],
-  "listingDescriptions": [
-    {
-      "id": 1,
-      "authorId": 1,
-      "additionalinfo": "Stan u dobro održavanoj zgradi bez lifta. Sunčan i miran, bez buke. Kompletno je adaptiran i sređen. Korišćeni materijali visokog kvaliteta. Ostaju svi ugradni elementi rađeni po meri. Sastoji se od velikog dnevnog boravka sa trpezarijom i kuhinjom-koncipirano kao open space, dve spavaće sobe i kupatila. bez terase. Iznad stana je ravna ploča. Ulaz preko terase koju dele samo dva stana. Postoji mogućnost korišćenja zajedničkog dvorišta.",
-      "listingNumber": "542",
-      "listingCreated": "15.03.2019 (00:39)",
-      "listingChecked": "15.03.2019 (20:38)",
-      "yearOfConstruction": "2008",
-      "infrastructure": "Terasa",
-      "equipment": "CATV",
-      "publicTrasport": "19, 21, 22, 29, 46, 55, E1",
-      "geolocation": ""
-    },
-    {
-      "id": 2,
-      "authorId": 2,
-      "additionalinfo": "Stan u dobro održavanoj zgradi bez lifta. Sunčan i miran, bez buke. Kompletno je adaptiran i sređen. Korišćeni materijali visokog kvaliteta. Ostaju svi ugradni elementi rađeni po meri. Sastoji se od velikog dnevnog boravka sa trpezarijom i kuhinjom-koncipirano kao open space, dve spavaće sobe i kupatila. bez terase. Iznad stana je ravna ploča. Ulaz preko terase koju dele samo dva stana. Postoji mogućnost korišćenja zajedničkog dvorišta.",
-      "listingNumber": "866",
-      "listingCreated": "11.03.2019 (10:32)",
-      "listingChecked": "11.03.2019 (17:11)",
-      "yearOfConstruction": "1974",
-      "infrastructure": "Terasa",
-      "equipment": "CATV",
-      "publicTrasport": "89, 95",
-      "geolocation": ""
-    },
-    {
-      "id": 3,
-      "authorId": 3,
-      "additionalinfo": "Stan u dobro održavanoj zgradi bez lifta. Sunčan i miran, bez buke. Kompletno je adaptiran i sređen. Korišćeni materijali visokog kvaliteta. Ostaju svi ugradni elementi rađeni po meri. Sastoji se od velikog dnevnog boravka sa trpezarijom i kuhinjom-koncipirano kao open space, dve spavaće sobe i kupatila. bez terase. Iznad stana je ravna ploča. Ulaz preko terase koju dele samo dva stana. Postoji mogućnost korišćenja zajedničkog dvorišta.",
-      "listingNumber": "143",
-      "listingCreated": "15.11.2019 (08:44)",
-      "listingChecked": "16.11.2019 (15:22)",
-      "yearOfConstruction": "1966",
-      "infrastructure": "Terasa",
-      "equipment": "CATV",
-      "publicTrasport": "31",
-      "geolocation": ""
-    },
-    {
-      "id": 4,
-      "authorId": 4,
-      "additionalinfo": "Stan u dobro održavanoj zgradi bez lifta. Sunčan i miran, bez buke. Kompletno je adaptiran i sređen. Korišćeni materijali visokog kvaliteta. Ostaju svi ugradni elementi rađeni po meri. Sastoji se od velikog dnevnog boravka sa trpezarijom i kuhinjom-koncipirano kao open space, dve spavaće sobe i kupatila. bez terase. Iznad stana je ravna ploča. Ulaz preko terase koju dele samo dva stana. Postoji mogućnost korišćenja zajedničkog dvorišta.",
-      "listingNumber": "106",
-      "listingCreated": "22.11.2019 (09:44)",
-      "listingChecked": "23.11.2019 (17:22)",
-      "yearOfConstruction": "1998",
-      "infrastructure": "Terasa",
-      "equipment": "CATV",
-      "publicTrasport": "40, 41, 59, 78",
-      "geolocation": ""
-    },
-    {
-      "id": 5,
-      "authorId": 5,
-      "additionalinfo": "Stan u dobro održavanoj zgradi bez lifta. Sunčan i miran, bez buke. Kompletno je adaptiran i sređen. Korišćeni materijali visokog kvaliteta. Ostaju svi ugradni elementi rađeni po meri. Sastoji se od velikog dnevnog boravka sa trpezarijom i kuhinjom-koncipirano kao open space, dve spavaće sobe i kupatila. bez terase. Iznad stana je ravna ploča. Ulaz preko terase koju dele samo dva stana. Postoji mogućnost korišćenja zajedničkog dvorišta.",
-      "listingNumber": "7411",
-      "listingCreated": "08.12.2018 (09:44)",
-      "listingChecked": "08.12.2019 (17:22)",
-      "yearOfConstruction": "2007",
-      "infrastructure": "Terasa",
-      "equipment": "CATV",
-      "publicTrasport": "1, 9",
-      "geolocation": ""
-    },
-    {
-      "id": 6,
-      "authorId": 6,
-      "additionalinfo": "Stan u dobro održavanoj zgradi bez lifta. Sunčan i miran, bez buke. Kompletno je adaptiran i sređen. Korišćeni materijali visokog kvaliteta. Ostaju svi ugradni elementi rađeni po meri. Sastoji se od velikog dnevnog boravka sa trpezarijom i kuhinjom-koncipirano kao open space, dve spavaće sobe i kupatila. bez terase. Iznad stana je ravna ploča. Ulaz preko terase koju dele samo dva stana. Postoji mogućnost korišćenja zajedničkog dvorišta.",
-      "listingNumber": "543",
-      "listingCreated": "08.12.2018 (09:44)",
-      "listingChecked": "08.12.2019 (17:22)",
-      "yearOfConstruction": "1983",
-      "infrastructure": "Terasa",
-      "equipment": "CATV",
-      "publicTrasport": "15, 84, 704, 706, 707",
-      "geolocation": ""
-    },
-    {
-      "id": 7,
-      "authorId": 7,
-      "additionalinfo": "Stan u dobro održavanoj zgradi bez lifta. Sunčan i miran, bez buke. Kompletno je adaptiran i sređen. Korišćeni materijali visokog kvaliteta. Ostaju svi ugradni elementi rađeni po meri. Sastoji se od velikog dnevnog boravka sa trpezarijom i kuhinjom-koncipirano kao open space, dve spavaće sobe i kupatila. bez terase. Iznad stana je ravna ploča. Ulaz preko terase koju dele samo dva stana. Postoji mogućnost korišćenja zajedničkog dvorišta.",
-      "listingNumber": "3323",
-      "listingCreated": "08.12.2018 (09:44)",
-      "listingChecked": "08.12.2019 (17:22)",
-      "yearOfConstruction": "1979",
-      "infrastructure": "Terasa",
-      "equipment": "CATV",
-      "publicTrasport": "16",
-      "geolocation": ""
-    },
-    {
-      "id": 8,
-      "authorId": 8,
-      "additionalinfo": "Stan u dobro održavanoj zgradi bez lifta. Sunčan i miran, bez buke. Kompletno je adaptiran i sređen. Korišćeni materijali visokog kvaliteta. Ostaju svi ugradni elementi rađeni po meri. Sastoji se od velikog dnevnog boravka sa trpezarijom i kuhinjom-koncipirano kao open space, dve spavaće sobe i kupatila. bez terase. Iznad stana je ravna ploča. Ulaz preko terase koju dele samo dva stana. Postoji mogućnost korišćenja zajedničkog dvorišta.",
-      "listingNumber": "3323",
-      "listingCreated": "08.12.2018 (09:44)",
-      "listingChecked": "08.12.2019 (17:22)",
-      "yearOfConstruction": "1979",
-      "infrastructure": "Terasa",
-      "equipment": "CATV",
-      "publicTrasport": "16",
-      "geolocation": ""
-    }
-  ],
-  "listingSeller": [
-    {
-      "id": 1,
-      "sellerName": "Expertus",
-      "sellerAddress": "Kozjačka 20/3",
-      "sellerPhone": "063/770-9316"
-    },
-    {
-      "id": 2,
-      "sellerName": "Djole Nekretnine",
-      "sellerAddress": "Beogradska 15",
-      "sellerPhone": "060/185-8574"
-    },
-    {
-      "id": 3,
-      "sellerName": "AS Nekretnine",
-      "sellerAddress": "Vojvode Dobrnjca 8",
-      "sellerPhone": "062/520-530"
-    },
-    {
-      "id": 4,
-      "sellerName": "Prima Nekretnine",
-      "sellerAddress": "Jurija Gagarina 255",
-      "sellerPhone": "011/2280-784"
-    },
-    {
-      "id": 5,
-      "sellerName": "Prima Nekretnine",
-      "sellerAddress": "Jurija Gagarina 255",
-      "sellerPhone": "011/2280-784"
-    },
-    {
-      "id": 6,
-      "sellerName": "AS Nekretnine",
-      "sellerAddress": "Vojvode Dobrnjca 8",
-      "sellerPhone": "062/520-530"
-    },
-    {
-      "id": 7,
-      "sellerName": "Expertus",
-      "sellerAddress": "Kozjačka 20/3",
-      "sellerPhone": "063/770-9316"
-    },
-    {
-      "id": 8,
-      "sellerName": "Djole Nekretnine",
-      "sellerAddress": "Beogradska 15",
-      "sellerPhone": "060/185-8574"
-    }
-  ],
-  "users": [
-    {
+  "users": [{
       "id": 1,
       "email": "lukic3@sbb.rs",
       "password": "Danilo2016",
@@ -301,17 +143,6 @@
       "favorites": [
         2
       ]
-    },
-    {
-      "category": "Fizičko lice",
-      "username": "darko.mingovski",
-      "email": "darko.mingovski@gmail.com",
-      "password": "zorica123",
-      "address": "Bele Bartoka 34",
-      "city": "Beograd",
-      "telephone": "/",
-      "mobile": "063/460-596",
-      "id": 3
     }
   ]
 }

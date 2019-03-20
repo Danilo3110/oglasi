@@ -158,9 +158,7 @@ function createUser() {
     delete usersObj.passwordRepeat;
     console.log(usersObj);
 
-    (async () => {
-        postUsers(usersObj);
-    })();
+    (async () => {postUsers(usersObj);})();
 };
 
 async function postUsers(obj) {
@@ -180,7 +178,7 @@ async function userLogIn() {
     for (const user of usersFromBase) {
         if (user.email === email && user.password === pass) {
             sessionStorage.setItem('validation', true);
-            sessionStorage.setItem('ID', user.id);
+            sessionStorage.setItem('id', user.id);
         }
     }
     if (JSON.parse(sessionStorage.getItem('validation'))) {
@@ -207,7 +205,7 @@ function createAdObjects() {
 
     const listingNumber = Math.floor(Math.random() * 999);
     listingsObj['listingNumber'] = listingNumber;
-    listingsObj['authorId'] = JSON.parse(sessionStorage.getItem('ID'));
+    listingsObj['authorId'] = JSON.parse(sessionStorage.getItem('id'));
 
     $("#writeAd").find("input:not(:checkbox), textarea, select").each(function () {
         listingsObj[this.name] = $(this).val();
@@ -218,15 +216,12 @@ function createAdObjects() {
         listingsObj['options'] = option.join(', ');
     });
 
-    for (const i of files)
-     { 
-         imgUrls.push('img/' + i.name);
-         listingsObj.imgUrl = imgUrls;
-     };
+    for (const i of files) {
+        imgUrls.push('img/' + i.name);
+        listingsObj.imgUrl = imgUrls;
+    };
 
-    (async () => {
-        return await postAds(listingsObj);
-    })();
+    (async () => {return await postAds(listingsObj);})();
 };
 
 async function postAds(obj) {
