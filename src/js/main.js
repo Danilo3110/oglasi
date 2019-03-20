@@ -150,27 +150,32 @@ $(document).ready(() => {
 });
 
 function createAdObject() {
-    let adObj = {};
-    $("#writeAd").find("input, textarea, select").each(function () {
+    const adObj = {};
+    const option = [];
+
+    const currentDate = new Date();
+    const listingCreated = currentDate.toLocaleString('sr-RS');
+    const randomCheckingTime = Math.floor(Math.random() * Math.floor(24));
+    const listingChecked = new Date(currentDate.setHours(currentDate.getHours() + randomCheckingTime)).toLocaleString('sr-RS');
+    adObj['listingCreated'] = listingCreated;
+    adObj['listingChecked'] = listingChecked;
+
+    $('#writeAd').find("input, textarea, select").each(function () {
         adObj[this.name] = $(this).val();
     });
 
-    $("#writeAd").find('input:checked').each(function () {
-        $(this).is(':checked') == true ? (adObj[this.name] += `${$(this).val()}, `) : (adObj[this.name] = "");
+    $('#writeAd').find('input:checked').each(function () {
+        //$(this).is(':checked') == true ? (adObj[this.name] += `${$(this).val()}, `) : (adObj[this.name] = "");
+        option.push(this.value);
+        adObj.option = option.join(', ');
     });
 
-    let path = adObj.imgUrl;
+    const path = adObj.imgUrl;
     if (path.substr(0, 12) == 'C:\\fakepath\\') {
         adObj.imgUrl = 'img/' + path.substr(12);
     };
     console.log(adObj);
-    api.post('/listings', adObj)
-        .then((response) => {
-            console.log(response);
-        })
-        .catch((error) => {
-            console.log(error);
-        });
+    api.post('/listings', adObj);
 };
 
 function deleteAds() {
