@@ -1,4 +1,16 @@
 {
   "listings": [],
-  "users": []
+  "users": [
+    {
+      "category": "Fizičko lice",
+      "name": "Darko Mingovski",
+      "email": "darko.mingovski@gmail.com",
+      "password": "zorica123",
+      "address": "Bele Bartoka 34",
+      "city": "Beograd",
+      "telephone": "/",
+      "mobile": "063/460-596",
+      "id": 1
+    }
+  ]
 }
