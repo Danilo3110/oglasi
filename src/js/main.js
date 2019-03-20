@@ -175,7 +175,7 @@ function createAdObject() {
         adObj.imgUrl = 'img/' + path.substr(12);
     };
     console.log(adObj);
-    api.post('/listings', adObj);
+    //api.post('/listings', adObj);
 };
 
 function deleteAds() {
