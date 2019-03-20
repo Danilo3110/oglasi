@@ -1,14 +1,24 @@
 {
   "listings": [],
-  "users": [
+  "users": [{
+      "category": "Fizičko lice",
+      "name": "Darko Mingovski",
+      "email": "darko.mingovski@gmail.com",
+      "password": "zorica123",
+      "address": "Bele Bartoka 34",
+      "city": "Beograd",
+      "telephone": "/",
+      "mobile": "063/460-596",
+      "id": 1
+    },
     {
       "category": "Fizičko lice",
-      "name": "Danilo",
+      "name": "Danilo L.",
       "email": "lukic3@sbb.rs",
       "password": "danilo31",
       "address": "Patrisa Lumumbe",
       "city": "Beograd, Srbija",
-      "telephone": "011/2894-515",
+      "telephone": "011/2798-515",
       "mobile": "064/31-29-445",
       "id": 2
     }
