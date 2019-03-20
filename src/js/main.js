@@ -158,7 +158,9 @@ function createUser() {
     delete usersObj.passwordRepeat;
     console.log(usersObj);
 
-    (async () => {postUsers(usersObj);})();
+    (async () => {
+        postUsers(usersObj);
+    })();
 };
 
 async function postUsers(obj) {
@@ -167,6 +169,27 @@ async function postUsers(obj) {
         .catch((error) => {
             alert(error);
         });
+};
+
+async function userLogIn() {
+    const email = $('#userEmail').val();
+    const pass = $('#pass').val();
+    const response = await api.get(`/users`);
+    const usersFromBase = response.data;
+
+    for (const user of usersFromBase) {
+        if (user.email === email && user.password === pass) {
+            sessionStorage.setItem('validation', true);
+            sessionStorage.setItem('ID', user.id);
+        }
+    }
+    if (JSON.parse(sessionStorage.getItem('validation'))) {
+        alert(`Uspesno ste ulogovani!`);
+    } else {
+        $('#userEmail').css('background', 'rgba(255, 0, 0, 0.4)');
+        $('#pass').css('background', 'rgba(255, 0, 0, 0.4)');
+        alert(`Nije dobar unos podataka za login!`);
+    }
 };
 
 function createAdObjects() {
@@ -182,7 +205,7 @@ function createAdObjects() {
 
     const listingNumber = Math.floor(Math.random() * 999);
     listingsObj['listingNumber'] = listingNumber;
-    listingsObj['authorId'] = listingNumber;
+    listingsObj['authorId'] = JSON.parse(sessionStorage.getItem('ID'));
 
     $("#writeAd").find("input:not(:checkbox), textarea, select").each(function () {
         listingsObj[this.name] = $(this).val();
@@ -198,7 +221,9 @@ function createAdObjects() {
         listingsObj.imgUrl = 'img/' + path.substr(12);
     };
 
-    (async () => {return await postAds(listingsObj);})();
+    (async () => {
+        return await postAds(listingsObj);
+    })();
 };
 
 async function postAds(obj) {
