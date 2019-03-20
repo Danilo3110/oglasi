@@ -1,5 +1,6 @@
 {
-  "listings": [{
+  "listings": [
+    {
       "id": 1,
       "authorId": 1,
       "descriptionId": 1,
@@ -128,7 +129,8 @@
       "legalised": "nije uknjizen"
     }
   ],
-  "listingDescriptions": [{
+  "listingDescriptions": [
+    {
       "id": 1,
       "authorId": 1,
       "additionalinfo": "Stan u dobro održavanoj zgradi bez lifta. Sunčan i miran, bez buke. Kompletno je adaptiran i sređen. Korišćeni materijali visokog kvaliteta. Ostaju svi ugradni elementi rađeni po meri. Sastoji se od velikog dnevnog boravka sa trpezarijom i kuhinjom-koncipirano kao open space, dve spavaće sobe i kupatila. bez terase. Iznad stana je ravna ploča. Ulaz preko terase koju dele samo dva stana. Postoji mogućnost korišćenja zajedničkog dvorišta.",
@@ -233,7 +235,8 @@
       "geolocation": ""
     }
   ],
-  "listingSeller": [{
+  "listingSeller": [
+    {
       "id": 1,
       "sellerName": "Expertus",
       "sellerAddress": "Kozjačka 20/3",
@@ -282,7 +285,8 @@
       "sellerPhone": "060/185-8574"
     }
   ],
-  "users": [{
+  "users": [
+    {
       "id": 1,
       "email": "lukic3@sbb.rs",
       "password": "Danilo2016",
@@ -297,6 +301,17 @@
       "favorites": [
         2
       ]
+    },
+    {
+      "category": "Fizičko lice",
+      "username": "darko.mingovski",
+      "email": "darko.mingovski@gmail.com",
+      "password": "zorica123",
+      "address": "Bele Bartoka 34",
+      "city": "Beograd",
+      "telephone": "/",
+      "mobile": "063/460-596",
+      "id": 3
     }
   ]
 }
