@@ -151,7 +151,6 @@ $(document).ready(() => {
 
 function createAdObjects() {
     const listingsObj = {};
-    const listingDescriptionsObj = {};
     const options = [];
 
     const currentDate = new Date();
@@ -165,12 +164,11 @@ function createAdObjects() {
     listingsObj['listingNumber'] = listingNumber;
     listingsObj['authorId'] = listingNumber;
 
-    $('#writeAd').find("input, select").each(function () {
+    $('#writeAd').find("input, textarea, select").each(function () {
         listingsObj[this.name] = $(this).val();
     });
 
     $('#writeAd').find('input:checked').each(function () {
-        //$(this).is(':checked') == true ? (adObj[this.name] += `${$(this).val()}, `) : (adObj[this.name] = "");
         options.push(this.value);
         listingsObj.options = options.join(', ');
     });
@@ -180,26 +178,18 @@ function createAdObjects() {
         listingsObj.imgUrl = 'img/' + path.substr(12);
     };
 
-    listingDescriptionsObj['authorId'] = listingsObj.authorId;
-    $('#writeAd').find('textarea').each(function () {
-        listingDescriptionsObj[this.name] = $(this).val();
-    });
-
     console.log(listingsObj);
-    console.log(listingDescriptionsObj);
     postAds(listingsObj);
-    postAdsDes(listingDescriptionsObj);
 };
 
-function postAds(listingsObj) {
-    return api.post('/listings', listingsObj).then((response) => console.log(response));
-};
-
-function postAdsDes(listingDescriptionsObj) {
-   return api.post('/listingDescriptions', listingDescriptionsObj).then((response) => console.log(response));
+function postAds(obj) {
+    return api.post('/listings', obj)
+        .then((response) => console.log(response))
+        .catch((error) => {
+            console.log(error);
+        });
 };
 
 function deleteAds() {
     api.delete('/listings/' + 9);
-    api.delete('/listingDescriptions/' + 9);
 }
