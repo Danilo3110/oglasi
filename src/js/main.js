@@ -151,7 +151,7 @@ $(document).ready(() => {
 
 function createAdObjects() {
     const listingsObj = {};
-    const options = [];
+    const option = [];
 
     const currentDate = new Date();
     const listingCreated = currentDate.toLocaleString('sr-RS');
@@ -164,13 +164,15 @@ function createAdObjects() {
     listingsObj['listingNumber'] = listingNumber;
     listingsObj['authorId'] = listingNumber;
 
-    $('#writeAd').find("input, textarea, select").each(function () {
-        listingsObj[this.name] = $(this).val();
-    });
+    $("#writeAd")
+        .find("input:not(:checkbox), textarea, select")
+        .each(function () {
+            listingsObj[this.name] = $(this).val();
+        });
 
     $('#writeAd').find('input:checked').each(function () {
-        options.push(this.value);
-        listingsObj.options = options.join(', ');
+        option.push(this.value);
+        listingsObj['options'] = option.join(', ');
     });
 
     const path = listingsObj.imgUrl;
@@ -178,18 +180,21 @@ function createAdObjects() {
         listingsObj.imgUrl = 'img/' + path.substr(12);
     };
 
-    console.log(listingsObj);
-    postAds(listingsObj);
+    (async () => {return await postAds(listingsObj);})();
 };
 
-function postAds(obj) {
-    return api.post('/listings', obj)
-        .then((response) => console.log(response))
+async function postAds(obj) {
+    return await api.post('/listings', obj)
+        .then((response) => alert(`Uspesno ste dodali novi oglas`))
         .catch((error) => {
-            console.log(error);
+            alert(error);
         });
 };
 
-function deleteAds() {
-    api.delete('/listings/' + 9);
+async function deleteAds() {
+    return await api.delete('/listings/' + 9)
+        .then((response) => alert(`Uspesno ste obrisali oglas`))
+        .catch((error) => {
+            alert(error);
+        });;
 }
