@@ -271,14 +271,14 @@ function logInOut() {
 $('#logIn-out').on('click', logInOut);
 
 async function searchAds() {
-    const srch = $('#searchAds').val();
-    const srchCity = $('#searchCity').val();
-    const srchCat = $('#searchCat').val();
+    const searchKey = $('#searchAds').val();
+    const searchCity = $('#searchCity').val();
+    const searchCat = $('#searchCat').val();
     const response = await api.get(`/listings`);
     const listingsDb = response.data;
     const filteredAds = [];
     for (const i in listingsDb) {
-        if ((listingsDb[i].title).includes(srch) && listingsDb[i].city == srchCity && listingsDb[i].category == srchCat ) {
+        if ((listingsDb[i].title).includes(searchKey) && listingsDb[i].city == searchCity && listingsDb[i].category == searchCat ) {
             filteredAds.push(listingsDb[i])
         }
       }
