@@ -269,3 +269,17 @@ function logInOut() {
     }
 }
 $('#logIn-out').on('click', logInOut);
+
+async function searchAds() {
+    const searchedListings = [];
+    const srch = $('#searchAds').val();
+    const response = await api.get(`/listings`);
+    const listingsDb = response.data;
+     let res = listingsDb.find((a) => a.title.includes(srch));
+     searchedListings.push(res);
+     console.log(listingsDb);
+     console.log(res);
+     console.log(srch);
+     console.log(searchedListings);
+}
+
