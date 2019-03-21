@@ -1,6 +1,5 @@
 {
-  "listings": [
-    {
+  "listings": [{
       "listingCreated": "21.3.2019. 00:46:51",
       "listingChecked": "21.3.2019. 22:46:51",
       "listingNumber": 117,
@@ -25,8 +24,6 @@
       "floor": "1",
       "floors": "3",
       "roomCount": "2",
-      "infrastructure": "",
-      "equipment": "",
       "publicTransport": "12, 13, 23, 37, 49, 51, 52, 53, 57, 58, 85, 87, 88, ADA1, E2, E5",
       "options": "Terasa, Kablovska, Lift",
       "id": 1
@@ -59,8 +56,6 @@
       "floor": "2",
       "floors": "6",
       "roomCount": "2",
-      "infrastructure": "",
-      "equipment": "",
       "publicTransport": "7, 9, 11, 13, 17, 18, 70, 74, 88, 95, 601",
       "options": "Garaža, Terasa, Internet, Kablovska, Telefon, Klima, Lift",
       "id": 2
@@ -91,8 +86,6 @@
       "floor": "5",
       "floors": "7",
       "roomCount": "2",
-      "infrastructure": "",
-      "equipment": "",
       "publicTransport": "67, 68, 73, 76, 85, 94, 610, 708",
       "options": "Garaža, Terasa, Internet, Kablovska, Telefon, Klima, Lift",
       "id": 3
@@ -122,15 +115,12 @@
       "floor": "2",
       "floors": "8",
       "roomCount": "2",
-      "infrastructure": "",
-      "equipment": "",
       "publicTransport": "2, 5, 10, 28, 33, 40, 48, 65, 77, 79",
       "options": "Terasa, Internet, Kablovska, Telefon, Klima, Lift",
       "id": 4
     }
   ],
-  "users": [
-    {
+  "users": [{
       "category": "Fizičko lice",
       "name": "Darko Mingovski",
       "email": "darko.mingovski@gmail.com",

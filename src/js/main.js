@@ -10,20 +10,20 @@ async function renderAds() {
     const responseListings = await api.get(`/listings`);
     const listings = responseListings.data;
     for (const ad of listings) {
-        const responselistingSeller = await api.get(`/listingSeller/${ad.authorId}`);
-        const listingSeller = responselistingSeller.data;
+        const responseUsers = await api.get(`/users/${ad.authorId}`);
+        const users = responseUsers.data;
         const $adsContainer = $('.ads-container');
         const $ad = $(`<div class="ads" id="${ad.id}">
                         <div class="ads-descr">
                         <h3>Lokacija: ${ad.city}<i class="fas fa-share-alt fa-lg"></i><i class="far fa-heart fa-lg"></i>
                         <i class="fas fa-map-marker-alt fa-lg"></i></h3>
                         </div>
-                        <img src="${ad.imgUrl}" alt=""><br>
-                        <h2 class="ads-descr">${ad.street}, ${ad.state}, ${ad.m2}</h2>
-                        <h3 class="ads-descr">cena: ${ad.price.toLocaleString('sr-RS') == 0 ? 'po dogovoru'
-                : ad.price.toLocaleString('sr-RS') + '&euro;'}</h3>
+                        <img src="${ad.imgUrl[0]}" alt=""><br>
+                        <h2 class="ads-descr">${ad.title}</h2>
+                        <h3 class="ads-descr">cena: ${Number(ad.price).toLocaleString('sr-RS') == null ? ad['price-other']
+                                                    : Number(ad.price).toLocaleString('sr-RS') + '&euro;'}</h3>
                         <hr>
-                        <h3 class="ads-descr">kontakt: ${listingSeller.sellerPhone}</h3>
+                        <h3 class="ads-descr">kontakt: ${users.mobile}</h3>
                         </div>`);
         $ad.appendTo($adsContainer);
         $(`#${ad.id}`).on('click', () => fullAds(ad.id));
@@ -36,45 +36,43 @@ async function renderFullAds() {
     if (responseListings.status < 400) {
         const listings = responseListings.data;
 
-        const responseListingDescriptions = await api.get(`/listingDescriptions/${listings.descriptionId}`);
-        const listingD = responseListingDescriptions.data;
-        const responseListingSeller = await api.get(`/listingSeller/${listingD.authorId}`);
-        const listingS = responseListingSeller.data;
+        const responseUsers = await api.get(`/users/${listings.authorId}`);
+        const users = responseUsers.data;
 
-        $('html head').find('title').text(`Šifra oglasa: ${listingD.listingNumber}`);
+        $('html head').find('title').text(`Šifra oglasa: ${listings.listingNumber}`);
 
         const $fullContainer = $('.item7');
-        const $ad = $(`<h2>${listings.street}, ${listings.m2}, ${listings.state}</h2>
+        const $ad = $(`<h2>${listings.title}</h2>
             <h3>${listings.city}</h3>
             <div class="single-ad-container">
             <div class="single-ad-img">
-                <img src="${listings.imgUrl}" alt="">
-                <img src="${listings.imgUrl}" alt="">
-                <img src="${listings.imgUrl}" alt="">
-                <img src="${listings.imgUrl}" alt="">
-                <img src="${listings.imgUrl}" alt="">
+                <img src="${listings.imgUrl[0]}" alt="slika1">
+                <img src="${listings.imgUrl[1]}" alt="slika2">
+                <img src="${listings.imgUrl[2]}" alt="slika3">
+                <img src="${listings.imgUrl[3]}" alt="slika4">
+                <img src="${listings.imgUrl[4]}" alt="slika5">
             </div>
             <div class="single-ad-data">
                 <div>
                     <h4>Podaci o nekretnini</h4>
                     Broj soba: ${listings.roomCount}<br><br>
-                    Cena: ${listings.price.toLocaleString('sr-RS') == 0 ? 'po dogovoru'
-                : listings.price.toLocaleString('sr-RS') + '&euro;'}<br><br>
-                    Sprat: ${listings.floor}<br><br>
+                    Cena: ${Number(listings.price).toLocaleString('sr-RS') == 0 ? listings['price-other']
+                            : Number(listings.price).toLocaleString('sr-RS') + '&euro;'}<br><br>
+                    Sprat: ${listings.floor}/${listings.floors}<br><br>
                     Uknjiženost: ${listings.legalised}<br><br>
                     Površina: ${listings.m2}<br><br>
                     Stanje: ${listings.state}<br><br>
                     Ulica: ${listings.street}<br><br>
-                    Linije JGP: ${listingD.publicTrasport}
+                    Linije JGP: ${listings.publicTransport}
                 </div>
             </div>
             <div class="single-ad-seller">
                 <h4>Kontakt</h4>
-                <h3>${listingS.sellerName}</h3>
-                Adresa: ${listingS.sellerAddress}<br><br>
-                Mesto: ${listings.city}<br><br>
-                Tel: ${listingS.sellerPhone}<br><br>
-                Tel: ${listingS.sellerPhone}<br><br>
+                <h3>${users.name}</h3>
+                Adresa: ${users.address}<br><br>
+                Mesto: ${users.city}<br><br>
+                Tel: ${users.telephone == null ? '/' : users.telephone}<br><br>
+                Tel: ${users.mobile}<br><br>
                 <button type="submit">Pošalji&nbsp;poruku</button><br><br>
                 <i class="fas fa-exclamation-triangle" title="Prijavi grešku"></i>
                 <i class="fas fa-print" title="Odštampaj oglas"></i>
@@ -84,7 +82,7 @@ async function renderFullAds() {
             <hr>
             <div class="single-ad-detailed">
                 <h3>Dodatne&nbsp;informacije</h3>
-                ${listingD.additionalinfo}
+                ${listings.additionalinfo}
             </div>
             <hr>
             <div class="single-ad-tour">
@@ -103,12 +101,12 @@ async function renderFullAds() {
                 Lokacija stana
             </div>
             <div class="single-ad-rest">
-                Šifra oglasa: ${listingD.listingNumber}<br><br>
-                Datum kreiranja: ${listingD.listingCreated}<br><br>
-                Oglas proverila agencija: ${listingD.listingChecked}<br><br>
-                Godina izgradnje: ${listingD.yearOfConstruction}<br><br>
-                Infrastruktura: ${listingD.infrastructure}<br><br>
-                Opremljenost: ${listingD.equipment}
+                Šifra oglasa: ${listings.listingNumber}<br><br>
+                Datum kreiranja: ${listings.listingCreated}<br><br>
+                Oglas proverila agencija: ${listings.listingChecked}<br><br>
+                Godina izgradnje: ${listings.yearOfConstruction}<br><br>
+                Grejanje: ${listings.heating}<br><br>
+                Opremljenost: ${listings.options == null ? '' : listings.options}
             </div>`);
         $ad.appendTo($fullContainer);
         $('html, body').animate({
