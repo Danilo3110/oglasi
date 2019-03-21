@@ -9,7 +9,8 @@ api.defaults.timeout = 4000;
 async function renderAds() {
     const responseListings = await api.get(`/listings`);
     const listings = responseListings.data;
-    for (const ad of listings) {
+    const listingsOrder = listings.sort((a, b) => (a.id < b.id) ? 1 : -1);
+    for (const ad of listingsOrder) {
         const responseUsers = await api.get(`/users/${ad.authorId}`);
         const users = responseUsers.data;
         const $adsContainer = $('.ads-container');
@@ -220,6 +221,7 @@ function createAdObjects() {
         imgUrls.push('img/' + i.name);
         listingsObj.imgUrl = imgUrls;
     };
+    //Object.entries(listingsObj).sort().reduce((o, [k, v]) => (o[k] = v, o), {})
     (async () => {return await postAds(listingsObj);})();
 };
 
