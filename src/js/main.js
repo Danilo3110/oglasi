@@ -177,11 +177,11 @@ async function userLogIn() {
 
     for (const user of usersFromBase) {
         if (user.email === email && user.password === pass) {
-            sessionStorage.setItem('validation', true);
-            sessionStorage.setItem('id', user.id);
+            localStorage.setItem('validation', true);
+            localStorage.setItem('id', user.id);
         }
     }
-    if (JSON.parse(sessionStorage.getItem('validation'))) {
+    if (JSON.parse(localStorage.getItem('validation'))) {
         alert(`Uspesno ste ulogovani!`);
     } else {
         $('#userEmail').css('background', 'rgba(255, 0, 0, 0.4)');
@@ -205,7 +205,7 @@ function createAdObjects() {
 
     const listingNumber = Math.floor(Math.random() * 999);
     listingsObj['listingNumber'] = listingNumber;
-    listingsObj['authorId'] = JSON.parse(sessionStorage.getItem('id'));
+    listingsObj['authorId'] = JSON.parse(localStorage.getItem('id'));
 
     $("#writeAd").find("input:not(:checkbox), textarea, select").each(function () {
         listingsObj[this.name] = $(this).val();
