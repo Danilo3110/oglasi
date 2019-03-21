@@ -1,5 +1,6 @@
 {
-  "listings": [{
+  "listings": [
+    {
       "listingCreated": "21.3.2019. 00:46:51",
       "listingChecked": "21.3.2019. 22:46:51",
       "listingNumber": 117,
@@ -120,7 +121,8 @@
       "id": 4
     }
   ],
-  "users": [{
+  "users": [
+    {
       "category": "Fizičko lice",
       "name": "Darko Mingovski",
       "email": "darko.mingovski@gmail.com",
@@ -141,6 +143,17 @@
       "telephone": "011/2798-515",
       "mobile": "064/31-29-445",
       "id": 2
+    },
+    {
+      "category": "Pravno lice",
+      "name": "BEOAGENT doo",
+      "email": "beoagent@gmail.com",
+      "password": "beoagent",
+      "address": "Hopovska 92",
+      "city": "Beograd",
+      "telephone": "011/276-3887",
+      "mobile": "064/129-3890",
+      "id": 3
     }
   ]
 }
