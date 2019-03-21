@@ -119,6 +119,36 @@
       "publicTransport": "2, 5, 10, 28, 33, 40, 48, 65, 77, 79",
       "options": "Terasa, Internet, Kablovska, Telefon, Klima, Lift",
       "id": 4
+    },
+    {
+      "listingCreated": "21.3.2019. 10:01:22",
+      "listingChecked": "22.3.2019. 05:01:22",
+      "listingNumber": 243,
+      "authorId": 3,
+      "category": "Stanovi",
+      "city": "Beograd",
+      "street": "Ljubise Miodragovica",
+      "title": "Mirijevo, Ljubise Miodragovica",
+      "additionalinfo": "Vrlo lep sredjen.\n\nOd prostorija ima: ulazni hodnik, kupatilo, dnevni boravak, izdvojenu kuhinju i spavacu sobu.\n\nOrjentisan severo-zapadno. U spavacoj sobi i dnevnom boravku su krovni prozori, kosine idu sa 1.5m visine.\n\nBlizina autobuskog prevoza, vrtica.\n\nAgencijska provizija 2%, rgb br 070.",
+      "imgUrl": [
+        "img/mirijevo-ljubise-miodragovica1.jpg",
+        "img/mirijevo-ljubise-miodragovica2.jpg",
+        "img/mirijevo-ljubise-miodragovica3.jpg"
+      ],
+      "price": "38000",
+      "price-other": null,
+      "m2": "39",
+      "land-m2": "",
+      "state": "Renovirano",
+      "legalised": "Nije uknjižen",
+      "heating": "Elektricno",
+      "yearOfConstruction": "2011",
+      "floor": "3",
+      "floors": "3",
+      "roomCount": "1.5",
+      "publicTransport": "20, 27, 74, 79",
+      "options": "Internet, Kablovska",
+      "id": 5
     }
   ],
   "users": [
