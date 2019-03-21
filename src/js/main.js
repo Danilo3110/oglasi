@@ -277,7 +277,7 @@ async function searchAds() {
     const response = await api.get(`/listings`);
     const listingsDb = response.data;
     const filteredAds = [];
-    for (var i in listingsDb) {
+    for (const i in listingsDb) {
         if ((listingsDb[i].title).includes(srch) && listingsDb[i].city == srchCity && listingsDb[i].category == srchCat ) {
             filteredAds.push(listingsDb[i])
         }
