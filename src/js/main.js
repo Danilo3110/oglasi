@@ -118,7 +118,7 @@ async function renderFullAds() {
     }
 };
 
-$(document).on('load', renderAds());
+$(document).on('load', renderAds(), addLogOut());
 
 function advancedSearch() {
     $('.show').slideToggle(850);
@@ -184,6 +184,7 @@ async function userLogIn() {
     }
     if (JSON.parse(localStorage.getItem('validation'))) {
         alert(`Uspesno ste ulogovani!`);
+        location.href = 'index.html';
     } else {
         $('#userEmail').css('background', 'rgba(255, 0, 0, 0.4)');
         $('#pass').css('background', 'rgba(255, 0, 0, 0.4)');
@@ -240,3 +241,31 @@ async function deleteAds() {
             alert(error);
         });
 };
+
+function checkUserLogIn() {
+    return localStorage.getItem('validation') ? location.href = 'publish_ad.html' :
+        alert('Da bi dodali novi oglas, morate biti ulogovani!');
+};
+
+$('#publishAd, .item4 button').on('click', checkUserLogIn);
+
+function addLogOut() {
+    if (localStorage.getItem('validation')) {
+        $('#logIn-out').html(`<i title="Odjavi se" class="fas fa-sign-out-alt fa-lg"></i>`);
+    } else {
+        $('#logIn-out').html(`<i title="Prijava korisnika" class="fas fa-sign-in-alt fa-lg"></i>`);
+    }
+};
+
+function logInOut() {
+    if (localStorage.getItem('validation')) {
+        localStorage.removeItem('validation');
+        localStorage.removeItem('id');
+        addLogOut();
+        alert('Uspesno ste se izlogovali!');
+        location.href = 'index.html';
+    } else {
+        location.href = 'login.html';
+    }
+}
+$('#logIn-out').on('click', logInOut);
