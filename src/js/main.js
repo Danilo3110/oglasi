@@ -40,6 +40,7 @@ async function renderFullAds() {
         const users = responseUsers.data;
 
         $('html head').find('title').text(`Šifra oglasa: ${listings.listingNumber}`);
+        const pricePerM2 = Math.floor(Number(listings.price) / Number(listings.m2)).toLocaleString('sr-RS');
 
         const $fullContainer = $('.item7');
         const $ad = $(`<h2>${listings.title}</h2>
@@ -60,7 +61,8 @@ async function renderFullAds() {
                             : Number(listings.price).toLocaleString('sr-RS') + '&euro;'}<br><br>
                     Sprat: ${listings.floor}/${listings.floors}<br><br>
                     Uknjiženost: ${listings.legalised}<br><br>
-                    Površina: ${listings.m2}<br><br>
+                    Površina: ${listings.m2}&nbsp;m&sup2;<br><br>
+                    Cena po m&sup2;: ${pricePerM2 + '&euro;'} <br><br>
                     Stanje: ${listings.state}<br><br>
                     Ulica: ${listings.street}<br><br>
                     Linije JGP: ${listings.publicTransport}
