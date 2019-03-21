@@ -272,11 +272,16 @@ $('#logIn-out').on('click', logInOut);
 
 async function searchAds() {
     const srch = $('#searchAds').val();
+    const srchCity = $('#searchCity').val();
+    const srchCat = $('#searchCat').val();
     const response = await api.get(`/listings`);
     const listingsDb = response.data;
-    let filteredAds = listingsDb.filter(obj => {
-        return obj.title.includes(srch);
-      });
+    const filteredAds = [];
+    for (var i in listingsDb) {
+        if ((listingsDb[i].title).includes(srch) && listingsDb[i].city == srchCity && listingsDb[i].category == srchCat ) {
+            filteredAds.push(listingsDb[i])
+        }
+      }
       console.log(filteredAds);
 };
 
