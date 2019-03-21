@@ -118,16 +118,12 @@ async function renderFullAds() {
     }
 };
 
-$(document).on('load', renderAds(), addLogOut());
-
 function advancedSearch() {
     $('.show').slideToggle(850);
     $('html, body').animate({
         scrollTop: $('#aSearch').offset().top
     }, 850);
 };
-
-$('#aSearch, #closeSearch').click(advancedSearch);
 
 function fullAds(id) {
     sessionStorage.setItem('idOfsmallAds', id);
@@ -152,12 +148,10 @@ $(document).ready(() => {
 
 function createUser() {
     const usersObj = {};
-
     $("#writeAd").find("input, select").each(function () {
         usersObj[this.name] = $(this).val();
     });
     delete usersObj.passwordRepeat;
-    console.log(usersObj);
 
     (async () => {postUsers(usersObj);})();
 };
@@ -171,13 +165,13 @@ async function postUsers(obj) {
 };
 
 async function userLogIn() {
-    const email = $('#userEmail').val();
-    const pass = $('#pass').val();
+    const $email = $('#userEmail').val();
+    const $pass = $('#pass').val();
     const response = await api.get(`/users`);
     const usersFromBase = response.data;
 
     for (const user of usersFromBase) {
-        if (user.email === email && user.password === pass) {
+        if (user.email === $email && user.password === $pass) {
             localStorage.setItem('validation', true);
             localStorage.setItem('id', user.id);
         }
@@ -234,20 +228,10 @@ async function postAds(obj) {
         });
 };
 
-async function deleteAds() {
-    return await api.delete('/listings/' + 9)
-        .then((response) => alert(`Uspesno ste obrisali oglas`))
-        .catch((error) => {
-            alert(error);
-        });
-};
-
 function checkUserLogIn() {
     return localStorage.getItem('validation') ? location.href = 'publish_ad.html' :
         alert('Da bi dodali novi oglas, morate biti ulogovani!');
 };
-
-$('#publishAd, .item4 button').on('click', checkUserLogIn);
 
 function addLogOut() {
     if (localStorage.getItem('validation')) {
@@ -267,21 +251,51 @@ function logInOut() {
     } else {
         location.href = 'login.html';
     }
-}
-$('#logIn-out').on('click', logInOut);
+};
 
 async function searchAds() {
-    const searchKey = $('#searchAds').val();
-    const searchCity = $('#searchCity').val();
-    const searchCat = $('#searchCat').val();
+    const $searchKey = $('#searchAds').val();
+    const $searchCity = $('#searchCity').val();
+    const $searchCat = $('#searchCat').val();
     const response = await api.get(`/listings`);
     const listingsDb = response.data;
     const filteredAds = [];
     for (const i in listingsDb) {
-        if ((listingsDb[i].title).includes(searchKey) && listingsDb[i].city == searchCity && listingsDb[i].category == searchCat ) {
-            filteredAds.push(listingsDb[i])
+        if ((listingsDb[i].title).includes($searchKey) && listingsDb[i].city == $searchCity && listingsDb[i].category == $searchCat) {
+            filteredAds.push(listingsDb[i]);
         }
-      }
-      console.log(filteredAds);
+    }
+    console.log(filteredAds);
+    $('.ads-container').html('');
+    $('.ads-click-scroll').html('Rezultati pretrage:');
+    for (const ad of filteredAds) {
+        const responseUsers = await api.get(`/users/${ad.authorId}`);
+        const users = responseUsers.data;
+        const $adsContainer = $('.ads-container');
+        const $ad = $(`<div class="ads" id="${ad.id}_searched">
+                        <div class="ads-descr">
+                        <h3>Lokacija: ${ad.city}<i class="fas fa-share-alt fa-lg"></i><i class="far fa-heart fa-lg"></i>
+                        <i class="fas fa-map-marker-alt fa-lg"></i></h3>
+                        </div>
+                        <img src="${ad.imgUrl[0]}" alt=""><br>
+                        <h2 class="ads-descr">${ad.title}</h2>
+                        <h3 class="ads-descr">cena: ${Number(ad.price).toLocaleString('sr-RS') == null ? ad['price-other']
+                                                    : Number(ad.price).toLocaleString('sr-RS') + '&euro;'}</h3>
+                        <hr>
+                        <h3 class="ads-descr">kontakt: ${users.mobile}</h3>
+                        </div>`);
+        $ad.appendTo($adsContainer);
+        $(`#${ad.id}_searched`).on('click', () => fullAds(ad.id));
+    }
 };
 
+function eventsAll() {
+    $('#aSearch, #closeSearch').click(advancedSearch);
+    $('#publishAd, .item4 button').on('click', checkUserLogIn);
+    $('#logIn').on('click', userLogIn);
+    $('#createUser').on('click', createUser);
+    $('#logIn-out').on('click', logInOut);
+    $('#createObjects').on('click', createAdObjects);
+    $('#searchAdsAll').on('click', searchAds);
+};
+$(document).on('load', renderAds(), addLogOut(), eventsAll());
