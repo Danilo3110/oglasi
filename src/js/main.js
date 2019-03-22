@@ -10,24 +10,28 @@ async function renderAds() {
     const responseListings = await api.get(`/listings`);
     const listings = responseListings.data;
     const listingsOrder = listings.sort((a, b) => (a.id < b.id) ? 1 : -1);
-    for (const ad of listingsOrder) {
+    (async () => await _render_small(listingsOrder, '.ads-container'))();
+};
+
+async function _render_small(listings, location) {
+    for (const ad of listings) {
         const responseUsers = await api.get(`/users/${ad.authorId}`);
         const users = responseUsers.data;
-        const $adsContainer = $('.ads-container');
-        const $ad = $(`<div class="ads" id="${ad.id}">
-                        <div class="ads-descr">
-                        <h3>Lokacija: ${ad.city}<i class="fas fa-share-alt fa-lg"></i><i class="far fa-heart fa-lg"></i>
-                        <i class="fas fa-map-marker-alt fa-lg"></i></h3>
-                        </div>
-                        <img src="${ad.imgUrl[0]}" alt=""><br>
-                        <h2 class="ads-descr">${ad.title}</h2>
-                        <h3 class="ads-descr">cena: ${Number(ad.price).toLocaleString('sr-RS') == null ? ad['price-other']
-                                                    : Number(ad.price).toLocaleString('sr-RS') + '&euro;'}</h3>
-                        <hr>
-                        <h3 class="ads-descr">kontakt: ${users.mobile}</h3>
-                        </div>`);
+        const $adsContainer = $(`${location}`);
+        const $ad = $(`<div class="ads" id="${ad.id}_searched">
+                    <div class="ads-descr">
+                    <h3>Lokacija: ${ad.city}<i class="fas fa-share-alt fa-lg"></i><i class="far fa-heart fa-lg"></i>
+                    <i class="fas fa-map-marker-alt fa-lg"></i></h3>
+                    </div>
+                    <img src="${ad.imgUrl[0]}" alt=""><br>
+                    <h2 class="ads-descr">${ad.title}</h2>
+                    <h3 class="ads-descr">cena: ${Number(ad.price).toLocaleString('sr-RS') == null ? ad['price-other']
+                                                : Number(ad.price).toLocaleString('sr-RS') + '&euro;'}</h3>
+                    <hr>
+                    <h3 class="ads-descr">kontakt: ${users.mobile}</h3>
+                    </div>`);
         $ad.appendTo($adsContainer);
-        $(`#${ad.id}`).on('click', () => fullAds(ad.id));
+        $(`#${ad.id}_searched`).on('click', () => fullAds(ad.id));
     }
 };
 
@@ -118,6 +122,14 @@ async function renderFullAds() {
     }
 };
 
+async function usersAds() {
+    const response = await api.get(`/listings?authorId=${localStorage.getItem('id')}`);
+    const userListings = response.data;
+    $('.item7').append(`<h1 class="ads-click-scroll">Korisnik: ${localStorage.getItem('user')} - oglasi:</h1>
+                        <div class="user-container"></div>`);
+    (async () => await _render_small(userListings, '.user-container'))();
+};
+
 function advancedSearch() {
     $('.show').slideToggle(850);
     $('html, body').animate({
@@ -163,7 +175,7 @@ function createUser() {
     });
     delete usersObj.passwordRepeat;
 
-    (async () => {postUsers(usersObj);})();
+    (async () => await postUsers(usersObj))();
 };
 
 async function postUsers(obj) {
@@ -223,12 +235,21 @@ function createAdObjects() {
         listingsObj['options'] = option.join(', ');
     });
 
+    $('#writeAd').find(':checkbox').each(function () {
+        if ($(this).is(':checked')) {
+            listingsObj[this.id] = true;
+        } else {
+            listingsObj[this.id] = false;
+        }
+    });
+
     for (const i of files) {
         imgUrls.push('img/' + i.name);
         listingsObj.imgUrl = imgUrls;
     };
+    console.log(listingsObj);
     //Object.entries(listingsObj).sort().reduce((o, [k, v]) => (o[k] = v, o), {})
-    (async () => {return await postAds(listingsObj);})();
+    (async () => await postAds(listingsObj))();
 };
 
 async function postAds(obj) {
@@ -247,8 +268,9 @@ function checkUserLogIn() {
 function goToUserPanel() {
     if (localStorage.getItem('validation')) {
         location.href = 'user_panel.html';
+    } else {
+        alert('Da bi koristili korisnički panel, morate biti ulogovani!');
     }
-    else{alert('Da bi koristili korisnički panel, morate biti ulogovani!');}
 };
 
 function addLogOut() {
@@ -315,49 +337,30 @@ async function searchAds() {
         lift.checked == false ? lift.checked = el.false : options.push(lift.value);
         let optionsJSON = options.join(', ');
         console.log(optionsJSON)
-        return  el.price <= +$priceMax &&
-                el.price >= +$priceMin &&
-                el.m2 >= +$m2Min &&
-                el.m2 <= +$m2Max &&
-                el.listingNumber == +$searchListingNumber &&
-                el.category == $searchCat &&
-                el.city == $searchCity &&
-                el.street == $searchStreet &&
-                el.title.includes($searchKey) &&
-                el.state == $searchState &&
-                el.legalised == $searchLegalised &&
-                el.floor == +$searchFloor &&
-                el.heating == $searchHeating &&
-                el.options.includes(optionsJSON);
-      });
-      console.log(filteredAds)
+        return el.price <= +$priceMax &&
+            el.price >= +$priceMin &&
+            el.m2 >= +$m2Min &&
+            el.m2 <= +$m2Max &&
+            el.listingNumber == +$searchListingNumber &&
+            el.category == $searchCat &&
+            el.city == $searchCity &&
+            el.street == $searchStreet &&
+            el.title.includes($searchKey) &&
+            el.state == $searchState &&
+            el.legalised == $searchLegalised &&
+            el.floor == +$searchFloor &&
+            el.heating == $searchHeating &&
+            el.options.includes(optionsJSON);
+    });
     $('.ads-container').html('');
     $('.ads-click-scroll').html('Rezultati pretrage:');
-    for (const ad of filteredAds) {
-        const responseUsers = await api.get(`/users/${ad.authorId}`);
-        const users = responseUsers.data;
-        const $adsContainer = $('.ads-container');
-        const $ad = $(`<div class="ads" id="${ad.id}_searched">
-                    <div class="ads-descr">
-                    <h3>Lokacija: ${ad.city}<i class="fas fa-share-alt fa-lg"></i><i class="far fa-heart fa-lg"></i>
-                    <i class="fas fa-map-marker-alt fa-lg"></i></h3>
-                    </div>
-                    <img src="${ad.imgUrl[0]}" alt=""><br>
-                    <h2 class="ads-descr">${ad.title}</h2>
-                    <h3 class="ads-descr">cena: ${Number(ad.price).toLocaleString('sr-RS') == null ? ad['price-other']
-                                                : Number(ad.price).toLocaleString('sr-RS') + '&euro;'}</h3>
-                    <hr>
-                    <h3 class="ads-descr">kontakt: ${users.mobile}</h3>
-                    </div>`);
-        $ad.appendTo($adsContainer);
-        $(`#${ad.id}_searched`).on('click', () => fullAds(ad.id));
-    }
+    (async () => await _render_small(filteredAds, '.ads-container'))();
 };
 
 function eventsAll() {
     $('#aSearch, #closeSearch').on('click', advancedSearch);
     $('.item4 button').on('click', checkUserLogIn);
-    $('#userPanel').on('click',goToUserPanel);
+    $('#userPanel').on('click', goToUserPanel);
     $('#logIn').on('click', userLogIn);
     $('#createUser').on('click', createUser);
     $('#logIn-out').on('click', logInOut);
