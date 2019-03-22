@@ -146,6 +146,16 @@ $(document).ready(() => {
     });
 });
 
+function validateRegisterUser() {
+    const fields = $("#writeAd")
+        .find("select, input").serializeArray();
+
+    $.each(fields, function (i, field) {
+        if (!field.value)
+            alert(field.name + ' is required');
+    });
+};
+
 function createUser() {
     const usersObj = {};
     $("#writeAd").find("input, select").each(function () {
@@ -260,15 +270,24 @@ async function searchAds() {
     const response = await api.get(`/listings`);
     const listingsDb = response.data;
     const filteredAds = [];
+    const advancedFiltered = [];
     for (const i in listingsDb) {
         if ((listingsDb[i].title).includes($searchKey) && listingsDb[i].city == $searchCity && listingsDb[i].category == $searchCat) {
             filteredAds.push(listingsDb[i]);
         }
     }
+    $("#advancedSearch").find("input:checked").each(function () {
+        for (const x in filteredAds) {
+            if (filteredAds[x].options.includes(this.value)) {
+                advancedFiltered.push(filteredAds[x]);
+            }
+        }
+    });
     console.log(filteredAds);
+    console.log(advancedFiltered);
     $('.ads-container').html('');
     $('.ads-click-scroll').html('Rezultati pretrage:');
-    for (const ad of filteredAds) {
+    for (const ad of advancedFiltered) {
         const responseUsers = await api.get(`/users/${ad.authorId}`);
         const users = responseUsers.data;
         const $adsContainer = $('.ads-container');
