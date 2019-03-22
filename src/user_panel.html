@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="sr">
 
 <head>
@@ -14,10 +14,11 @@
     <script src="js/vendor/jquery.js"></script>
     <script src="../node_modules/axios/dist/axios.js"></script>
     <script src="js/main.js" defer></script>
-    <title>Registracija</title>
+    <title>eKvadrat oglasi</title>
+</head>
 
 <body>
-    <div class="grid-container-publish-ad">
+    <div class="grid-container">
         <div class="item1">
             <a href="index.html"><img src="img/logo6.png" alt=""></a>
         </div>
@@ -36,38 +37,41 @@
         <div class="item4">
             <button type="submit"><i class="far fa-plus-square fa-lg"></i>&nbsp;&nbsp;Dodaj&nbsp;oglas</button>
         </div>
-        <div class="item5-publish-ad"></div>
+        <div class="item5">
+        </div>
         <div class="item6">
+            <div id="button-wrap">
+                <a href="#">
+                    <div id="apartments"><i class="fas fa-building"></i><br>Stanovi<h6>11&nbsp;novih&nbsp;oglasa</h6>
+                    </div>
+                </a>
+                <a href="#">
+                    <div id="houses"><i class="fas fa-home"></i><br>Kuće<h6>4&nbsp;nova&nbsp;oglasa</h6>
+                    </div>
+                </a>
+                <a href="#">
+                    <div id="garages"><i class="fas fa-warehouse"></i><br>Garaže<h6>14&nbsp;novih&nbsp;oglasa</h6>
+                    </div>
+                </a>
+                <a href="#">
+                    <div id="business"><i class="far fa-building"></i><br>Business&nbsp;rent<h6>3&nbsp;nova&nbsp;oglasa
+                        </h6>
+                    </div>
+                </a>
+                <a href="#">
+                    <div id="land"><i class="fas fa-tree"></i><br>Zemljište<h6>17&nbsp;novih&nbsp;oglasa</h6>
+                    </div>
+                </a>
+            </div>
         </div>
         <div class="item-search show">
+            <h4>Napredna&nbsp;pretraga:</h4>
+            <hr>
+            <a id="closeSearch">Manje&nbsp;opcija&nbsp;<i class="fas fa-sliders-h"></i></a>
         </div>
         <div class="item7">
-            <h2>Registracija novog korisnika</h2>
-            <form id="writeAd">
-                <select name="category">
-                    <option selected disabled>kategorija</option>
-                    <option value="Fizičko&nbsp;lice">Fizičko&nbsp;lice</option>
-                    <option value="Pravno&nbsp;lice">Pravno&nbsp;lice</option>
-                </select><br>
-                <hr>
-                <div class="form-container">
-                    <div class="form-left">
-                        <input type="text" name="name" placeholder="Ime"><br>
-                        <input type="email" name="email" placeholder="Email"><br>
-                        <input type="password" name="password" placeholder="Lozinka"><br>
-                        <input type="password" name="passwordRepeat" placeholder="Ponovite&nbsp;lozinku"><br>
-                    </div>
-                    <div class="form-right">
-                        <input type="text" name="address" placeholder="Ulica&nbsp;i&nbsp;broj"><br>
-                        <input type="text" name="city" placeholder="Mesto"><br>
-                        <input type="tel" name="telephone" placeholder="Fiksni&nbsp;telefon"><br>
-                        <input type="tel" name="mobile" placeholder="Mobilni&nbsp;telefon"><br>
-                        <hr>
-                    </div>
-                </div>
-                <button type="button" id="createUser">Pošalji&nbsp;podatke</button>&nbsp;&nbsp;&nbsp;
-                <button type="reset">Resetuj&nbsp;sve</button>
-            </form>
+            <h1 class="ads-click-scroll">Vaši&nbsp;oglasi</h1>
+            <div class="ads-container"></div>
         </div>
         <div class="item8">
             <div class="footer-container">
