@@ -184,6 +184,7 @@ async function userLogIn() {
         if (user.email === $email && user.password === $pass) {
             localStorage.setItem('validation', true);
             localStorage.setItem('id', user.id);
+            localStorage.setItem('user', user.name);
         }
     }
     if (JSON.parse(localStorage.getItem('validation'))) {
@@ -243,6 +244,13 @@ function checkUserLogIn() {
         alert('Da bi dodali novi oglas, morate biti ulogovani!');
 };
 
+function goToUserPanel() {
+    if (localStorage.getItem('validation')) {
+        location.href = 'users_panel.html';
+    }
+    else{alert('Da bi dodali novi oglas, morate biti ulogovani!');}
+};
+
 function addLogOut() {
     if (localStorage.getItem('validation')) {
         $('#logIn-out').html(`<i title="Odjavi se" class="fas fa-sign-out-alt fa-lg"></i>`);
@@ -255,6 +263,7 @@ function logInOut() {
     if (localStorage.getItem('validation')) {
         localStorage.removeItem('validation');
         localStorage.removeItem('id');
+        localStorage.removeItem('user');
         addLogOut();
         alert('Uspesno ste se izlogovali!');
         location.href = 'index.html';
@@ -318,7 +327,8 @@ async function searchAds() {
 
 function eventsAll() {
     $('#aSearch, #closeSearch').on('click', advancedSearch);
-    $('#publishAd, .item4 button').on('click', checkUserLogIn);
+    $('.item4 button').on('click', checkUserLogIn);
+    $('#publishAd').on('click',goToUserPanel);
     $('#logIn').on('click', userLogIn);
     $('#createUser').on('click', createUser);
     $('#logIn-out').on('click', logInOut);
