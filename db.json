@@ -63,6 +63,7 @@
       "options": "Garaža, Terasa, Internet, Kablovska, Telefon, Klima, Lift",
       "hidden" : "",
       "null" : null,
+      "false" : false,
       "id": 2
     },
     {
@@ -95,6 +96,7 @@
       "options": "Garaža, Terasa, Internet, Kablovska, Telefon, Klima, Lift",
       "hidden" : "",
       "null" : null,
+      "false" : false,
       "id": 3
     },
     {
@@ -126,6 +128,7 @@
       "options": "Terasa, Internet, Kablovska, Telefon, Klima, Lift",
       "hidden" : "",
       "null" : null,
+      "false" : false,
       "id": 4
     },
     {
@@ -158,6 +161,7 @@
       "options": "Internet, Kablovska",
       "hidden" : "",
       "null" : null,
+      "false" : false,
       "id": 5
     },
     {
@@ -191,6 +195,7 @@
       "options": "Terasa, Internet, Kablovska, Telefon, Klima",
       "hidden" : "",
       "null" : null,
+      "false" : false,
       "id": 6
     },
     {
@@ -224,6 +229,7 @@
       "options": "Parking, Terasa, Internet, Kablovska, Telefon, Klima",
       "hidden" : "",
       "null" : null,
+      "false" : false,
       "id": 7
     },
     {
@@ -258,6 +264,7 @@
       "options": "Garaža, Terasa, Internet, Kablovska, Telefon, Klima, Lift",
       "hidden" : "",
       "null" : null,
+      "false" : false,
       "id": 8
     }
   ],
