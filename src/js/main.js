@@ -277,37 +277,34 @@ async function searchAds() {
         }
     }
     $("#advancedSearch").find("input:not(:checkbox), input:checked, select").each(function () {
-        let inputVal = this.value;
-        let inputNam = this.name;
-        let inputObj = {
-            [inputNam] : inputVal
+        if (!($(this).val() === '' || $(this).val() === null)) {
+            advancedFiltered.push($(this).val());
         }
-        advancedFiltered.push(inputObj);
     });
     console.log(filteredAds);
     console.log(advancedFiltered);
-//     $('.ads-container').html('');
-//     $('.ads-click-scroll').html('Rezultati pretrage:');
-//     for (const ad of advancedFiltered) {
-//         const responseUsers = await api.get(`/users/${ad.authorId}`);
-//         const users = responseUsers.data;
-//         const $adsContainer = $('.ads-container');
-//         const $ad = $(`<div class="ads" id="${ad.id}_searched">
-//                         <div class="ads-descr">
-//                         <h3>Lokacija: ${ad.city}<i class="fas fa-share-alt fa-lg"></i><i class="far fa-heart fa-lg"></i>
-//                         <i class="fas fa-map-marker-alt fa-lg"></i></h3>
-//                         </div>
-//                         <img src="${ad.imgUrl[0]}" alt=""><br>
-//                         <h2 class="ads-descr">${ad.title}</h2>
-//                         <h3 class="ads-descr">cena: ${Number(ad.price).toLocaleString('sr-RS') == null ? ad['price-other']
-//                                                     : Number(ad.price).toLocaleString('sr-RS') + '&euro;'}</h3>
-//                         <hr>
-//                         <h3 class="ads-descr">kontakt: ${users.mobile}</h3>
-//                         </div>`);
-//         $ad.appendTo($adsContainer);
-//         $(`#${ad.id}_searched`).on('click', () => fullAds(ad.id));
-//     }
- };
+    //     $('.ads-container').html('');
+    //     $('.ads-click-scroll').html('Rezultati pretrage:');
+    //     for (const ad of advancedFiltered) {
+    //         const responseUsers = await api.get(`/users/${ad.authorId}`);
+    //         const users = responseUsers.data;
+    //         const $adsContainer = $('.ads-container');
+    //         const $ad = $(`<div class="ads" id="${ad.id}_searched">
+    //                         <div class="ads-descr">
+    //                         <h3>Lokacija: ${ad.city}<i class="fas fa-share-alt fa-lg"></i><i class="far fa-heart fa-lg"></i>
+    //                         <i class="fas fa-map-marker-alt fa-lg"></i></h3>
+    //                         </div>
+    //                         <img src="${ad.imgUrl[0]}" alt=""><br>
+    //                         <h2 class="ads-descr">${ad.title}</h2>
+    //                         <h3 class="ads-descr">cena: ${Number(ad.price).toLocaleString('sr-RS') == null ? ad['price-other']
+    //                                                     : Number(ad.price).toLocaleString('sr-RS') + '&euro;'}</h3>
+    //                         <hr>
+    //                         <h3 class="ads-descr">kontakt: ${users.mobile}</h3>
+    //                         </div>`);
+    //         $ad.appendTo($adsContainer);
+    //         $(`#${ad.id}_searched`).on('click', () => fullAds(ad.id));
+    //     }
+};
 
 function eventsAll() {
     $('#aSearch, #closeSearch').on('click', advancedSearch);
@@ -316,6 +313,6 @@ function eventsAll() {
     $('#createUser').on('click', createUser);
     $('#logIn-out').on('click', logInOut);
     $('#createObjects').on('click', createAdObjects);
-    $('#searchAdsAll').on('click', searchAds);
+    $('#searchAdsAll, #searchAdsAll_2').on('click', searchAds);
 };
 $(document).on('load', renderAds(), addLogOut(), eventsAll());
