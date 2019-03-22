@@ -276,13 +276,6 @@ async function searchAds() {
             filteredAds.push(listingsDb[i]);
         }
     }
-    $("#advancedSearch").find("input:checked").each(function () {
-        for (const x in filteredAds) {
-            if (filteredAds[x].options.includes(this.value)) {
-                advancedFiltered.push(filteredAds[x]);
-            }
-        }
-    });
     console.log(filteredAds);
     console.log(advancedFiltered);
     $('.ads-container').html('');
@@ -309,7 +302,7 @@ async function searchAds() {
 };
 
 function eventsAll() {
-    $('#aSearch, #closeSearch').click(advancedSearch);
+    $('#aSearch, #closeSearch').on('click', advancedSearch);
     $('#publishAd, .item4 button').on('click', checkUserLogIn);
     $('#logIn').on('click', userLogIn);
     $('#createUser').on('click', createUser);
