@@ -246,9 +246,9 @@ function checkUserLogIn() {
 
 function goToUserPanel() {
     if (localStorage.getItem('validation')) {
-        location.href = 'users_panel.html';
+        location.href = 'user_panel.html';
     }
-    else{alert('Da bi dodali novi oglas, morate biti ulogovani!');}
+    else{alert('Da bi koristili korisnički panel, morate biti ulogovani!');}
 };
 
 function addLogOut() {
@@ -328,7 +328,7 @@ async function searchAds() {
 function eventsAll() {
     $('#aSearch, #closeSearch').on('click', advancedSearch);
     $('.item4 button').on('click', checkUserLogIn);
-    $('#publishAd').on('click',goToUserPanel);
+    $('#userPanel').on('click',goToUserPanel);
     $('#logIn').on('click', userLogIn);
     $('#createUser').on('click', createUser);
     $('#logIn-out').on('click', logInOut);
