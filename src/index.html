@@ -42,7 +42,7 @@
             <h4>Pretražite&nbsp;više&nbsp;od&nbsp;15,000,000&nbsp;oglasa&nbsp;i&nbsp;nikad&nbsp;lakše&nbsp;pronađite&nbsp;svoj&nbsp;idealan&nbsp;dom
             </h4>
             <input type="text" placeholder="tražim" id="searchAds">
-            <select name="city" id="searchCity">
+            <select name="city" id="city">
                 <option selected disabled>lokacija</option>
                 <option value="Beograd">Beograd</option>
                 <option value="Kragujevac">Kragujevac</option>
@@ -82,7 +82,7 @@
                 <option value="Majdanpek">Majdanpek</option>
                 <option value="Novi Pazar">Novi&nbsp;Pazar</option>
             </select>
-            <select name="category" id="searchCat">
+            <select name="category" id="category">
                 <option selected disabled>kategorija</option>
                 <option value="Stanovi">Stanovi</option>
                 <option value="Kuće">Kuće</option>
@@ -137,8 +137,8 @@
                     <option value="Podno">Podno</option>
                     <option value="Etažno">Etažno</option>
                 </select>
-                <input type="text" name="street" placeholder="Ulica">
-                <input type="text" name="listingNumber" placeholder="Šifra oglasa">
+                <input type="text" name="street" id="street" placeholder="Ulica">
+                <input type="text" name="listingNumber" id="listingNumber" placeholder="Šifra oglasa">
                 <hr>
                 <h5>Ostalo</h5>
                 <ul>

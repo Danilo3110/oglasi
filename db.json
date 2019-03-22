@@ -26,6 +26,9 @@
       "roomCount": "2",
       "publicTransport": "12, 13, 23, 37, 49, 51, 52, 53, 57, 58, 85, 87, 88, ADA1, E2, E5",
       "options": "Terasa, Kablovska, Lift",
+      "hidden" : "",
+      "null" : null,
+      "false" : false,
       "id": 1
     },
     {
@@ -58,6 +61,8 @@
       "roomCount": "2",
       "publicTransport": "7, 9, 11, 13, 17, 18, 70, 74, 88, 95, 601",
       "options": "Garaža, Terasa, Internet, Kablovska, Telefon, Klima, Lift",
+      "hidden" : "",
+      "null" : null,
       "id": 2
     },
     {
@@ -88,6 +93,8 @@
       "roomCount": "2",
       "publicTransport": "67, 68, 73, 76, 85, 94, 610, 708",
       "options": "Garaža, Terasa, Internet, Kablovska, Telefon, Klima, Lift",
+      "hidden" : "",
+      "null" : null,
       "id": 3
     },
     {
@@ -117,6 +124,8 @@
       "roomCount": "2",
       "publicTransport": "2, 5, 10, 28, 33, 40, 48, 65, 77, 79",
       "options": "Terasa, Internet, Kablovska, Telefon, Klima, Lift",
+      "hidden" : "",
+      "null" : null,
       "id": 4
     },
     {
@@ -147,6 +156,8 @@
       "roomCount": "1.5",
       "publicTransport": "20, 27, 74, 79",
       "options": "Internet, Kablovska",
+      "hidden" : "",
+      "null" : null,
       "id": 5
     },
     {
@@ -178,6 +189,8 @@
       "roomCount": "1.5",
       "publicTransport": "8, 11, 34",
       "options": "Terasa, Internet, Kablovska, Telefon, Klima",
+      "hidden" : "",
+      "null" : null,
       "id": 6
     },
     {
@@ -209,6 +222,8 @@
       "roomCount": "3",
       "publicTransport": "1, 2, 3, 4, 5, 6, 10, 13",
       "options": "Parking, Terasa, Internet, Kablovska, Telefon, Klima",
+      "hidden" : "",
+      "null" : null,
       "id": 7
     },
     {
@@ -241,6 +256,8 @@
       "roomCount": "4",
       "publicTransport": "9, 10, 11, 33, 47, 48, 401, 402, E9",
       "options": "Garaža, Terasa, Internet, Kablovska, Telefon, Klima, Lift",
+      "hidden" : "",
+      "null" : null,
       "id": 8
     }
   ],

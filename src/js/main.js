@@ -273,35 +273,62 @@ function logInOut() {
 };
 
 async function searchAds() {
-    const $searchKey = $('#searchAds').val();
-    const $searchCity = $('#searchCity').val();
-    const $searchCat = $('#searchCat').val();
-    const response = await api.get(`/listings`);
-    const listingsDb = response.data;
-    const filteredAds = [];
-    // const advancedFiltered = [];
-    for (const i in listingsDb) {
-        if ((listingsDb[i].title).includes($searchKey) && listingsDb[i].city == $searchCity && listingsDb[i].category == $searchCat) {
-            filteredAds.push(listingsDb[i]);
-        }
-    }
-    /*
-    $('#advancedSearch').find('input:checked, select').each(function () {
-        if (!($(this).val() === '' || $(this).val() === null)) {
-            advancedFiltered.push($(this).val());
-        }
-    });
-
-    for (let b in filteredAds) {
-        let adObj = JSON.stringify(filteredAds[b]);
-        for (let c in advancedFiltered) {
-            if (!(adObj.includes(advancedFiltered[c]))) {
-                filteredAds.splice(c, 1);
-            }
-        }
-    }
-    console.log(filteredAds);
-    console.log(advancedFiltered);*/
+    let $searchKey = $('#searchAds').val();
+    let $searchCity = $('#city').val();
+    let $searchCat = $('#category').val();
+    let $priceMin = $('#price-min').val();
+    let $priceMax = $('#price-max').val();
+    let $m2Min = $('#m2-min').val();
+    let $m2Max = $('#m2-max').val();
+    let $searchFloor = $('#floor').val();
+    let $searchHeating = $('#heating').val();
+    let $searchStreet = $('#street').val();
+    let $searchListingNumber = $('#listingNumber').val();
+    let $searchState = $('#state').val();
+    let $searchLegalised = $('#legalised').val();
+    let response = await api.get(`/listings`);
+    let listingsDb = response.data;
+    let filteredAds = listingsDb.filter(function (el) {
+        let options = [];
+        $priceMax == "" ? ($priceMax = 1000000) : $priceMax;
+        $priceMin == "" ? ($priceMin = 0) : $priceMin;
+        $m2Min == "" ? ($m2Min = 0) : $m2Min;
+        $m2Max == "" ? ($m2Max = 10000) : $m2Max;
+        $searchListingNumber == "" ? el.listingNumber = el.hidden : +$searchListingNumber;
+        $searchKey == "" ? el.title = el.hidden : $searchKey;
+        $searchCat == null ? el.category = el.null : $searchCat;
+        $searchCity == null ? el.city = el.null : $searchCity;
+        $searchStreet == "" ? el.street = el.hidden : $searchStreet;
+        $searchFloor == "" ? el.floor = el.hidden : $searchFloor;
+        $searchState == null ? el.state = el.null : $searchState;
+        $searchHeating == null ? el.heating = el.null : $searchHeating;
+        $searchLegalised == null ? el.legalised = el.null : $searchLegalised;
+        podrum.checked == false ? podrum.checked = el.false : options.push(podrum.value);
+        parking.checked == false ? parking.checked = el.false : options.push(parking.value);
+        terasa.checked == false ? terasa.checked = el.false : options.push(terasa.value);
+        garaza.checked == false ? garaza.checked = el.false : options.push(garaza.value);
+        dvoriste.checked == false ? dvoriste.checked = el.false : options.push(dvoriste.value);
+        internet.checked == false ? internet.checked = el.false : options.push(internet.value);
+        kablovska.checked == false ? kablovska.checked = el.false : options.push(kablovska.value);
+        telefon.checked == false ? telefon.checked = el.false : options.push(telefon.value);
+        klima.checked == false ? klima.checked = el.false : options.push(klima.value);
+        lift.checked == false ? lift.checked = el.false : options.push(lift.value);
+        let optionsJSON = options.join(', ');
+        return  el.price <= +$priceMax &&
+                el.price >= +$priceMin &&
+                el.m2 >= +$m2Min &&
+                el.m2 <= +$m2Max &&
+                el.listingNumber == +$searchListingNumber &&
+                el.category == $searchCat &&
+                el.city == $searchCity &&
+                el.street == $searchStreet &&
+                el.title.includes($searchKey) &&
+                el.state == $searchState &&
+                el.legalised == $searchLegalised &&
+                el.floor == +$searchFloor &&
+                el.heating == $searchHeating &&
+                el.options.includes(optionsJSON);
+      });
     $('.ads-container').html('');
     $('.ads-click-scroll').html('Rezultati pretrage:');
     for (const ad of filteredAds) {
