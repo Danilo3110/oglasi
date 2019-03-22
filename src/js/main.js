@@ -305,8 +305,8 @@ async function searchAds() {
         $searchLegalised == null ? el.legalised = el.null : $searchLegalised;
         podrum.checked == false ? podrum.checked = el.false : options.push(podrum.value);
         parking.checked == false ? parking.checked = el.false : options.push(parking.value);
-        terasa.checked == false ? terasa.checked = el.false : options.push(terasa.value);
         garaza.checked == false ? garaza.checked = el.false : options.push(garaza.value);
+        terasa.checked == false ? terasa.checked = el.false : options.push(terasa.value);
         dvoriste.checked == false ? dvoriste.checked = el.false : options.push(dvoriste.value);
         internet.checked == false ? internet.checked = el.false : options.push(internet.value);
         kablovska.checked == false ? kablovska.checked = el.false : options.push(kablovska.value);
@@ -314,6 +314,7 @@ async function searchAds() {
         klima.checked == false ? klima.checked = el.false : options.push(klima.value);
         lift.checked == false ? lift.checked = el.false : options.push(lift.value);
         let optionsJSON = options.join(', ');
+        console.log(optionsJSON)
         return  el.price <= +$priceMax &&
                 el.price >= +$priceMin &&
                 el.m2 >= +$m2Min &&
@@ -329,6 +330,7 @@ async function searchAds() {
                 el.heating == $searchHeating &&
                 el.options.includes(optionsJSON);
       });
+      console.log(filteredAds)
     $('.ads-container').html('');
     $('.ads-click-scroll').html('Rezultati pretrage:');
     for (const ad of filteredAds) {
