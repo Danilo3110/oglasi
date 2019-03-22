@@ -260,11 +260,20 @@ async function searchAds() {
     const response = await api.get(`/listings`);
     const listingsDb = response.data;
     const filteredAds = [];
+    const advancedFiltered = [];
     for (const i in listingsDb) {
         if ((listingsDb[i].title).includes($searchKey) && listingsDb[i].city == $searchCity && listingsDb[i].category == $searchCat) {
             filteredAds.push(listingsDb[i]);
         }
     }
+    $("#advancedSearch").find("input:checked").each(function () {
+        for (const x in filteredAds) {
+          if (filteredAds[x].options.includes(this.value)) {
+            advancedFiltered.push(filteredAds[x]);
+          } 
+        }
+    });
+    console.log(advancedFiltered)
     console.log(filteredAds);
     $('.ads-container').html('');
     $('.ads-click-scroll').html('Rezultati pretrage:');
