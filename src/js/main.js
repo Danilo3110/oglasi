@@ -281,36 +281,31 @@ function logInOut() {
 };
 
 async function searchAds() {
-    let inputCheckbox = [];
-    let inputCheckboxJOIN;
-    let inputRegular = [];
-    let inputRegularJOIN;
-    let response;
-    $("#advancedSearch, #basicSearch").find("input:not(:checkbox), textarea, select").each(function () {
-        if (this.value != "") {
+    const inputCheckbox = [];
+    const inputCheckboxJOIN;
+    const inputRegular = [];
+    const inputRegularJOIN;
+    const response;
+    $('#advancedSearch, #basicSearch').find('input:not(:checkbox), textarea, select').each(function () {
+        if (this.value != '') {
             inputRegular.push(`&${this.id}=${this.value}`)
-            inputRegularJOIN = inputRegular.join("");
+            inputRegularJOIN = inputRegular.join('');
         }
     });
     $('#advancedSearch').find('input:checked').each(function () {
         inputCheckbox.push(`&${this.id}=${this.checked}`)
-        inputCheckboxJOIN = inputCheckbox.join("");
+        inputCheckboxJOIN = inputCheckbox.join('');
     });
-    (inputRegularJOIN == undefined && inputCheckboxJOIN == undefined) ? response = await api.get(`/listings`) : "";
-    (inputRegularJOIN != undefined && inputCheckboxJOIN == undefined) ? response = await api.get(`/listings?${inputRegularJOIN}`) : "";
-    (inputRegularJOIN == undefined && inputCheckboxJOIN != undefined) ? response = await api.get(`/listings?${inputCheckboxJOIN}`) : "";
-    (inputRegularJOIN != undefined && inputCheckboxJOIN != undefined) ? response = await api.get(`/listings?${inputRegularJOIN}${inputCheckboxJOIN}`) : "";
-    let listingsDb = response.data;
-    const fullFilter = [];
-    for (const ad of listingsDb) {
-        const response = await api.get(`/listings/${ad.id}`);
-        const listing = response.data;
-        fullFilter.push(listing);
-    }
+    (inputRegularJOIN == undefined && inputCheckboxJOIN == undefined) ? response = await api.get(`/listings`): '';
+    (inputRegularJOIN != undefined && inputCheckboxJOIN == undefined) ? response = await api.get(`/listings?${inputRegularJOIN}`): '';
+    (inputRegularJOIN == undefined && inputCheckboxJOIN != undefined) ? response = await api.get(`/listings?${inputCheckboxJOIN}`): '';
+    (inputRegularJOIN != undefined && inputCheckboxJOIN != undefined) ? response = await api.get(`/listings?${inputRegularJOIN}${inputCheckboxJOIN}`): '';
+    const listingsDb = response.data;
+    
     $('.ads-container').html('');
     $('.ads-click-scroll').html('Rezultati pretrage:');
     animateFocus('.ads-click-scroll');
-    (async () => await _render_small(fullFilter, '.ads-container'))();
+    (async () => await _render_small(listingsDb, '.ads-container'))();
 };
 
 function eventsAll() {
