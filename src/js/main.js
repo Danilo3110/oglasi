@@ -281,71 +281,28 @@ function logInOut() {
 };
 
 async function searchAds() {
-    let $searchKey = $('#searchAds').val();
-    let $searchCity = $('#city').val();
-    let $searchCat = $('#category').val();
-    let $priceMin = $('#price-min').val();
-    let $priceMax = $('#price-max').val();
-    let $m2Min = $('#m2-min').val();
-    let $m2Max = $('#m2-max').val();
-    let $searchFloor = $('#floor').val();
-    let $searchHeating = $('#heating').val();
-    let $searchStreet = $('#street').val();
-    let $searchListingNumber = $('#listingNumber').val();
-    let $searchState = $('#state').val();
-    let $searchLegalised = $('#legalised').val();
-    let response = await api.get(`/listings`);
-    let listingsDb = response.data;
-    let filteredAds = listingsDb.filter(function (el) {
-        $priceMax == "" ? ($priceMax = 1000000) : $priceMax;
-        $priceMin == "" ? ($priceMin = 0) : $priceMin;
-        $m2Min == "" ? ($m2Min = 0) : $m2Min;
-        $m2Max == "" ? ($m2Max = 10000) : $m2Max;
-        $searchListingNumber == "" ? el.listingNumber = el.hidden : +$searchListingNumber;
-        $searchKey == "" ? el.title = el.hidden : $searchKey;
-        $searchCat == null ? el.category = el.null : $searchCat;
-        $searchCity == null ? el.city = el.null : $searchCity;
-        $searchStreet == "" ? el.street = el.hidden : $searchStreet;
-        $searchFloor == "" ? el.floor = el.hidden : $searchFloor;
-        $searchState == null ? el.state = el.null : $searchState;
-        $searchHeating == null ? el.heating = el.null : $searchHeating;
-        $searchLegalised == null ? el.legalised = el.null : $searchLegalised;
-        podrum.checked == false ? el.podrum = el.false : podrum.checked;
-        parking.checked == false ? el.parking = el.false : parking.checked;
-        garaza.checked == false ? el.garaza = el.false : garaza.checked;
-        terasa.checked == false ? el.terasa = el.false : terasa.checked;
-        dvoriste.checked == false ? el.dvoriste = el.false : dvoriste.checked;
-        internet.checked == false ? el.internet = el.false : internet.checked;
-        kablovska.checked == false ? el.kablovska = el.false : kablovska.checked;
-        telefon.checked == false ? el.telefon = el.false : telefon.checked;
-        klima.checked == false ? el.klima = el.false : klima.checked;
-        lift.checked == false ? el.lift = el.false : lift.checked;
-        return el.price <= +$priceMax &&
-            el.price >= +$priceMin &&
-            el.m2 >= +$m2Min &&
-            el.m2 <= +$m2Max &&
-            el.listingNumber == +$searchListingNumber &&
-            el.category == $searchCat &&
-            el.city == $searchCity &&
-            el.street == $searchStreet &&
-            el.title.includes($searchKey) &&
-            el.state == $searchState &&
-            el.legalised == $searchLegalised &&
-            el.floor == +$searchFloor &&
-            el.heating == $searchHeating &&
-            el.podrum == podrum.checked &&
-            el.parking == parking.checked &&
-            el.garaza == garaza.checked &&
-            el.terasa == terasa.checked &&
-            el.dvoriste == dvoriste.checked &&
-            el.internet == internet.checked &&
-            el.kablovska == kablovska.checked &&
-            el.telefon == telefon.checked &&
-            el.klima == klima.checked &&
-            el.lift == lift.checked;
+    let inputCheckbox = [];
+    let inputCheckboxJOIN;
+    let inputRegular = [];
+    let inputRegularJOIN;
+    let response;
+    $("#advancedSearch, #basicSearch").find("input:not(:checkbox), textarea, select").each(function () {
+        if (this.value != "") {
+            inputRegular.push(`&${this.id}=${this.value}`)
+            inputRegularJOIN = inputRegular.join("");
+        }
     });
+    $('#advancedSearch').find('input:checked').each(function () {
+        inputCheckbox.push(`&${this.id}=${this.checked}`)
+        inputCheckboxJOIN = inputCheckbox.join("");
+    });
+    (inputRegularJOIN == undefined && inputCheckboxJOIN == undefined) ? response = await api.get(`/listings`) : "";
+    (inputRegularJOIN != undefined && inputCheckboxJOIN == undefined) ? response = await api.get(`/listings?${inputRegularJOIN}`) : "";
+    (inputRegularJOIN == undefined && inputCheckboxJOIN != undefined) ? response = await api.get(`/listings?${inputCheckboxJOIN}`) : "";
+    (inputRegularJOIN != undefined && inputCheckboxJOIN != undefined) ? response = await api.get(`/listings?${inputRegularJOIN}${inputCheckboxJOIN}`) : "";
+    let listingsDb = response.data;
     const fullFilter = [];
-    for (const ad of filteredAds) {
+    for (const ad of listingsDb) {
         const response = await api.get(`/listings/${ad.id}`);
         const listing = response.data;
         fullFilter.push(listing);
