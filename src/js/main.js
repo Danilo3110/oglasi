@@ -158,16 +158,6 @@ $(document).ready(() => {
     });
 });
 
-function validateRegisterUser() {
-    const fields = $("#writeAd")
-        .find("select, input").serializeArray();
-
-    $.each(fields, function (i, field) {
-        if (!field.value)
-            alert(field.name + ' is required');
-    });
-};
-
 function createUser() {
     const usersObj = {};
     $("#writeAd").find("input, select").each(function () {
@@ -230,14 +220,11 @@ function createAdObjects() {
         listingsObj[this.name] = $(this).val();
     });
 
-    $('#writeAd').find('input:checked').each(function () {
-        option.push(this.value);
-        listingsObj['options'] = option.join(', ');
-    });
-
     $('#writeAd').find(':checkbox').each(function () {
         if ($(this).is(':checked')) {
             listingsObj[this.id] = true;
+            option.push(this.value);
+            listingsObj['options'] = option.join(', ');
         } else {
             listingsObj[this.id] = false;
         }
@@ -311,7 +298,6 @@ async function searchAds() {
     let response = await api.get(`/listings`);
     let listingsDb = response.data;
     let filteredAds = listingsDb.filter(function (el) {
-        let options = [];
         $priceMax == "" ? ($priceMax = 1000000) : $priceMax;
         $priceMin == "" ? ($priceMin = 0) : $priceMin;
         $m2Min == "" ? ($m2Min = 0) : $m2Min;
@@ -325,18 +311,16 @@ async function searchAds() {
         $searchState == null ? el.state = el.null : $searchState;
         $searchHeating == null ? el.heating = el.null : $searchHeating;
         $searchLegalised == null ? el.legalised = el.null : $searchLegalised;
-        podrum.checked == false ? podrum.checked = el.false : options.push(podrum.value);
-        parking.checked == false ? parking.checked = el.false : options.push(parking.value);
-        garaza.checked == false ? garaza.checked = el.false : options.push(garaza.value);
-        terasa.checked == false ? terasa.checked = el.false : options.push(terasa.value);
-        dvoriste.checked == false ? dvoriste.checked = el.false : options.push(dvoriste.value);
-        internet.checked == false ? internet.checked = el.false : options.push(internet.value);
-        kablovska.checked == false ? kablovska.checked = el.false : options.push(kablovska.value);
-        telefon.checked == false ? telefon.checked = el.false : options.push(telefon.value);
-        klima.checked == false ? klima.checked = el.false : options.push(klima.value);
-        lift.checked == false ? lift.checked = el.false : options.push(lift.value);
-        let optionsJSON = options.join(', ');
-        console.log(optionsJSON)
+        podrum.checked == false ? el.podrum = el.false : podrum.checked;
+        parking.checked == false ? el.parking = el.false : parking.checked;
+        garaza.checked == false ? el.garaza = el.false : garaza.checked;
+        terasa.checked == false ? el.terasa = el.false : terasa.checked;
+        dvoriste.checked == false ? el.dvoriste = el.false : dvoriste.checked;
+        internet.checked == false ? el.internet = el.false : internet.checked;
+        kablovska.checked == false ? el.kablovska = el.false : kablovska.checked;
+        telefon.checked == false ? el.telefon = el.false : telefon.checked;
+        klima.checked == false ? el.klima = el.false : klima.checked;
+        lift.checked == false ? el.lift = el.false : lift.checked;
         return el.price <= +$priceMax &&
             el.price >= +$priceMin &&
             el.m2 >= +$m2Min &&
@@ -350,11 +334,26 @@ async function searchAds() {
             el.legalised == $searchLegalised &&
             el.floor == +$searchFloor &&
             el.heating == $searchHeating &&
-            el.options.includes(optionsJSON);
+            el.podrum == podrum.checked &&
+            el.parking == parking.checked &&
+            el.garaza == garaza.checked &&
+            el.terasa == terasa.checked &&
+            el.dvoriste == dvoriste.checked &&
+            el.internet == internet.checked &&
+            el.kablovska == kablovska.checked &&
+            el.telefon == telefon.checked &&
+            el.klima == klima.checked &&
+            el.lift == lift.checked;
     });
+    const fullFilter = [];
+    for (const ad of filteredAds) {
+        const response = await api.get(`/listings/${ad.id}`);
+        const listing = response.data;
+        fullFilter.push(listing);
+    }
     $('.ads-container').html('');
     $('.ads-click-scroll').html('Rezultati pretrage:');
-    (async () => await _render_small(filteredAds, '.ads-container'))();
+    (async () => await _render_small(fullFilter, '.ads-container'))();
 };
 
 function eventsAll() {
