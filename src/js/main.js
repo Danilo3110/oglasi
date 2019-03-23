@@ -325,18 +325,16 @@ async function searchAds() {
         $searchState == null ? el.state = el.null : $searchState;
         $searchHeating == null ? el.heating = el.null : $searchHeating;
         $searchLegalised == null ? el.legalised = el.null : $searchLegalised;
-        podrum.checked == false ? podrum.checked = el.false : options.push(podrum.value);
-        parking.checked == false ? parking.checked = el.false : options.push(parking.value);
-        garaza.checked == false ? garaza.checked = el.false : options.push(garaza.value);
-        terasa.checked == false ? terasa.checked = el.false : options.push(terasa.value);
-        dvoriste.checked == false ? dvoriste.checked = el.false : options.push(dvoriste.value);
-        internet.checked == false ? internet.checked = el.false : options.push(internet.value);
-        kablovska.checked == false ? kablovska.checked = el.false : options.push(kablovska.value);
-        telefon.checked == false ? telefon.checked = el.false : options.push(telefon.value);
-        klima.checked == false ? klima.checked = el.false : options.push(klima.value);
-        lift.checked == false ? lift.checked = el.false : options.push(lift.value);
-        let optionsJSON = options.join(', ');
-        console.log(optionsJSON)
+        podrum.checked == false ? el.podrum = podrum.checked : podrum.checked;
+        parking.checked == false ? el.parking = parking.checked : parking.checked;
+        garaza.checked == false ? el.garaza = garaza.checked : garaza.checked;
+        terasa.checked == false ? el.terasa = terasa.checked : terasa.checked;
+        dvoriste.checked == false ? el.dvoriste = dvoriste.checked : dvoriste.checked;
+        internet.checked == false ? el.internet = internet.checked : internet.checked;
+        kablovska.checked == false ? el.kablovska = kablovska.checked : kablovska.checked;
+        telefon.checked == false ? el.telefon = telefon.checked : telefon.checked;
+        klima.checked == false ? el.klima = klima.checked : klima.checked;
+        lift.checked == false ?  el.lift = lift.checked : lift.checked;
         return el.price <= +$priceMax &&
             el.price >= +$priceMin &&
             el.m2 >= +$m2Min &&
@@ -350,7 +348,16 @@ async function searchAds() {
             el.legalised == $searchLegalised &&
             el.floor == +$searchFloor &&
             el.heating == $searchHeating &&
-            el.options.includes(optionsJSON);
+            el.podrum == podrum.checked &&
+            el.parking == parking.checked &&
+            el.garaza == garaza.checked &&
+            el.terasa == terasa.checked &&
+            el.dvoriste == dvoriste.checked &&
+            el.internet == internet.checked &&
+            el.kablovska == kablovska.checked &&
+            el.telefon == telefon.checked &&
+            el.klima == klima.checked &&
+            el.lift == lift.checked ;
     });
     $('.ads-container').html('');
     $('.ads-click-scroll').html('Rezultati pretrage:');
