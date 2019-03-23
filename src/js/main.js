@@ -116,9 +116,7 @@ async function renderFullAds() {
                 Opremljenost: ${listings.options == null ? '' : listings.options}
             </div>`);
         $ad.appendTo($fullContainer);
-        $('html, body').animate({
-            scrollTop: $('.item6').offset().top
-        }, 850)
+        animateFocus('.item6');
     }
 };
 
@@ -132,14 +130,16 @@ async function usersAds() {
 
 function advancedSearch() {
     $('.show').slideToggle(850);
-    $('html, body').animate({
-        scrollTop: $('#aSearch').offset().top
-    }, 850);
+    animateFocus('#aSearch');
 };
 
 function fullAds(id) {
     sessionStorage.setItem('idOfsmallAds', id);
     window.open('ad.html', '', '');
+};
+
+function animateFocus(toLocation) {
+    $('html, body').animate({scrollTop: $(`${toLocation}`).offset().top}, 850);
 };
 
 function animationsAll() {
@@ -352,6 +352,7 @@ async function searchAds() {
     }
     $('.ads-container').html('');
     $('.ads-click-scroll').html('Rezultati pretrage:');
+    animateFocus('.ads-click-scroll');
     (async () => await _render_small(fullFilter, '.ads-container'))();
 };
 
