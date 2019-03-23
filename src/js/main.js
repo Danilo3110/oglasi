@@ -311,7 +311,6 @@ async function searchAds() {
     let response = await api.get(`/listings`);
     let listingsDb = response.data;
     let filteredAds = listingsDb.filter(function (el) {
-        let options = [];
         $priceMax == "" ? ($priceMax = 1000000) : $priceMax;
         $priceMin == "" ? ($priceMin = 0) : $priceMin;
         $m2Min == "" ? ($m2Min = 0) : $m2Min;
