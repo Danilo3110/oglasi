@@ -142,21 +142,22 @@ function fullAds(id) {
     window.open('ad.html', '', '');
 };
 
-$(document).ready(() => {
-    $(window).scroll(() => {
-        return $(window).scrollTop() > 100 ?
-            $('.item1, .item2, .item3, .item4').css('background', 'rgba(55, 66, 82, 0.95)') :
-            $('.item1, .item2, .item3, .item4').css('background', 'rgba(55, 66, 82, 0.7)');
+function animationsAll() {
+    $(document).ready(() => {
+        $(window).scroll(() => {
+            return $(window).scrollTop() > 100 ?
+                $('.item1, .item2, .item3, .item4').css('background', 'rgba(55, 66, 82, 0.95)') :
+                $('.item1, .item2, .item3, .item4').css('background', 'rgba(55, 66, 82, 0.7)');
+        });
     });
-});
-
-$(document).ready(() => {
-    $('.ads-click-scroll').on('click', () => {
-        $('html, body').animate({
-            scrollTop: $('.ads-click-scroll').offset().top
-        }, 850);
+    $(document).ready(() => {
+        $('.ads-click-scroll').on('click', () => {
+            $('html, body').animate({
+                scrollTop: $('.ads-click-scroll').offset().top
+            }, 850);
+        });
     });
-});
+};
 
 function createUser() {
     const usersObj = {};
@@ -193,8 +194,8 @@ async function userLogIn() {
         alert(`Uspesno ste ulogovani!`);
         location.href = 'index.html';
     } else {
-        $('#userEmail').css('background', 'rgba(255, 0, 0, 0.4)');
-        $('#pass').css('background', 'rgba(255, 0, 0, 0.4)');
+        $('#userEmail').css('border', '1.5px solid rgb(250, 100, 100)');
+        $('#pass').css('border', '1.5px solid rgb(250, 100, 100)');
         alert(`Nije dobar unos podataka za login!`);
     }
 };
@@ -229,13 +230,11 @@ function createAdObjects() {
             listingsObj[this.id] = false;
         }
     });
-
     for (const i of files) {
         imgUrls.push('img/' + i.name);
         listingsObj.imgUrl = imgUrls;
     };
-    console.log(listingsObj);
-    //Object.entries(listingsObj).sort().reduce((o, [k, v]) => (o[k] = v, o), {})
+
     (async () => await postAds(listingsObj))();
 };
 
@@ -366,4 +365,4 @@ function eventsAll() {
     $('#createObjects').on('click', createAdObjects);
     $('#searchAdsAll, #searchAdsAll_2').on('click', searchAds);
 };
-$(document).on('load', renderAds(), addLogOut(), eventsAll());
+$(document).on('load', renderAds(), addLogOut(), eventsAll(), animationsAll());

@@ -322,15 +322,8 @@ select {
     padding: 1% 0;
 }
 
+.ads-container,
 .user-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 0 5% 2% 5%;
-}
-
-.ads-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
