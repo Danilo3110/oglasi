@@ -1,5 +1,6 @@
 {
-  "listings": [{
+  "listings": [
+    {
       "listingCreated": "21.3.2019. 00:46:51",
       "listingChecked": "21.3.2019. 22:46:51",
       "listingNumber": 117,
@@ -356,7 +357,8 @@
       "id": 8
     }
   ],
-  "users": [{
+  "users": [
+    {
       "category": "Fizičko lice",
       "name": "Darko Mingovski",
       "email": "darko.mingovski@gmail.com",
@@ -388,6 +390,17 @@
       "telephone": "011/276-3887",
       "mobile": "064/129-3890",
       "id": 3
+    },
+    {
+      "category": "Fizičko lice",
+      "name": "Nikola",
+      "email": "nikola.muncan@gmail.com",
+      "password": "pajaidjaniftw",
+      "address": "Trg Oslobodjenja bb",
+      "city": "Zemun",
+      "telephone": "011/555-333",
+      "mobile": "065/555-333",
+      "id": 4
     }
   ]
 }
