@@ -139,9 +139,7 @@ function fullAds(id) {
 };
 
 function animateFocus(toLocation) {
-    $('html, body').animate({
-        scrollTop: $(`${toLocation}`).offset().top
-    }, 850);
+    $('html, body').animate({scrollTop: $(`${toLocation}`).offset().top}, 850);
 };
 
 function animationsAll() {
