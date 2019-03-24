@@ -44,29 +44,37 @@
         <div class="item7">
             <h2>Registracija novog korisnika</h2>
             <form id="writeAd">
-                <select name="category">
+                <select name="category" required aria-required="true">
                     <option selected disabled>kategorija</option>
                     <option value="Fizičko&nbsp;lice">Fizičko&nbsp;lice</option>
                     <option value="Pravno&nbsp;lice">Pravno&nbsp;lice</option>
-                </select><br>
+                </select><span class="validity"></span><br>
                 <hr>
                 <div class="form-container">
                     <div class="form-left">
-                        <input type="text" name="name" placeholder="Ime"><br>
-                        <input type="email" name="email" placeholder="Email"><br>
-                        <input type="password" name="password" placeholder="Lozinka"><br>
-                        <input type="password" name="passwordRepeat" placeholder="Ponovite&nbsp;lozinku"><br>
+                        <input type="text" name="name" placeholder="Ime" required>
+                        <span class="validity"></span><br>
+                        <input type="email" name="email" placeholder="Email" required>
+                        <span class="validity"></span><br>
+                        <input type="password" name="password" placeholder="Lozinka" required>
+                        <span class="validity"></span><br>
+                        <input type="password" name="passwordRepeat" placeholder="Ponovite&nbsp;lozinku" required>
+                        <span class="validity"></span><br>
                     </div>
                     <div class="form-right">
-                        <input type="text" name="address" placeholder="Ulica&nbsp;i&nbsp;broj"><br>
-                        <input type="text" name="city" placeholder="Mesto"><br>
-                        <input type="tel" name="telephone" placeholder="Fiksni&nbsp;telefon"><br>
-                        <input type="tel" name="mobile" placeholder="Mobilni&nbsp;telefon"><br>
+                        <input type="text" name="address" placeholder="Ulica&nbsp;i&nbsp;broj" required>
+                        <span class="validity"></span><br>
+                        <input type="text" name="city" placeholder="Mesto" required>
+                        <span class="validity"></span><br>
+                        <input type="tel" name="telephone" placeholder="Fiksni&nbsp;telefon" required>
+                        <span class="validity"></span><br>
+                        <input type="tel" name="mobile" placeholder="Mobilni&nbsp;telefon" required>
+                        <span class="validity"></span><br>
                         <hr>
                     </div>
                 </div>
-                <button type="button" id="createUser">Pošalji&nbsp;podatke</button>&nbsp;&nbsp;&nbsp;
-                <button type="reset">Resetuj&nbsp;sve</button>
+                <button type="reset">Resetuj&nbsp;sve</button>&nbsp;&nbsp;&nbsp;
+                <button type="submit" id="createUser">Pošalji&nbsp;podatke</button>
             </form>
         </div>
         <div class="item8">

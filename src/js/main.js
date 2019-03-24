@@ -139,7 +139,9 @@ function fullAds(id) {
 };
 
 function animateFocus(toLocation) {
-    $('html, body').animate({scrollTop: $(`${toLocation}`).offset().top}, 850);
+    $('html, body').animate({
+        scrollTop: $(`${toLocation}`).offset().top
+    }, 850);
 };
 
 function animationsAll() {
@@ -217,10 +219,12 @@ function createAdObjects() {
     listingsObj['listingNumber'] = listingNumber;
     listingsObj['authorId'] = JSON.parse(localStorage.getItem('id'));
 
-    $("#writeAd").find("input:not(:checkbox), textarea, select").each(function () {
+    $('#writeAd').find('input:not(:checkbox), textarea, select').each(function () {
         listingsObj[this.name] = $(this).val();
     });
-
+    $('#writeAd').find('input[type="number"]').each(function () {
+        listingsObj[this.name] = Number($(this).val());
+    });
     $('#writeAd').find(':checkbox').each(function () {
         if ($(this).is(':checked')) {
             listingsObj[this.id] = true;
@@ -282,11 +286,11 @@ function logInOut() {
 
 async function searchAds() {
     const inputCheckbox = [];
-    const inputCheckboxJOIN;
+    let inputCheckboxJOIN;
     const inputRegular = [];
-    const inputRegularJOIN;
-    const response;
-    $('#advancedSearch, #basicSearch').find('input:not(:checkbox), textarea, select').each(function () {
+    let inputRegularJOIN;
+    let response;
+    $('#advancedSearch, #basicSearch').find('input:not(:checkbox), select').each(function () {
         if (this.value != '') {
             inputRegular.push(`&${this.id}=${this.value}`)
             inputRegularJOIN = inputRegular.join('');
@@ -301,7 +305,6 @@ async function searchAds() {
     (inputRegularJOIN == undefined && inputCheckboxJOIN != undefined) ? response = await api.get(`/listings?${inputCheckboxJOIN}`): '';
     (inputRegularJOIN != undefined && inputCheckboxJOIN != undefined) ? response = await api.get(`/listings?${inputRegularJOIN}${inputCheckboxJOIN}`): '';
     const listingsDb = response.data;
-    
     $('.ads-container').html('');
     $('.ads-click-scroll').html('Rezultati pretrage:');
     animateFocus('.ads-click-scroll');

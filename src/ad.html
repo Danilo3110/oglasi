@@ -37,13 +37,13 @@
         <div class="item4">
             <button type="submit"><i class="far fa-plus-square fa-lg"></i>&nbsp;&nbsp;Dodaj&nbsp;oglas</button>
         </div>
-        <div class="item5">
+        <div class="item5" id="basicSearch">
             <h1>Brzo,&nbsp;besplatno&nbsp;&amp;&nbsp;jednostavno</h1>
-            <h4>Pretražite&nbsp;više&nbsp;od&nbsp;15,000,000&nbsp;oglasa&nbsp;i&nbsp;pronađite&nbsp;sve&nbsp;što&nbsp;vam&nbsp;treba&nbsp;na&nbsp;jednom&nbsp;mestu
+            <h4>Pretražite&nbsp;više&nbsp;od&nbsp;15,000,000&nbsp;oglasa&nbsp;i&nbsp;nikad&nbsp;lakše&nbsp;pronađite&nbsp;svoj&nbsp;idealan&nbsp;dom
             </h4>
-            <input type="text" placeholder="tražim">
-            <select name="city">
-                <option selected disabled>lokacija</option>
+            <input type="text" placeholder="tražim" id="title_like">
+            <select name="city" id="city">
+                <option value="" selected disabled>lokacija</option>
                 <option value="Beograd">Beograd</option>
                 <option value="Kragujevac">Kragujevac</option>
                 <option value="Jagodina">Jagodina</option>
@@ -82,8 +82,8 @@
                 <option value="Majdanpek">Majdanpek</option>
                 <option value="Novi Pazar">Novi&nbsp;Pazar</option>
             </select>
-            <select name="category">
-                <option selected disabled>kategorija</option>
+            <select name="category" id="category">
+                <option value="" selected disabled>kategorija</option>
                 <option value="Stanovi">Stanovi</option>
                 <option value="Kuće">Kuće</option>
                 <option value="Garaže">Garaže</option>
@@ -122,14 +122,14 @@
             <h4>Napredna&nbsp;pretraga:</h4>
             <hr>
             <form id="advancedSearch">
-                <input type="number" id="price-min" min="1" step="1" name="price" placeholder="Cena min &euro;">
-                <input type="number" id="price-max" min="1" step="1" name="price_max" placeholder="Cena max &euro;">
-                <input type="number" id="m2-min" min="1" step="1" name="m2" placeholder="Kvadratura min m&sup2;">
-                <input type="number" id="m2-max" min="1" step="1" name="m2_max"
+                <input type="number" id="price_gte" min="1" step="1" name="price" placeholder="Cena min &euro;">
+                <input type="number" id="price_lte" min="1" step="1" name="price_max" placeholder="Cena max &euro;">
+                <input type="number" id="m2_gte" min="1" step="1" name="m2" placeholder="Kvadratura min m&sup2;">
+                <input type="number" id="m2_lte" min="1" step="1" name="m2_max"
                     placeholder="Kvadratura max m&sup2;"><br>
                 <input type="number" id="floor" min="1" step="1" name="floor" placeholder="Sprat">
-                <select name="heating">
-                    <option selected disabled>Grejanje</option>
+                <select name="heating" id="heating">
+                    <option value="" selected disabled>Grejanje</option>
                     <option value="Centralno">Centralno</option>
                     <option value="Gas">Gas</option>
                     <option value="Elektricno">Elektricno</option>
@@ -137,8 +137,8 @@
                     <option value="Podno">Podno</option>
                     <option value="Etažno">Etažno</option>
                 </select>
-                <input type="text" name="street" placeholder="Ulica">
-                <input type="text" name="listingNumber" placeholder="Šifra oglasa">
+                <input type="text" name="street" id="street" placeholder="Ulica">
+                <input type="text" name="listingNumber" id="listingNumber" placeholder="Šifra oglasa">
                 <hr>
                 <h5>Ostalo</h5>
                 <ul>
@@ -163,15 +163,15 @@
                     <li><input type="checkbox" name="options" value="Lift" id="lift">
                         <label for="lift">Lift</label></li>
                 </ul>
-                <select name="state">
-                    <option selected disabled>Stanje&nbsp;nekretnine</option>
+                <select name="state" id="state">
+                    <option value="" selected disabled>Stanje&nbsp;nekretnine</option>
                     <option value="Novogradnja">Novogradnja</option>
                     <option value="Renovirano">Renovirano</option>
                     <option value="Izvorno&nbsp;stanje">Izvorno&nbsp;stanje</option>
                     <option value="Namenjeno&nbsp;rušenju">Namenjeno&nbsp;rušenju</option>
                 </select>
-                <select name="legalised">
-                    <option selected disabled>Legalizacija..?</option>
+                <select name="legalised" id="legalised">
+                    <option value="" selected disabled>Legalizacija..?</option>
                     <option value="Uknjižen">Uknjižen</option>
                     <option value="Legalizovan">Legalizovan</option>
                     <option value="Nije&nbsp;uknjižen">Nije&nbsp;uknjižen</option>

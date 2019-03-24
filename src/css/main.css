@@ -645,3 +645,17 @@ hr {
     padding: 12px 20px;
     margin: 8px 0;
 }
+
+input:invalid+span:after {
+    content: '✖';
+    font-size: 16px;
+    padding-left: 5px;
+    color: rgb(250, 128, 114);
+}
+
+input:valid+span:after {
+    content: '✓';
+    font-size: 16px;
+    padding-left: 5px;
+    color: green;
+}

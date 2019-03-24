@@ -45,7 +45,7 @@
         <div class="item7">
             <h2>Nov&nbsp;oglas</h2>
             <form id="writeAd">
-                <select name="category">
+                <select name="category" required>
                     <option selected disabled>kategorija</option>
                     <option value="Stanovi">Stanovi</option>
                     <option value="Kuće">Kuće</option>
@@ -57,7 +57,7 @@
                 <div class="form-container">
                     <div class="form-left">
                         <h4>Lokacija</h4>
-                        <select name="city">
+                        <select name="city" required>
                             <option selected disabled>lokacija</option>
                             <option value="Beograd">Beograd</option>
                             <option value="Kragujevac">Kragujevac</option>
@@ -97,18 +97,18 @@
                             <option value="Majdanpek">Majdanpek</option>
                             <option value="Novi Pazar">Novi&nbsp;Pazar</option>
                         </select><br>
-                        <input type="text" name="street" placeholder="Ulica"><br>
+                        <input type="text" name="street" placeholder="Ulica" required><br>
                         <input type="checkbox" name="map" id="mapa" value="mapa">
                         <label for="mapa">Sa&nbsp;prikazom&nbsp;na&nbsp;mapi</label>
                         <hr>
                         <h4>Opis</h4>
-                        <input type="text" name="title" placeholder="Naslov oglasa"><br>
-                        <textarea name="additionalinfo" cols="50" rows="10"
-                            placeholder="Opis&nbsp;oglasa"></textarea><br><br>
-                        Izaberite slike: <input type="file" name="imgUrl" id="imgUrl" multiple><br>
+                        <input type="text" name="title" placeholder="Naslov oglasa" required><br>
+                        <textarea name="additionalinfo" cols="50" rows="10" placeholder="Opis&nbsp;oglasa"
+                            required></textarea><br><br>
+                        Izaberite slike: <input type="file" name="imgUrl" id="imgUrl" multiple required><br>
                         <hr>
                         <h4>Cena</h4>
-                        <input type="number" name="price" min="1" step="1" placeholder="Cena&nbsp;&euro;"><br>
+                        <input type="number" name="price" min="1" step="1" placeholder="Cena&nbsp;&euro;" required><br>
                         <select name="price-other">
                             <option selected disabled>Opcija&nbsp;cene</option>
                             <option value="Po&nbsp;dogovoru">Po&nbsp;dogovoru</option>
@@ -117,25 +117,25 @@
                     </div>
                     <div class="form-right">
                         <h4>Površina</h4>
-                        <input type="number" name="m2" min="1" step="1" placeholder="Kvadratura (m&sup2;)"><br>
+                        <input type="number" name="m2" min="1" step="1" placeholder="Kvadratura (m&sup2;)" required><br>
                         <input type="text" name="land-m2" placeholder="Površina&nbsp;zemljišta">
                         <hr>
                         <h4>Ostali&nbsp;parametri</h4>
-                        <select name="state">
+                        <select name="state" required>
                             <option selected disabled>Stanje&nbsp;nekretnine</option>
                             <option value="Novogradnja">Novogradnja</option>
                             <option value="Renovirano">Renovirano</option>
                             <option value="Izvorno&nbsp;stanje">Izvorno&nbsp;stanje</option>
                             <option value="Namenjeno&nbsp;rušenju">Namenjeno&nbsp;rušenju</option>
                         </select><br>
-                        <select name="legalised">
+                        <select name="legalised" required>
                             <option selected disabled>Da&nbsp;li&nbsp;je&nbsp;objekat&nbsp;uknjižen?</option>
                             <option value="Uknjižen">Uknjižen</option>
                             <option value="Legalizovan">Legalizovan</option>
                             <option value="Nije&nbsp;uknjižen">Nije&nbsp;uknjižen</option>
                             <option value="U&nbsp;postupku">U&nbsp;postupku</option>
                         </select><br>
-                        <select name="heating">
+                        <select name="heating" required>
                             <option selected disabled>Grejanje</option>
                             <option value="Centralno">Centralno</option>
                             <option value="Gas">Gas</option>
@@ -144,11 +144,11 @@
                             <option value="Podno">Podno</option>
                             <option value="Etažno">Etažno</option>
                         </select><br>
-                        <input type="text" name="yearOfConstruction" placeholder="Godina&nbsp;izgradnje"><br>
-                        <input type="text" name="floor" placeholder="Sprat"><br>
-                        <input type="text" name="floors" placeholder="Ukupan&nbsp;broj&nbsp;spratova"><br>
-                        <input type="text" name="roomCount" placeholder="Broj&nbsp;soba"><br>
-                        <input type="text" name="publicTransport" placeholder="Linije javnog prevoza"><br>
+                        <input type="text" name="yearOfConstruction" placeholder="Godina&nbsp;izgradnje" required><br>
+                        <input type="text" name="floor" placeholder="Sprat" required><br>
+                        <input type="text" name="floors" placeholder="Ukupan&nbsp;broj&nbsp;spratova" required><br>
+                        <input type="text" name="roomCount" placeholder="Broj&nbsp;soba" required><br>
+                        <input type="text" name="publicTransport" placeholder="Linije javnog prevoza" required><br>
                     </div>
                 </div>
                 <ul>
@@ -174,9 +174,8 @@
                         <label for="lift">Lift</label></li>
                 </ul>
                 <hr>
-
-                <button type="button" id="createObjects">Pošalji&nbsp;podatke</button>&nbsp;&nbsp;&nbsp;
-                <button type="reset">Resetuj&nbsp;sve</button>
+                <button type="reset">Resetuj&nbsp;sve</button> &nbsp;&nbsp;&nbsp;
+                <button type="button" id="createObjects">Pošalji&nbsp;podatke</button>
             </form>
         </div>
         <div class="item8">
