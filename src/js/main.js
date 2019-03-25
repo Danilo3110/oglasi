@@ -6,17 +6,20 @@ const api = axios.create({
 });
 api.defaults.timeout = 4000;
 
+async function getBase(location) {
+    const responsFromBase = await api.get(`${location}`);
+    return responsFromBase.data;
+};
+
 async function renderAds() {
-    const responseListings = await api.get(`/listings`);
-    const listings = responseListings.data;
+    const listings = await getBase('/listings');
     const listingsOrder = listings.sort((a, b) => (a.id < b.id) ? 1 : -1);
     (async () => await _render_small(listingsOrder, '.ads-container'))();
 };
 
 async function _render_small(listings, location) {
     for (const ad of listings) {
-        const responseUsers = await api.get(`/users/${ad.authorId}`);
-        const users = responseUsers.data;
+        const users = await getBase(`/users/${ad.authorId}`);
         const $adsContainer = $(`${location}`);
         const $ad = $(`<div class="ads" id="${ad.id}_searched">
                     <div class="ads-descr">
@@ -40,9 +43,7 @@ async function renderFullAds() {
     const responseListings = await api.get(`/listings/${idOfsmallAds}`);
     if (responseListings.status < 400) {
         const listings = responseListings.data;
-
-        const responseUsers = await api.get(`/users/${listings.authorId}`);
-        const users = responseUsers.data;
+        const users = await getBase(`/users/${listings.authorId}`);
 
         $('html head').find('title').text(`Šifra oglasa: ${listings.listingNumber}`);
         const pricePerM2 = Math.floor(Number(listings.price) / Number(listings.m2)).toLocaleString('sr-RS');
@@ -121,8 +122,7 @@ async function renderFullAds() {
 };
 
 async function usersAds() {
-    const response = await api.get(`/listings?authorId=${localStorage.getItem('id')}`);
-    const userListings = response.data;
+    const userListings = await getBase(`/listings?authorId=${localStorage.getItem('id')}`);
     $('.item7').append(`<h1 class="ads-click-scroll">Korisnik: ${localStorage.getItem('user')} - oglasi:</h1>
                         <div class="user-container"></div>`);
     (async () => await _render_small(userListings, '.user-container'))();
@@ -181,8 +181,7 @@ async function postIntoBase(location, obj, message) {
 async function userLogIn() {
     const $email = $('#userEmail').val();
     const $pass = $('#pass').val();
-    const response = await api.get(`/users`);
-    const usersFromBase = response.data;
+    const usersFromBase = await getBase(`/users`);
 
     for (const user of usersFromBase) {
         if (user.email === $email && user.password === $pass) {
@@ -286,12 +285,12 @@ async function searchAds(location, animation) {
         inputsAll[this.id] = this.checked;
     });
     const response = await api.get(`/listings`, {params: inputsAll});
-    const listingsDb = response.data;
+    const listingsFiltered = response.data;
 
     $(`${location}`).html('');
     $(`${animation}`).html('Rezultati pretrage:');
     animateFocus(`${animation}`);
-    (async () => await _render_small(listingsDb, `${location}`))();
+    (async () => await _render_small(listingsFiltered, `${location}`))();
 };
 
 function eventsAll() {
