@@ -166,12 +166,13 @@ function createUser() {
     });
     delete usersObj.passwordRepeat;
 
-    (async () => await postUsers(usersObj))();
+    const message = 'Uspesno ste se registrovali';
+    (async () => await postIntoBase('users', usersObj, message))();
 };
 
-async function postUsers(obj) {
-    return await api.post('/users', obj)
-        .then((response) => alert(`Uspesno ste se registrovali`))
+async function postIntoBase(location, obj, message) {
+    return await api.post(`/${location}`, obj)
+        .then((response) => alert(`${message}`))
         .catch((error) => {
             alert(error);
         });
@@ -236,16 +237,8 @@ function createAdObjects() {
         imgUrls.push('img/' + i.name);
         listingsObj.imgUrl = imgUrls;
     };
-
-    (async () => await postAds(listingsObj))();
-};
-
-async function postAds(obj) {
-    return await api.post('/listings', obj)
-        .then((response) => alert(`Uspesno ste dodali novi oglas`))
-        .catch((error) => {
-            alert(error);
-        });
+    const message = 'Uspesno ste dodali novi oglas';
+    (async () => await postIntoBase('listings', listingsObj, message))();
 };
 
 function checkUserLogIn() {
@@ -298,10 +291,10 @@ async function searchAds(location, animation) {
         inputCheckbox.push(`&${this.id}=${this.checked}`);
         inputCheckboxJOIN = inputCheckbox.join('');
     });
-    (inputRegularJOIN == null && inputCheckboxJOIN == null) ? response = await api.get(`/listings`): '';
-    (inputRegularJOIN != null && inputCheckboxJOIN == null) ? response = await api.get(`/listings?${inputRegularJOIN}`): '';
-    (inputRegularJOIN == null && inputCheckboxJOIN != null) ? response = await api.get(`/listings?${inputCheckboxJOIN}`): '';
-    (inputRegularJOIN != null && inputCheckboxJOIN != null) ? response = await api.get(`/listings?${inputRegularJOIN}${inputCheckboxJOIN}`): '';
+    (inputRegularJOIN === undefined && inputCheckboxJOIN === undefined) ? response = await api.get(`/listings`): '';
+    (inputRegularJOIN !== undefined && inputCheckboxJOIN === undefined) ? response = await api.get(`/listings?${inputRegularJOIN}`): '';
+    (inputRegularJOIN === undefined && inputCheckboxJOIN !== undefined) ? response = await api.get(`/listings?${inputCheckboxJOIN}`): '';
+    (inputRegularJOIN !== undefined && inputCheckboxJOIN !== undefined) ? response = await api.get(`/listings?${inputRegularJOIN}${inputCheckboxJOIN}`): '';
     const listingsDb = response.data;
     $(`${location}`).html('');
     $(`${animation}`).html('Rezultati pretrage:');
