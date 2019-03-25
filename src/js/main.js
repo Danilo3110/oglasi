@@ -276,26 +276,18 @@ function logInOut() {
 };
 
 async function searchAds(location, animation) {
-    const inputCheckbox = [];
-    let inputCheckboxJOIN;
-    const inputRegular = [];
-    let inputRegularJOIN;
-    let response;
+    const inputsAll = {};
     $('#advancedSearch, #basicSearch').find('input:not(:checkbox), select').each(function () {
-        if (this.value != '') {
-            inputRegular.push(`&${this.id}=${this.value}`);
-            inputRegularJOIN = inputRegular.join('');
+        if (this.value !== '') {
+            inputsAll[this.id] = this.value;
         }
     });
     $('#advancedSearch').find('input:checked').each(function () {
-        inputCheckbox.push(`&${this.id}=${this.checked}`);
-        inputCheckboxJOIN = inputCheckbox.join('');
+        inputsAll[this.id] = this.checked;
     });
-    (inputRegularJOIN === undefined && inputCheckboxJOIN === undefined) ? response = await api.get(`/listings`): '';
-    (inputRegularJOIN !== undefined && inputCheckboxJOIN === undefined) ? response = await api.get(`/listings?${inputRegularJOIN}`): '';
-    (inputRegularJOIN === undefined && inputCheckboxJOIN !== undefined) ? response = await api.get(`/listings?${inputCheckboxJOIN}`): '';
-    (inputRegularJOIN !== undefined && inputCheckboxJOIN !== undefined) ? response = await api.get(`/listings?${inputRegularJOIN}${inputCheckboxJOIN}`): '';
+    const response = await api.get(`/listings`, {params: inputsAll});
     const listingsDb = response.data;
+
     $(`${location}`).html('');
     $(`${animation}`).html('Rezultati pretrage:');
     animateFocus(`${animation}`);
