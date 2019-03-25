@@ -282,7 +282,7 @@ function logInOut() {
     }
 };
 
-async function searchAds() {
+async function searchAds(location, animation) {
     const inputCheckbox = [];
     let inputCheckboxJOIN;
     const inputRegular = [];
@@ -290,23 +290,23 @@ async function searchAds() {
     let response;
     $('#advancedSearch, #basicSearch').find('input:not(:checkbox), select').each(function () {
         if (this.value != '') {
-            inputRegular.push(`&${this.id}=${this.value}`)
+            inputRegular.push(`&${this.id}=${this.value}`);
             inputRegularJOIN = inputRegular.join('');
         }
     });
     $('#advancedSearch').find('input:checked').each(function () {
-        inputCheckbox.push(`&${this.id}=${this.checked}`)
+        inputCheckbox.push(`&${this.id}=${this.checked}`);
         inputCheckboxJOIN = inputCheckbox.join('');
     });
-    (inputRegularJOIN == undefined && inputCheckboxJOIN == undefined) ? response = await api.get(`/listings`): '';
-    (inputRegularJOIN != undefined && inputCheckboxJOIN == undefined) ? response = await api.get(`/listings?${inputRegularJOIN}`): '';
-    (inputRegularJOIN == undefined && inputCheckboxJOIN != undefined) ? response = await api.get(`/listings?${inputCheckboxJOIN}`): '';
-    (inputRegularJOIN != undefined && inputCheckboxJOIN != undefined) ? response = await api.get(`/listings?${inputRegularJOIN}${inputCheckboxJOIN}`): '';
+    (inputRegularJOIN == null && inputCheckboxJOIN == null) ? response = await api.get(`/listings`): '';
+    (inputRegularJOIN != null && inputCheckboxJOIN == null) ? response = await api.get(`/listings?${inputRegularJOIN}`): '';
+    (inputRegularJOIN == null && inputCheckboxJOIN != null) ? response = await api.get(`/listings?${inputCheckboxJOIN}`): '';
+    (inputRegularJOIN != null && inputCheckboxJOIN != null) ? response = await api.get(`/listings?${inputRegularJOIN}${inputCheckboxJOIN}`): '';
     const listingsDb = response.data;
-    $('.ads-container').html('');
-    $('.ads-click-scroll').html('Rezultati pretrage:');
-    animateFocus('.ads-click-scroll');
-    (async () => await _render_small(listingsDb, '.ads-container'))();
+    $(`${location}`).html('');
+    $(`${animation}`).html('Rezultati pretrage:');
+    animateFocus(`${animation}`);
+    (async () => await _render_small(listingsDb, `${location}`))();
 };
 
 function eventsAll() {
@@ -317,6 +317,11 @@ function eventsAll() {
     $('#createUser').on('click', createUser);
     $('#logIn-out').on('click', logInOut);
     $('#createObjects').on('click', createAdObjects);
-    $('#searchAdsAll, #searchAdsAll_2').on('click', searchAds);
+    $('#searchAdsAll, #searchAdsAll_2').on('click', () => searchAds('.ads-container', '.ads-click-scroll'));
+    $('#ad_searchAdsAll, #ad_searchAdsAll_2').on('click', () => {
+        $('.item7').html(`<h1 class="ads-click-scroll"></h1>
+                            <div class="user-container"></div>`);
+        searchAds('.user-container', '.ads-click-scroll')
+    });
 };
 $(document).on('load', renderAds(), addLogOut(), eventsAll(), animationsAll());
