@@ -133,7 +133,7 @@ async function usersAds() {
                         <h3>Lokacija: ${ad.city}<i class="fas fa-share-alt fa-lg"></i><i class="far fa-heart fa-lg"></i>
                         <i class="fas fa-map-marker-alt fa-lg"></i></h3>
                         </div>
-                        <img src="${ad.imgUrl[0]}" alt="" class="${ad.id}image"><br>
+                        <img src="${ad.imgUrl[0]}" alt="" class="${ad.id}image"></img><br>
                         <h2 class="ads-descr">${ad.title}</h2>
                         <h3 class="ads-descr">cena: ${Number(ad.price).toLocaleString('sr-RS') == null ? ad['price-other']
                                                     : Number(ad.price).toLocaleString('sr-RS') + '&euro;'}</h3>
