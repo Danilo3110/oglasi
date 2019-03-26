@@ -125,7 +125,7 @@ async function usersAds() {
     $('.item7').append(`<h1 class="ads-click-scroll">Korisnik: ${localStorage.getItem('user')} - oglasi:</h1>
                         <div class="user-container"></div>`);
     await _render_small(userListings, '.user-container');
-    $('.ads').append(`<button id="editAd" type="submit" onclick="editAdObjects()">Izmeni oglas</button><button id="editAd" type="submit" onclick="initiateDelete()">Obriši oglas</button><br>`);
+    $('.ads').append(`<button id="editAd" type="submit">Izmeni oglas</button><button id="editAd" type="submit">Obriši oglas</button><br>`);
 };
 
 function advancedSearch() {
