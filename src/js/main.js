@@ -12,29 +12,28 @@ async function getBase(location) {
 };
 
 async function renderAds() {
-    const listings = await getBase('/listings');
-    const listingsOrder = listings.sort((a, b) => (a.id < b.id) ? 1 : -1);
-    (async () => await _render_small(listingsOrder, '.ads-container'))();
+    const listings = await getBase('/listings?_sort=id&_order=desc');
+    (async () => await _render_small(listings, '.ads-container'))();
 };
 
-async function _render_small(listings, location, bonus = '') {
+async function _render_small(listings, location) {
     for (const ad of listings) {
         const users = await getBase(`/users/${ad.authorId}`);
         const $adsContainer = $(`${location}`);
-        const $ad = $(`<div class="ads" id="${ad.id}_searched">
+        const $ad = $(`<div class="ads" id="${ad.id}">
                     <div class="ads-descr">
                     <h3>Lokacija: ${ad.city}<i class="fas fa-share-alt fa-lg"></i><i class="far fa-heart fa-lg"></i>
                     <i class="fas fa-map-marker-alt fa-lg"></i></h3>
                     </div>
                     <img src="${ad.imgUrl[0]}" alt=""><br>
-                    <h2 class="ads-descr">${ad.title}</h2>
+                    <h2 class="ads-descr" id="ads-height">${ad.title}</h2>
                     <h3 class="ads-descr">cena: ${Number(ad.price).toLocaleString('sr-RS') == null ? ad['price-other']
                                                 : Number(ad.price).toLocaleString('sr-RS') + '&euro;'}</h3>
                     <hr>
                     <h3 class="ads-descr">kontakt: ${users.mobile}</h3>
-                    ${bonus}</div>`);
+                    </div>`);
         $ad.appendTo($adsContainer);
-        $(`#${ad.id}_searched`).on('click', () => fullAds(ad.id));
+        $(`#${ad.id}`).on('click', () => fullAds(ad.id));
     }
 };
 
@@ -125,36 +124,17 @@ async function usersAds() {
     const userListings = await getBase(`/listings?authorId=${localStorage.getItem('id')}`);
     $('.item7').append(`<h1 class="ads-click-scroll">Korisnik: ${localStorage.getItem('user')} - oglasi:</h1>
                         <div class="user-container"></div>`);
-    for (const ad of userListings) {
-        const users = await getBase(`/users/${ad.authorId}`);
-        const $adsContainer = $(`.user-container`);
-        const $ad = $(`<div class="ads" id="${ad.id}_searched">
-                        <div class="ads-descr">
-                        <h3>Lokacija: ${ad.city}<i class="fas fa-share-alt fa-lg"></i><i class="far fa-heart fa-lg"></i>
-                        <i class="fas fa-map-marker-alt fa-lg"></i></h3>
-                        </div>
-                        <img src="${ad.imgUrl[0]}" alt="" class="${ad.id}image"></img><br>
-                        <h2 class="ads-descr">${ad.title}</h2>
-                        <h3 class="ads-descr">cena: ${Number(ad.price).toLocaleString('sr-RS') == null ? ad['price-other']
-                                                    : Number(ad.price).toLocaleString('sr-RS') + '&euro;'}</h3>
-                        <hr>
-                        <h3 class="ads-descr">kontakt: ${users.mobile}</h3><br>
-                        <button type="button" class="modify" id="${ad.id}_modify">Izmeni</button>&nbsp;&nbsp;&nbsp;
-                        <button type="button" class="delete" id="${ad.id}_delete">Obriši</button><br><br>
-                        </div>`);
-        $ad.appendTo($adsContainer);
-        $(`#${ad.id}_delete`).on('click', () => {return confirm('Da li ste sigurni da zelite da obrisete oglas ?') ? console.log('OBRISANO!') : console.log('Nije obrisano');}/*deleteAds(`${ad.id}`, 'Uspesno ste obrisali oglas!')*/);
-        $(`.${ad.id}image`).on('click', () => fullAds(ad.id));
-    }
+    await _render_small(userListings, '.user-container');
+    $('.ads').append(`<button id="editAd" type="submit">Izmeni oglas</button><button id="editAd" type="submit">Obriši oglas</button><br>`);
 };
-
+/*
 async function deleteAds(numberOfAd, message) {
     return await api.delete(`/listings/${numberOfAd}`)
         .then((response) => alert(`${message}`))
         .catch((error) => {
             alert(error);
         });
-};
+};*/
 
 function advancedSearch() {
     $('.show').slideToggle(850);
