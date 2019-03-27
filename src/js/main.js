@@ -30,7 +30,7 @@ async function _render_small(listings, location) {
                     <h3 class="ads-descr">cena: ${Number(ad.price).toLocaleString('sr-RS') == null ? ad['price-other']
                                                 : Number(ad.price).toLocaleString('sr-RS') + '&euro;'}</h3>
                     <hr>
-                    <h3 class="ads-descr">kontakt: ${users.mobile}</h3>
+                    <h3 class="ads-descr">kontakt: ${users.mobile}</h3><br>
                     </div>`);
         $ad.appendTo($adsContainer);
         $(`#${ad.id}`).on('click', () => fullAds(ad.id));
