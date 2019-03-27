@@ -33,7 +33,7 @@ async function _render_small(listings, location) {
                     <h3 class="ads-descr">kontakt: ${users.mobile}</h3><br>
                     </div>`);
         $ad.appendTo($adsContainer);
-        $(`#${ad.id}`).on('click', () => fullAds(ad.id));
+        $(`#${ad.id}`).bind('click', () => fullAds(ad.id));
     }
 };
 
@@ -125,7 +125,39 @@ async function usersAds() {
     $('.item7').append(`<h1 class="ads-click-scroll">Korisnik: ${localStorage.getItem('user')} - oglasi:</h1>
                         <div class="user-container"></div>`);
     await _render_small(userListings, '.user-container');
-    $('.ads').append(`<button id="editAd" type="submit">Izmeni oglas</button><button id="editAd" type="submit">Obriši oglas</button><br>`);
+    for (const userAd of userListings) {
+        $(`#${userAd.id}`).unbind('click');
+    }
+    $('.ads').append(`<button id="editAd" type="submit" onclick="initialiseEdit()">Izmeni oglas</button>
+                    <button id="editAd" type="submit">Obriši oglas</button><br>`);
+};
+
+async function initialiseEdit() {
+    const ad = event.currentTarget.parentElement.id;
+    const response = await api.get(`/listings/${ad}`);
+    const editAds = response.data;
+    sessionStorage.setItem('adForEdit', JSON.stringify(editAds));
+    sessionStorage.setItem('adCheckLoadValidity', 1);
+    location.href = 'publish_ad.html';
+};
+
+function getAdForEditFromSessionStorage() {
+    $('#imgUrl').remove();
+    let ad = JSON.parse(sessionStorage.getItem('adForEdit'));
+
+    function populate(form, data) {
+        $.each(data, function (key, value) {
+            $(`[name = ${key}]`, form).val(value);
+        });
+    };
+    populate('#writeAd', ad);
+    sessionStorage.removeItem('adCheckLoadValidity');
+};
+
+function loadAdToForm() {
+    if (sessionStorage.getItem('adCheckLoadValidity') == 1) {
+        getAdForEditFromSessionStorage();
+    };
 };
 /*
 async function deleteAds(numberOfAd, message) {
