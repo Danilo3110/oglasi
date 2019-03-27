@@ -25,7 +25,7 @@ async function _render_small(listings, location) {
                     <h3>Lokacija: ${ad.city}<i class="fas fa-share-alt fa-lg"></i><i class="far fa-heart fa-lg"></i>
                     <i class="fas fa-map-marker-alt fa-lg"></i></h3>
                     </div>
-                    <img src="${ad.imgUrl[0]}" alt="" class="image"><br>
+                    <img src="${ad.imgUrl[0]}" alt="" class="image_${ad.id}"><br>
                     <h2 class="ads-descr" id="ads-height">${ad.title}</h2>
                     <h3 class="ads-descr">cena: ${Number(ad.price).toLocaleString('sr-RS') == null ? ad['price-other']
                                                 : Number(ad.price).toLocaleString('sr-RS') + '&euro;'}</h3>
@@ -125,7 +125,10 @@ async function usersAds() {
     $('.item7').append(`<h1 class="ads-click-scroll">Korisnik: ${localStorage.getItem('user')} - oglasi:</h1>
                         <div class="user-container"></div>`);
     await _render_small(userListings, '.user-container');
-    $('div').off();
+    for (const userAd of userListings) {
+        $(`#${userAd.id}`).off();
+        $(`.image_${userAd.id}`).on('click', () => fullAds(userAd.id));
+    }
 
     $('.ads').append(`<button id="editAd" type="submit" onclick="initialiseEdit()">Izmeni oglas</button>
                     <button id="editAd" type="submit">Obriši oglas</button><br>`);
@@ -347,4 +350,4 @@ function eventsAll() {
         searchAds('.user-container', '.ads-click-scroll')
     });
 };
-$(document).on('load', renderAds(), addLogOut(), eventsAll(), animationsAll());
+$(document).on('load', addLogOut(), eventsAll(), animationsAll());
