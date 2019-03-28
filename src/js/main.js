@@ -13,7 +13,8 @@ async function getBase(location) {
 
 async function renderAds() {
     const listings = await getBase('/listings?_sort=id&_order=desc');
-    (async () => await _render_small(listings, '.ads-container'))();
+    const limitListings = listings.slice(0, 8);
+    (async () => await _render_small(limitListings, '.ads-container'))();
 };
 
 async function _render_small(listings, location) {
