@@ -82,7 +82,7 @@ async function renderFullAds() {
                 Tel: ${users.mobile}<br><br>
                 <button type="submit">Pošalji&nbsp;poruku</button><br><br>
                 <i class="fas fa-exclamation-triangle" title="Prijavi grešku"></i>
-                <i class="fas fa-print" title="Odštampaj oglas"></i>
+                <i class="fas fa-print" id="printAd" onclick="printAd()" title="Odštampaj oglas"></i>
                 <i class="fas fa-share-alt" title="Podeli oglas"></i>
                 <i class="fas fa-heart" title="Dodaj u omiljene"></i>
             </div>
@@ -130,8 +130,8 @@ async function usersAds() {
         $(`.image_${userAd.id}`).on('click', () => fullAds(userAd.id));
     }
 
-    $('.ads').append(`<button id="editAd" type="submit" onclick="initialiseEdit()">Izmeni oglas</button>
-                    <button id="editAd" type="submit">Obriši oglas</button><br>`);
+    $('.ads').append(`<button id="editAd" type="submit" onclick="initialiseEdit()">Izmeni&nbsp;oglas</button>
+                    <button id="editAd" type="submit">Obriši&nbsp;oglas</button><br>`);
 };
 
 async function initialiseEdit() {
@@ -356,6 +356,14 @@ async function searchAds(location, animation) {
     animateFocus(`${animation}`);
     (async () => await _render_small(listingsFiltered, `${location}`))();
 };
+
+function printAd(){
+    var restorepage = $('body').html();
+    var printcontent = $('#item7').clone();
+    $('body').empty().html(printcontent);
+    window.print();
+    $('body').html(restorepage);
+    };
 
 function eventsAll() {
     $('#aSearch, #closeSearch').on('click', advancedSearch);
