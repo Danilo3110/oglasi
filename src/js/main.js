@@ -357,13 +357,13 @@ async function searchAds(location, animation) {
     (async () => await _render_small(listingsFiltered, `${location}`))();
 };
 
-function printAd(){
+function printAd() {
     var restorepage = $('body').html();
     var printcontent = $('#item7').clone();
     $('body').empty().html(printcontent);
     window.print();
     $('body').html(restorepage);
-    };
+};
 
 function eventsAll() {
     $('#aSearch, #closeSearch').on('click', advancedSearch);
