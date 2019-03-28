@@ -239,7 +239,6 @@ select {
 
 .item5 a,
 #closeSearch {
-    text-decoration: underline;
     color: white;
     cursor: pointer;
 }
