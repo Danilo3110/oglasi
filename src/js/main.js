@@ -284,8 +284,10 @@ function createAdObjects(post = true) {
     listingsObj['listingCreated'] = listingCreated;
     listingsObj['listingChecked'] = listingChecked;
 
-    const listingNumber = Math.floor(Math.random() * 999);
-    listingsObj['listingNumber'] = listingNumber;
+    if (post) {
+        const listingNumber = Math.floor(Math.random() * 999);
+        listingsObj['listingNumber'] = listingNumber;
+    }
     listingsObj['authorId'] = JSON.parse(localStorage.getItem('id'));
 
     $('#writeAd').find('input:not(:checkbox), textarea, select').each(function () {
@@ -371,7 +373,7 @@ function printAd() {
     const restorepage = $('body').html();
     const printcontent = $('#item7').clone();
     $('body').empty().html(printcontent);
-    window.print();
+    print();
     $('body').html(restorepage);
 };
 
