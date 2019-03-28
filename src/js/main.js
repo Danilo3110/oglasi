@@ -11,6 +11,15 @@ async function getBase(location) {
     return responsFromBase.data;
 };
 
+async function renderAllAds(){
+    $('#index_html').off();
+    $('.ads-container').html('');
+    $('.ads-click-scroll').html('eKvadrat - svi oglasi:');
+    const listingsAll = await getBase('/listings');
+    (async () => await _render_small(listingsAll, '.ads-container'))();
+    animateFocus('.ads-click-scroll');
+};
+
 async function renderAds() {
     const listings = await getBase('/listings?_sort=id&_order=desc');
     const limitListings = listings.slice(0, 8);
@@ -379,6 +388,8 @@ function printAd() {
 };
 
 function eventsAll() {
+    $('#ads_showAll').on('click', renderAllAds);
+    $('#index_html').on('load', renderAds());
     $('#aSearch, #closeSearch').on('click', advancedSearch);
     $('.item4 button').on('click', checkUserLogIn);
     $('#userPanel').on('click', goToUserPanel);
