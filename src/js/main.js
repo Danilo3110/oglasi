@@ -12,7 +12,6 @@ async function getBase(location) {
 };
 
 async function renderAllAds(){
-    $('#index_html').off();
     $('.ads-container').html('');
     $('.ads-click-scroll').html('eKvadrat - svi oglasi:');
     const listingsAll = await getBase('/listings');
@@ -173,6 +172,7 @@ function getAdForEditFromSessionStorage() {
     };
     populate('#writeAd', ad);
     sessionStorage.removeItem('adCheckLoadValidity');
+    $('.item7 h2').html('Izmena oglasa');
     $('#createObjects').remove();
     $('button[type=reset]').after(`&nbsp;&nbsp;&nbsp;<button type="button" id="modifyObjects">Sačuvaj&nbsp;izmene</button>`);
     $('#modifyObjects').on('click', patch_Ads);
@@ -389,7 +389,6 @@ function printAd() {
 
 function eventsAll() {
     $('#ads_showAll').on('click', renderAllAds);
-    $('#index_html').on('load', renderAds());
     $('#aSearch, #closeSearch').on('click', advancedSearch);
     $('.item4 button').on('click', checkUserLogIn);
     $('#userPanel').on('click', goToUserPanel);

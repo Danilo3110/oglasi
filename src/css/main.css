@@ -349,7 +349,7 @@ select {
 }
 
 .ads:hover {
-    transform: scale(1.005, 1.005);
+    transform: scale(1.008, 1.008);
     transition: 0.25s ease;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
     cursor: pointer;
