@@ -140,6 +140,7 @@ async function initialiseEdit() {
     const ad = event.currentTarget.parentElement.id;
     const response = await api.get(`/listings/${ad}`);
     const editAds = response.data;
+    delete editAds.options;
     sessionStorage.setItem('adForEdit', JSON.stringify(editAds));
     sessionStorage.setItem('adCheckLoadValidity', 1);
     sessionStorage.setItem('adId', ad);
