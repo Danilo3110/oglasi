@@ -1,7 +1,8 @@
 {
-  "listings": [{
-      "listingCreated": "21.3.2019. 00:46:51",
-      "listingChecked": "21.3.2019. 22:46:51",
+  "listings": [
+    {
+      "listingCreated": "28.3.2019. 18:22:44",
+      "listingChecked": "28.3.2019. 23:22:44",
       "listingNumber": 117,
       "authorId": 1,
       "category": "Stanovi",
@@ -18,7 +19,7 @@
       "m2": 43.75,
       "land-m2": "",
       "state": "Novogradnja",
-      "legalised": "Nije uknjižen",
+      "legalised": "Uknjižen",
       "heating": "Centralno",
       "yearOfConstruction": "2019",
       "floor": "1",
@@ -501,7 +502,8 @@
       "id": 12
     }
   ],
-  "users": [{
+  "users": [
+    {
       "category": "Fizičko lice",
       "name": "Darko Mingovski",
       "email": "darko.mingovski@gmail.com",
