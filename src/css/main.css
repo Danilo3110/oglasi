@@ -349,8 +349,8 @@ select {
 }
 
 .ads:hover {
-    transform: scale(1.01, 1.01);
-    transition: 0.5s ease;
+    transform: scale(1.022, 1.022);
+    transition: 0.55s ease;
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
@@ -655,7 +655,8 @@ hr {
     margin: 8px 0;
 }
 
-#editAd {
+.editAd,
+.deleteAd {
     width: 42%;
     padding: 4% 8%;
     margin: 4% 3%;

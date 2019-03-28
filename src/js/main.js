@@ -125,13 +125,15 @@ async function usersAds() {
     $('.item7').append(`<h1 class="ads-click-scroll">Korisnik: ${localStorage.getItem('user')} - oglasi:</h1>
                         <div class="user-container"></div>`);
     await _render_small(userListings, '.user-container');
+
+    $('.ads').append(`<button class="editAd" type="submit">Izmeni&nbsp;oglas</button>
+                    <button class="deleteAd" type="submit">Obriši&nbsp;oglas</button><br>`);
     for (const userAd of userListings) {
         $(`#${userAd.id}`).off();
         $(`.image_${userAd.id}`).on('click', () => fullAds(userAd.id));
     }
-
-    $('.ads').append(`<button id="editAd" type="submit" onclick="initialiseEdit()">Izmeni&nbsp;oglas</button>
-                    <button id="editAd" type="submit">Obriši&nbsp;oglas</button><br>`);
+    $('.editAd').on('click', initialiseEdit);
+    $('.deleteAd').on('click', () => deleteAds('Uspesno ste obrisali vaš oglas!'));
 };
 
 async function initialiseEdit() {
@@ -149,7 +151,7 @@ function getAdForEditFromSessionStorage() {
     const ad = JSON.parse(sessionStorage.getItem('adForEdit'));
 
     $('#writeAd').find(':checkbox').each(function () {
-        if (ad[this.id] == true) {
+        if (ad[this.id] === true) {
             this.checked = true;
         }
     });
@@ -162,16 +164,17 @@ function getAdForEditFromSessionStorage() {
     sessionStorage.removeItem('adCheckLoadValidity');
     $('#createObjects').remove();
     $('button[type=reset]').after(`&nbsp;&nbsp;&nbsp;<button type="button" id="modifyObjects">Sačuvaj&nbsp;izmene</button>`);
-    $('#modifyObjects').on('click', putAds_modify);
+    $('#modifyObjects').on('click', patch_Ads);
 };
 
 function loadAdToForm() {
-    if (sessionStorage.getItem('adCheckLoadValidity') == 1) {
+    if (JSON.parse(sessionStorage.getItem('adCheckLoadValidity')) === 1) {
+        $('html head').find('title').text(`Izmena oglasa`);
         getAdForEditFromSessionStorage();
     };
 };
 
-async function putAds_modify() {
+async function patch_Ads() {
     const listing = createAdObjects(false);
     console.log(listing);
     await api.patch(`/listings/${sessionStorage.getItem('adId')}`, listing)
@@ -181,14 +184,20 @@ async function putAds_modify() {
     sessionStorage.removeItem('adForEdit');
     location.href = 'user_panel.html';
 };
-/*
-async function deleteAds(numberOfAd, message) {
-    return await api.delete(`/listings/${numberOfAd}`)
-        .then((response) => alert(`${message}`))
-        .catch((error) => {
-            alert(error);
-        });
-};*/
+
+async function deleteAds(message) {
+    const ad = event.currentTarget.parentElement.id;
+    if (confirm('Da li ste sigurni da želite da obrisete odabrani oglas ?')) {
+        return await api.delete(`/listings/${ad}`)
+            .then((response) => {
+                alert(`${message}`);
+                location.reload();
+            })
+            .catch((error) => {
+                alert(error);
+            });
+    }
+};
 
 function advancedSearch() {
     $('.show').slideToggle(850);
@@ -358,8 +367,8 @@ async function searchAds(location, animation) {
 };
 
 function printAd() {
-    var restorepage = $('body').html();
-    var printcontent = $('#item7').clone();
+    const restorepage = $('body').html();
+    const printcontent = $('#item7').clone();
     $('body').empty().html(printcontent);
     window.print();
     $('body').html(restorepage);
