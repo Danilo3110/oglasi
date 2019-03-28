@@ -114,6 +114,7 @@ body {
 
 button {
     font-family: 'Quicksand', sans-serif;
+    font-size: 1vw;
     display: inline-block;
     border: 1px solid rgb(250, 128, 114);
     border-radius: 4px;
@@ -494,7 +495,7 @@ hr {
 }
 
 .single-ad-seller button {
-    width: 60%;
+    width: 70%;
     padding: 12px 20px;
     margin: 8px 0;
 }
@@ -531,7 +532,7 @@ hr {
 }
 
 .footer button {
-    width: 30%;
+    width: 40%;
     padding: 12px 20px;
     margin: 8px 0;
 }

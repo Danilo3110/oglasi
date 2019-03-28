@@ -130,8 +130,8 @@ async function usersAds() {
         $(`.image_${userAd.id}`).on('click', () => fullAds(userAd.id));
     }
 
-    $('.ads').append(`<button id="editAd" type="submit" onclick="initialiseEdit()">Izmeni oglas</button>
-                    <button id="editAd" type="submit">Obriši oglas</button><br>`);
+    $('.ads').append(`<button id="editAd" type="submit" onclick="initialiseEdit()">Izmeni&nbspoglas</button>
+                    <button id="editAd" type="submit">Obriši&nbspoglas</button><br>`);
 };
 
 async function initialiseEdit() {
