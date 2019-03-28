@@ -405,6 +405,10 @@ select {
     text-align: center;
 }
 
+#printAd:hover {
+    cursor: pointer;
+}
+
 .single-ad-tour {
     padding-left: 3%;
     width: 25%;
