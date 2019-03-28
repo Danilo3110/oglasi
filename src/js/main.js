@@ -140,13 +140,19 @@ async function initialiseEdit() {
     const editAds = response.data;
     sessionStorage.setItem('adForEdit', JSON.stringify(editAds));
     sessionStorage.setItem('adCheckLoadValidity', 1);
+    sessionStorage.setItem('adId', ad);
     location.href = 'publish_ad.html';
 };
 
 function getAdForEditFromSessionStorage() {
     $('#imgUrl').remove();
-    let ad = JSON.parse(sessionStorage.getItem('adForEdit'));
+    const ad = JSON.parse(sessionStorage.getItem('adForEdit'));
 
+    $('#writeAd').find(':checkbox').each(function () {
+        if (ad[this.id] == true) {
+            this.checked = true;
+        }
+    });
     function populate(form, data) {
         $.each(data, function (key, value) {
             $(`[name = ${key}]`, form).val(value);
@@ -154,12 +160,26 @@ function getAdForEditFromSessionStorage() {
     };
     populate('#writeAd', ad);
     sessionStorage.removeItem('adCheckLoadValidity');
+    $('#createObjects').remove();
+    $('button[type=reset]').after(`&nbsp;&nbsp;&nbsp;<button type="button" id="modifyObjects">Sačuvaj&nbsp;izmene</button>`);
+    $('#modifyObjects').on('click', putAds_modify);
 };
 
 function loadAdToForm() {
     if (sessionStorage.getItem('adCheckLoadValidity') == 1) {
         getAdForEditFromSessionStorage();
     };
+};
+
+async function putAds_modify() {
+    const listing = createAdObjects(false);
+    console.log(listing);
+    await api.patch(`/listings/${sessionStorage.getItem('adId')}`, listing)
+        .then((response) => alert(`Uspešno ste izmenili oglas!`))
+        .catch((error) => alert(error));
+    sessionStorage.removeItem('adId');
+    sessionStorage.removeItem('adForEdit');
+    location.href = 'user_panel.html';
 };
 /*
 async function deleteAds(numberOfAd, message) {
@@ -242,11 +262,10 @@ async function userLogIn() {
     }
 };
 
-function createAdObjects() {
+function createAdObjects(post = true) {
     const listingsObj = {};
     const option = [];
     const imgUrls = [];
-    const files = $("#imgUrl")[0].files;
 
     const currentDate = new Date();
     const listingCreated = currentDate.toLocaleString('sr-RS');
@@ -274,12 +293,15 @@ function createAdObjects() {
             listingsObj[this.id] = false;
         }
     });
-    for (const i of files) {
-        imgUrls.push('img/' + i.name);
-        listingsObj.imgUrl = imgUrls;
-    };
-    const message = 'Uspesno ste dodali novi oglas';
-    (async () => await postIntoBase('listings', listingsObj, message))();
+    if (post) {
+        const files = $("#imgUrl")[0].files;
+        for (const i of files) {
+            imgUrls.push('img/' + i.name);
+            listingsObj.imgUrl = imgUrls;
+        };
+        const message = 'Uspesno ste dodali novi oglas';
+        (async () => await postIntoBase('listings', listingsObj, message))();
+    } else return listingsObj;
 };
 
 function checkUserLogIn() {
@@ -342,7 +364,7 @@ function eventsAll() {
     $('#logIn').on('click', userLogIn);
     $('#createUser').on('click', createUser);
     $('#logIn-out').on('click', logInOut);
-    $('#createObjects').on('click', createAdObjects);
+    $('#createObjects').on('click', () => createAdObjects());
     $('#searchAdsAll, #searchAdsAll_2').on('click', () => searchAds('.ads-container', '.ads-click-scroll'));
     $('#ad_searchAdsAll, #ad_searchAdsAll_2').on('click', () => {
         $('.item7').html(`<h1 class="ads-click-scroll"></h1>
