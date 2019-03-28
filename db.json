@@ -1,6 +1,5 @@
 {
-  "listings": [
-    {
+  "listings": [{
       "listingCreated": "28.3.2019. 18:22:44",
       "listingChecked": "28.3.2019. 23:22:44",
       "listingNumber": 117,
@@ -502,8 +501,7 @@
       "id": 12
     }
   ],
-  "users": [
-    {
+  "users": [{
       "category": "Fizičko lice",
       "name": "Darko Mingovski",
       "email": "darko.mingovski@gmail.com",

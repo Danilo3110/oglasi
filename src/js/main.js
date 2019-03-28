@@ -12,8 +12,8 @@ async function getBase(location) {
 };
 
 async function renderAllAds(){
-    $('.ads-container').html('');
-    $('.ads-click-scroll').html('eKvadrat - svi oglasi:');
+    $('.item7').html(`<h1 class="ads-click-scroll">eKvadrat - svi oglasi:</h1>
+                        <div class="ads-container"></div>`);
     const listingsAll = await getBase('/listings');
     (async () => await _render_small(listingsAll, '.ads-container'))();
     animateFocus('.ads-click-scroll');
@@ -23,6 +23,7 @@ async function renderAds() {
     const listings = await getBase('/listings?_sort=id&_order=desc');
     const limitListings = listings.slice(0, 8);
     (async () => await _render_small(limitListings, '.ads-container'))();
+    $('body').removeAttr('onload');
 };
 
 async function _render_small(listings, location) {
