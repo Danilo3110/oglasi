@@ -11,9 +11,8 @@ async function getBase(location) {
     return responsFromBase.data;
 };
 
-async function renderAllAds(){
-    $('.item7').html(`<h1 class="ads-click-scroll">eKvadrat - svi oglasi:</h1>
-                        <div class="ads-container"></div>`);
+async function renderAllAds() {
+    $('.item7').html(`<h1 class="ads-click-scroll">eKvadrat - svi oglasi:</h1><div class="ads-container"></div>`);
     const listingsAll = await getBase('/listings');
     (async () => await _render_small(listingsAll, '.ads-container'))();
     animateFocus('.ads-click-scroll');
@@ -132,7 +131,7 @@ async function renderFullAds() {
 
 async function usersAds() {
     const userListings = await getBase(`/listings?authorId=${localStorage.getItem('id')}`);
-    $('.item7').append(`<h1 class="ads-click-scroll">Korisnik: ${localStorage.getItem('user')} - oglasi:</h1>
+    $('.item7').append(`<h2>eKorisnički panel</h2><h1 class="ads-click-scroll">Korisnik: ${localStorage.getItem('user')} - oglasi:</h1>
                         <div class="user-container"></div>`);
     await _render_small(userListings, '.user-container');
 
@@ -201,10 +200,7 @@ async function deleteAds(message) {
     const ad = event.currentTarget.parentElement.id;
     if (confirm('Da li ste sigurni da želite da obrisete odabrani oglas ?')) {
         return await api.delete(`/listings/${ad}`)
-            .then((response) => {
-                alert(`${message}`);
-                location.reload();
-            })
+            .then((response) => {alert(`${message}`); location.reload();})
             .catch((error) => {
                 alert(error);
             });
