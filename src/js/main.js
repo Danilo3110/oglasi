@@ -147,8 +147,7 @@ async function usersAds() {
 
 async function initialiseEdit() {
     const ad = event.currentTarget.parentElement.id;
-    const response = await api.get(`/listings/${ad}`);
-    const editAds = response.data;
+    const editAds = await getBase(`/listings/${ad}`);
     delete editAds.options;
     sessionStorage.setItem('adForEdit', JSON.stringify(editAds));
     sessionStorage.setItem('adCheckLoadValidity', 1);
@@ -172,6 +171,7 @@ function getAdForEditFromSessionStorage() {
     };
     populate('#writeAd', ad);
     sessionStorage.removeItem('adCheckLoadValidity');
+    sessionStorage.removeItem('adForEdit');
     $('.item7 h2').html('Izmena oglasa');
     $('#createObjects').remove();
     $('button[type=reset]').after(`&nbsp;&nbsp;&nbsp;<button type="button" id="modifyObjects">Sačuvaj&nbsp;izmene</button>`);
@@ -187,7 +187,6 @@ function loadAdToForm() {
 
 async function patch_Ads() {
     const listing = createAdObjects(false);
-    console.log(listing);
     await api.patch(`/listings/${sessionStorage.getItem('adId')}`, listing)
         .then((response) => alert(`Uspešno ste izmenili oglas!`))
         .catch((error) => alert(error));
