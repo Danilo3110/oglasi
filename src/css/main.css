@@ -572,12 +572,12 @@ hr {
 }
 
 .login-container input {
-    width: 49%;
+    width: 45%;
     font-size: 14px;
 }
 
 .login-container button {
-    width: 100%;
+    width: 95%;
     padding: 12px 20px;
     font-size: 14px;
     margin: 8px 0;
@@ -598,9 +598,10 @@ hr {
 }
 
 .login-img {
+    text-align: left;
     font-size: 16px;
     padding: 0 5% 0 5%;
-    background-color: #374252;
+    background-color: rgba(55, 66, 82, 0.9);
 }
 
 .login-img img {
@@ -674,4 +675,19 @@ input:valid+span:after {
     font-size: 16px;
     padding-left: 5px;
     color: green;
+}
+
+#login-content {
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 60px;
+    right: -130px;
+    z-index: 999;
+    background: rgba(249, 249, 249, 0.9);
+    color: black;
+    padding: 15px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    width: 550px;
 }

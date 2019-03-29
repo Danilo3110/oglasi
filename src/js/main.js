@@ -11,18 +11,18 @@ async function getBase(location) {
     return responsFromBase.data;
 };
 
-async function renderAllAds() {
-    $('.item7').html(`<h1 class="ads-click-scroll">eKvadrat - svi oglasi:</h1><div class="ads-container"></div>`);
-    const listingsAll = await getBase('/listings');
-    (async () => await _render_small(listingsAll, '.ads-container'))();
-    animateFocus('.ads-click-scroll');
-};
-
 async function renderAds() {
     const listings = await getBase('/listings?_sort=id&_order=desc');
     const limitListings = listings.slice(0, 8);
     (async () => await _render_small(limitListings, '.ads-container'))();
     $('body').removeAttr('onload');
+};
+
+async function renderAllAds() {
+    $('.item7').html(`<h1 class="ads-click-scroll">eKvadrat - svi oglasi:</h1><div class="ads-container"></div>`);
+    const listingsAll = await getBase('/listings');
+    (async () => await _render_small(listingsAll, '.ads-container'))();
+    animateFocus('.ads-click-scroll');
 };
 
 async function _render_small(listings, location) {
@@ -42,7 +42,7 @@ async function _render_small(listings, location) {
                     <h3 class="ads-descr">kontakt: ${users.mobile}</h3><br>
                     </div>`);
         $ad.appendTo($adsContainer);
-        $(`#${ad.id}`).on('click', () => fullAds(ad.id));
+        $(`.image_${ad.id}`).on('click', () => fullAds(ad.id));
     }
 };
 
@@ -137,10 +137,6 @@ async function usersAds() {
 
     $('.ads').append(`<button class="editAd" type="submit">Izmeni&nbsp;oglas</button>
                     <button class="deleteAd" type="submit">Obriši&nbsp;oglas</button><br>`);
-    for (const userAd of userListings) {
-        $(`#${userAd.id}`).off();
-        $(`.image_${userAd.id}`).on('click', () => fullAds(userAd.id));
-    }
     $('.editAd').on('click', initialiseEdit);
     $('.deleteAd').on('click', () => deleteAds('Uspesno ste obrisali vaš oglas!'));
 };
@@ -191,7 +187,6 @@ async function patch_Ads() {
         .then((response) => alert(`Uspešno ste izmenili oglas!`))
         .catch((error) => alert(error));
     sessionStorage.removeItem('adId');
-    sessionStorage.removeItem('adForEdit');
     location.href = 'user_panel.html';
 };
 
@@ -269,12 +264,12 @@ async function userLogIn() {
         }
     }
     if (JSON.parse(localStorage.getItem('validation'))) {
-        alert(`Uspesno ste ulogovani!`);
+        alert(`Uspesno ste se ulogovali!\nDobro došao/la ${localStorage.getItem('user')}`);
         location.href = 'index.html';
     } else {
         $('#userEmail').css('border', '1.5px solid rgb(250, 100, 100)');
         $('#pass').css('border', '1.5px solid rgb(250, 100, 100)');
-        alert(`Nije dobar unos podataka za login!`);
+        $('#alert').html(`Nije dobar unos podataka za login`).css('color', 'rgb(250, 100, 100)');
     }
 };
 
@@ -316,7 +311,7 @@ function createAdObjects(post = true) {
         for (const i of files) {
             imgUrls.push('img/' + i.name);
             listingsObj.imgUrl = imgUrls;
-        };
+        }
         const message = 'Uspesno ste dodali novi oglas';
         (async () => await postIntoBase('listings', listingsObj, message))();
     } else return listingsObj;
@@ -348,11 +343,12 @@ function logInOut() {
         localStorage.removeItem('validation');
         localStorage.removeItem('id');
         localStorage.removeItem('user');
+        sessionStorage.removeItem('adId');
         addLogOut();
         alert('Uspesno ste se izlogovali!');
         location.href = 'index.html';
     } else {
-        location.href = 'login.html';
+        $(this).next('#login-content').slideToggle(500);
     }
 };
 
