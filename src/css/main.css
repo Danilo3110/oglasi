@@ -93,8 +93,16 @@ body {
     padding: 2.5vh 1vw 0 1vw;
 }
 
-.item3 a {
+.item3 a,
+.item3 #logIn-out {
     color: white;
+    cursor: pointer;
+}
+
+.item3 a:hover,
+.item3 #logIn-out:hover {
+    color: rgb(250, 128, 114);
+    transition: 0.5s ease;
 }
 
 .item4 {

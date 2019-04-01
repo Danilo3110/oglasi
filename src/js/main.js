@@ -23,7 +23,7 @@ async function renderAllAds() {
     const listingsAll = await getBase('/listings');
     (async () => await _render_small(listingsAll, '.ads-container'))();
     animateFocus('.ads-click-scroll');
-    await setTimeout(() => {loadFavorites();}, 400);
+    loadFavorites();
 };
 
 async function _render_small(listings, location) {
@@ -160,12 +160,13 @@ async function favorites() {
 };
 
 function loadFavorites() {
-    const adsId = fav['favorites'];
-    if (localStorage.getItem('validation') && (adsId !== undefined)) {
-        for (const ad of adsId) {
-            $(`#fav_${ad}`).html(`<i title="Dodato u omiljene" class="fas fa-heart fa-lg onHeart"></i>`);
-        }
-    }
+    setTimeout(() => {
+        const adsId = fav['favorites'];
+        if (localStorage.getItem('validation') && (adsId !== undefined)) {
+            for (const ad of adsId) {
+                $(`#fav_${ad}`).html(`<i title="Dodato u omiljene" class="fas fa-heart fa-lg onHeart"></i>`);
+            }
+        }}, 400);
 };
 
 async function renderFavorites() {
@@ -180,7 +181,7 @@ async function renderFavorites() {
                         <div class="user-container"></div>`);
         const adsForRender = await getBase(`/listings/?${queryForRender}`);
         (async () => await _render_small(adsForRender, '.user-container'))();
-        await setTimeout(() => {loadFavorites();}, 100);
+        loadFavorites();
     }else {alert('Nemate dodate omiljene oglase');}
 };
 
@@ -428,7 +429,7 @@ async function searchAds(location, animation) {
     $(`${animation}`).html('Rezultati pretrage:');
     animateFocus(`${animation}`);
     (async () => await _render_small(listingsFiltered, `${location}`))();
-    await setTimeout(() => {loadFavorites();}, 100);
+    loadFavorites();
 };
 
 function printAd() {
@@ -455,4 +456,4 @@ function eventsAll() {
         searchAds('.user-container', '.ads-click-scroll')
     });
 };
-$(document).on('load', addLogOut(), eventsAll(), animationsAll(), favorites(), setTimeout(() => {loadFavorites();}, 400));
+$(document).on('load', addLogOut(), eventsAll(), animationsAll(), favorites(), loadFavorites());
