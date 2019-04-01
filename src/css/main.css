@@ -691,3 +691,31 @@ input:valid+span:after {
     border-radius: 4px;
     width: 30vw;
 }
+
+.fa-heart:hover,
+.fa-print:hover {
+    color: rgb(250, 128, 114);
+    transition: 0.25s ease-out;
+    transform: scale(1.15, 1.15);
+    cursor: pointer;
+}
+
+.offHeart:active {
+    transition: 0.08s ease-out;
+    transform: scale(2.2, 2.2);
+}
+
+.onHeart {
+    color: rgb(250, 100, 100);
+}
+
+.onHeart:active {
+    transition: 0.1s ease-out;
+    transform: scale(0.9, 0.9);
+}
+
+#showFavorites {
+    width: 12%;
+    padding: 12px 20px;
+    margin: 10px 0 25px;
+}

@@ -23,6 +23,7 @@ async function renderAllAds() {
     const listingsAll = await getBase('/listings');
     (async () => await _render_small(listingsAll, '.ads-container'))();
     animateFocus('.ads-click-scroll');
+    await setTimeout(() => {loadFavorites();}, 400);
 };
 
 async function _render_small(listings, location) {
@@ -31,7 +32,8 @@ async function _render_small(listings, location) {
         const $adsContainer = $(`${location}`);
         const $ad = $(`<div class="ads" id="${ad.id}">
                     <div class="ads-descr">
-                    <h3>Lokacija: ${ad.city}<i class="fas fa-share-alt fa-lg"></i><i class="far fa-heart fa-lg"></i>
+                    <h3>Lokacija: ${ad.city}<i class="fas fa-share-alt fa-lg"></i>
+                    <span id="fav_${ad.id}"><i title="Dodaj u omiljene" class="far fa-heart fa-lg offHeart"></i></span>
                     <i class="fas fa-map-marker-alt fa-lg"></i></h3>
                     </div>
                     <img src="${ad.imgUrl[0]}" alt="" class="image_${ad.id}"><br>
@@ -43,6 +45,7 @@ async function _render_small(listings, location) {
                     </div>`);
         $ad.appendTo($adsContainer);
         $(`.image_${ad.id}`).on('click', () => fullAds(ad.id));
+        $(`#fav_${ad.id}`).on('click', addToFavorites);
     }
 };
 
@@ -90,10 +93,10 @@ async function renderFullAds() {
                 Tel: ${users.telephone == null ? '/' : users.telephone}<br><br>
                 Tel: ${users.mobile}<br><br>
                 <button type="submit">Pošalji&nbsp;poruku</button><br><br>
-                <i class="fas fa-exclamation-triangle" title="Prijavi grešku"></i>
-                <i class="fas fa-print" id="printAd" onclick="printAd()" title="Odštampaj oglas"></i>
-                <i class="fas fa-share-alt" title="Podeli oglas"></i>
-                <i class="fas fa-heart" title="Dodaj u omiljene"></i>
+                <i class="fas fa-exclamation-triangle fa-lg" title="Prijavi grešku"></i>
+                <i class="fas fa-print fa-lg" id="printAd" onclick="printAd()" title="Odštampaj oglas"></i>
+                <i class="fas fa-share-alt fa-lg" title="Podeli oglas"></i>
+                <span id="fav_${listings.id}"><i class="far fa-heart fa-lg offHeart" title="Dodaj u omiljene"></i></span>
             </div>
             <hr>
             <div class="single-ad-detailed">
@@ -126,12 +129,63 @@ async function renderFullAds() {
             </div>`);
         $ad.appendTo($fullContainer);
         animateFocus('.item6');
+        $(`#fav_${listings.id}`).on('click', addToFavorites);
     }
+};
+
+const fav = {favorites: []};
+async function addToFavorites() {
+    const iconId = event.currentTarget.id;
+    const adId = Number(iconId.slice(4, ));
+    if (localStorage.getItem('validation')) {
+        if ($(`#${iconId} i`).hasClass('offHeart')) {
+            $(`#${iconId}`).html(`<i title="Dodato u omiljene" class="fas fa-heart fa-lg onHeart"></i>`);
+            fav['favorites'].push(adId);
+            await api.patch(`/users/${localStorage.getItem('id')}`, fav);
+        } else {
+            $(`#${iconId}`).html(`<i title="Dodaj u omiljene" class="far fa-heart fa-lg offHeart"></i>`);
+            const index = fav.favorites.indexOf(adId);
+            fav['favorites'].splice(index, 1);
+            await api.patch(`/users/${localStorage.getItem('id')}`, fav);
+        }
+    }
+};
+
+async function favorites() {
+    if (localStorage.getItem('validation')) {
+        const user = await getBase(`/users/${localStorage.getItem('id')}`);
+        const favorites = user.favorites;
+        fav['favorites'] = favorites;
+    }
+};
+
+function loadFavorites() {
+    const adsId = fav['favorites'];
+    if (localStorage.getItem('validation') && adsId.length) {
+        for (const ad of adsId) {
+            $(`#fav_${ad}`).html(`<i title="Dodato u omiljene" class="fas fa-heart fa-lg onHeart"></i>`);
+        }
+    }
+};
+
+async function renderFavorites() {
+    const user = await getBase(`/users/${localStorage.getItem('id')}`);
+    const adsId = user.favorites;
+    let queryForRender = '';
+    for (const ad of adsId) {
+        queryForRender += `id=${ad}&`;
+    }
+    $('.item7').html(`<h2>eKorisnički panel</h2><h1 class="ads-click-scroll">Korisnik: ${localStorage.getItem('user')} - Omiljeni oglasi:</h1>
+                        <div class="user-container"></div>`);
+    const adsForRender = await getBase(`/listings/?${queryForRender}`);
+    (async () => await _render_small(adsForRender, '.user-container'))();
+    await setTimeout(() => {loadFavorites();}, 100);
 };
 
 async function usersAds() {
     const userListings = await getBase(`/listings?authorId=${localStorage.getItem('id')}`);
     $('.item7').append(`<h2>eKorisnički panel</h2><h1 class="ads-click-scroll">Korisnik: ${localStorage.getItem('user')} - oglasi:</h1>
+                        <button id="showFavorites">Omiljeni&nbsp;oglasi&nbsp;</button>
                         <div class="user-container"></div>`);
     await _render_small(userListings, '.user-container');
 
@@ -139,6 +193,7 @@ async function usersAds() {
                     <button class="deleteAd" type="submit">Obriši&nbsp;oglas</button><br>`);
     $('.editAd').on('click', initialiseEdit);
     $('.deleteAd').on('click', () => deleteAds('Uspesno ste obrisali vaš oglas!'));
+    $('#showFavorites').on('click', () => renderFavorites());
 };
 
 async function initialiseEdit() {
@@ -369,6 +424,7 @@ async function searchAds(location, animation) {
     $(`${animation}`).html('Rezultati pretrage:');
     animateFocus(`${animation}`);
     (async () => await _render_small(listingsFiltered, `${location}`))();
+    await setTimeout(() => {loadFavorites();}, 100);
 };
 
 function printAd() {
@@ -395,4 +451,4 @@ function eventsAll() {
         searchAds('.user-container', '.ads-click-scroll')
     });
 };
-$(document).on('load', addLogOut(), eventsAll(), animationsAll());
+$(document).on('load', addLogOut(), eventsAll(), animationsAll(), favorites(), setTimeout(() => {loadFavorites();}, 400));

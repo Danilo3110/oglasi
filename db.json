@@ -1,5 +1,6 @@
 {
-  "listings": [{
+  "listings": [
+    {
       "listingCreated": "28.3.2019. 18:22:44",
       "listingChecked": "28.3.2019. 23:22:44",
       "listingNumber": 117,
@@ -501,7 +502,8 @@
       "id": 12
     }
   ],
-  "users": [{
+  "users": [
+    {
       "category": "Fizičko lice",
       "name": "Darko Mingovski",
       "email": "darko.mingovski@gmail.com",
@@ -521,7 +523,14 @@
       "city": "Beograd, Srbija",
       "telephone": "011/2798-515",
       "mobile": "064/31-29-445",
-      "id": 2
+      "id": 2,
+      "favorites": [
+        10,
+        7,
+        8,
+        6,
+        3
+      ]
     },
     {
       "category": "Pravno lice",
