@@ -1,6 +1,5 @@
 {
-  "listings": [
-    {
+  "listings": [{
       "listingCreated": "28.3.2019. 18:22:44",
       "listingChecked": "28.3.2019. 23:22:44",
       "listingNumber": 117,
@@ -502,8 +501,7 @@
       "id": 12
     }
   ],
-  "users": [
-    {
+  "users": [{
       "category": "Fizičko lice",
       "name": "Darko Mingovski",
       "email": "darko.mingovski@gmail.com",
@@ -512,7 +510,8 @@
       "city": "Beograd",
       "telephone": "/",
       "mobile": "063/460-596",
-      "id": 1
+      "id": 1,
+      "favorites": []
     },
     {
       "category": "Fizičko lice",
@@ -541,7 +540,8 @@
       "city": "Beograd",
       "telephone": "011/276-3887",
       "mobile": "064/129-3890",
-      "id": 3
+      "id": 3,
+      "favorites": []
     },
     {
       "category": "Fizičko lice",
@@ -552,7 +552,8 @@
       "city": "Zemun",
       "telephone": "011/555-333",
       "mobile": "065/555-333",
-      "id": 4
+      "id": 4,
+      "favorites": []
     }
   ]
 }

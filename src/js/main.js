@@ -161,7 +161,7 @@ async function favorites() {
 
 function loadFavorites() {
     const adsId = fav['favorites'];
-    if (localStorage.getItem('validation') && adsId.length) {
+    if (localStorage.getItem('validation') && (adsId !== undefined)) {
         for (const ad of adsId) {
             $(`#fav_${ad}`).html(`<i title="Dodato u omiljene" class="fas fa-heart fa-lg onHeart"></i>`);
         }
@@ -171,15 +171,17 @@ function loadFavorites() {
 async function renderFavorites() {
     const user = await getBase(`/users/${localStorage.getItem('id')}`);
     const adsId = user.favorites;
-    let queryForRender = '';
-    for (const ad of adsId) {
-        queryForRender += `id=${ad}&`;
-    }
-    $('.item7').html(`<h2>eKorisnički panel</h2><h1 class="ads-click-scroll">Korisnik: ${localStorage.getItem('user')} - Omiljeni oglasi:</h1>
+    if (adsId.length > 0) {
+        let queryForRender = '';
+        for (const ad of adsId) {
+            queryForRender += `id=${ad}&`;
+        }
+        $('.item7').html(`<h2>eKorisnički panel</h2><h1 class="ads-click-scroll">Korisnik: ${localStorage.getItem('user')} - Omiljeni oglasi:</h1>
                         <div class="user-container"></div>`);
-    const adsForRender = await getBase(`/listings/?${queryForRender}`);
-    (async () => await _render_small(adsForRender, '.user-container'))();
-    await setTimeout(() => {loadFavorites();}, 100);
+        const adsForRender = await getBase(`/listings/?${queryForRender}`);
+        (async () => await _render_small(adsForRender, '.user-container'))();
+        await setTimeout(() => {loadFavorites();}, 100);
+    }else {alert('Nemate dodate omiljene oglase');}
 };
 
 async function usersAds() {
@@ -293,9 +295,11 @@ function createUser() {
         usersObj[this.name] = $(this).val();
     });
     delete usersObj.passwordRepeat;
+    usersObj['favorites'] = [];
 
     const message = 'Uspesno ste se registrovali';
     (async () => await postIntoBase('users', usersObj, message))();
+    setTimeout(() => {location.href = 'index.html';}, 500);
 };
 
 async function postIntoBase(location, obj, message) {
