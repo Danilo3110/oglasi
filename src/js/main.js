@@ -204,7 +204,7 @@ async function initialiseEdit() {
     const editAds = await getBase(`/listings/${ad}`);
     delete editAds.options;
     sessionStorage.setItem('adForEdit', JSON.stringify(editAds));
-    sessionStorage.setItem('adCheckLoadValidity', 1);
+    sessionStorage.setItem('adCheckLoadValidity', true);
     sessionStorage.setItem('adId', ad);
     location.href = 'publish_ad.html';
 };
@@ -233,7 +233,7 @@ function getAdForEditFromSessionStorage() {
 };
 
 function loadAdToForm() {
-    if (JSON.parse(sessionStorage.getItem('adCheckLoadValidity')) === 1) {
+    if (JSON.parse(sessionStorage.getItem('adCheckLoadValidity'))) {
         $('html head').find('title').text(`Izmena oglasa`);
         getAdForEditFromSessionStorage();
     };
@@ -400,10 +400,8 @@ function addLogOut() {
 
 function logInOut() {
     if (localStorage.getItem('validation')) {
-        localStorage.removeItem('validation');
-        localStorage.removeItem('id');
-        localStorage.removeItem('user');
-        sessionStorage.removeItem('adId');
+        localStorage.clear();
+        sessionStorage.clear();
         addLogOut();
         alert('Uspesno ste se izlogovali!');
         location.href = 'index.html';
