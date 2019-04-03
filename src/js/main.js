@@ -188,7 +188,6 @@ async function renderFavorites() {
 async function usersAds() {
     const userListings = await getBase(`/listings?authorId=${localStorage.getItem('id')}`);
     $('.item7').append(`<h2>eKorisnički panel</h2><h1 class="ads-click-scroll">Korisnik: ${localStorage.getItem('user')} - oglasi:</h1>
-                        <button id="showFavorites">Omiljeni&nbsp;oglasi&nbsp;</button>
                         <div class="user-container"></div>`);
     await _render_small(userListings, '.user-container');
 

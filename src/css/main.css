@@ -722,8 +722,7 @@ input:valid+span:after {
     transform: scale(0.9, 0.9);
 }
 
-#showFavorites {
-    width: 12%;
-    padding: 12px 20px;
-    margin: 10px 0 25px;
+#empty {
+    height: 3vw;
+    margin-top: 90px;
 }
