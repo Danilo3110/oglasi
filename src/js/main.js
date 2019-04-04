@@ -166,7 +166,7 @@ function loadFavorites() {
             for (const ad of adsId) {
                 $(`#fav_${ad}`).html(`<i title="Dodato u omiljene" class="fas fa-heart fa-lg onHeart"></i>`);
             }
-        }}, 400);
+        }}, 300);
 };
 
 async function renderFavorites() {
@@ -177,20 +177,21 @@ async function renderFavorites() {
         for (const ad of adsId) {
             queryForRender += `id=${ad}&`;
         }
-        $('.item7').html(`<h2>eKorisnički panel</h2><h1 class="ads-click-scroll">Korisnik: ${localStorage.getItem('user')} - Omiljeni oglasi:</h1>
-                        <div class="user-container"></div>`);
+        $('.item7').html(`<h1 class="ads-click-scroll">Korisnik: ${localStorage.getItem('user')} - Omiljeni oglasi:</h1>
+                            <div class="user-container"></div>`);
         const adsForRender = await getBase(`/listings/?${queryForRender}`);
         (async () => await _render_small(adsForRender, '.user-container'))();
+        animateFocus('.item7');
         loadFavorites();
-    }else {alert('Nemate dodate omiljene oglase');}
+    } else {alert('Nemate dodate omiljene oglase');}
 };
 
 async function usersAds() {
     const userListings = await getBase(`/listings?authorId=${localStorage.getItem('id')}`);
-    $('.item7').append(`<h2>eKorisnički panel</h2><h1 class="ads-click-scroll">Korisnik: ${localStorage.getItem('user')} - oglasi:</h1>
+    $('.item7').append(`<h1 class="ads-click-scroll">Korisnik: ${localStorage.getItem('user')} - oglasi:</h1>
                         <div class="user-container"></div>`);
     await _render_small(userListings, '.user-container');
-
+    animateFocus('.item7');
     $('.ads').append(`<button class="editAd" type="submit">Izmeni&nbsp;oglas</button>
                     <button class="deleteAd" type="submit">Obriši&nbsp;oglas</button><br>`);
     $('.editAd').on('click', initialiseEdit);

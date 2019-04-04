@@ -262,7 +262,8 @@ select {
     background-color: #F9F9F9;
 }
 
-#button-wrap {
+#button-wrap,
+#button-wrap-small {
     box-shadow: 0 -12px 10px 0 rgba(42, 47, 54, .3);
     background-color: #F9F9F9;
     border-radius: 4px;
@@ -273,6 +274,11 @@ select {
     width: 55%;
     margin-left: 22%;
     margin-top: -15vh;
+}
+
+#button-wrap-small {
+    margin: auto;
+    width: 32%;
 }
 
 #button-wrap-publish-ad {
@@ -288,7 +294,8 @@ select {
 }
 
 #button-wrap a,
-#button-wrap-publish-ad a {
+#button-wrap-publish-ad a,
+#button-wrap-small a {
     text-decoration: none;
     color: black;
 }
@@ -723,6 +730,6 @@ input:valid+span:after {
 }
 
 #empty {
-    height: 3vw;
-    margin-top: 90px;
+    text-align: center;
+    margin-bottom: 1.5vw;
 }
