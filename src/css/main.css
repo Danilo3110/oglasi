@@ -308,7 +308,7 @@ select {
     box-sizing: border-box;
     width: 10vw;
     height: 18vh;
-    background-color: white;
+    background-color: #F9F9F9;
     text-align: center;
     padding: 20%;
     border-radius: 4px;

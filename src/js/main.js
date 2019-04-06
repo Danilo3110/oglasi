@@ -1,3 +1,8 @@
+import '@babel/polyfill';
+import renderFullAds from './ad';
+import createUser from './register';
+import {createAdObjects, checkUserLogIn} from './publish_ad';
+import {usersAds, loadAdToForm} from './user_panel';
 'use strict';
 
 const serverUrl = `http://localhost:3000`;
@@ -49,88 +54,9 @@ async function _render_small(listings, location) {
     }
 };
 
-async function renderFullAds() {
-    const idOfsmallAds = JSON.parse(sessionStorage.getItem('idOfsmallAds'));
-    const responseListings = await api.get(`/listings/${idOfsmallAds}`);
-    if (responseListings.status < 400) {
-        const listings = responseListings.data;
-        const users = await getBase(`/users/${listings.authorId}`);
-
-        $('html head').find('title').text(`Šifra oglasa: ${listings.listingNumber}`);
-        const pricePerM2 = Math.floor(Number(listings.price) / Number(listings.m2)).toLocaleString('sr-RS');
-
-        const $fullContainer = $('.item7');
-        const $ad = $(`<h2>${listings.title}</h2>
-            <h3>${listings.city}</h3>
-            <div class="single-ad-container">
-            <div class="single-ad-img">
-                <img src="${listings.imgUrl[0]}" alt="slika1">
-                <img src="${listings.imgUrl[1]}" alt="slika2">
-                <img src="${listings.imgUrl[2]}" alt="slika3">
-                <img src="${listings.imgUrl[3]}" alt="slika4">
-                <img src="${listings.imgUrl[4]}" alt="slika5">
-            </div>
-            <div class="single-ad-data">
-                <div>
-                    <h4>Podaci o nekretnini</h4>
-                    Broj soba: ${listings.roomCount}<br><br>
-                    Cena: ${Number(listings.price).toLocaleString('sr-RS') == 0 ? listings['price-other']
-                            : Number(listings.price).toLocaleString('sr-RS') + '&euro;'}<br><br>
-                    Sprat: ${listings.floor}/${listings.floors}<br><br>
-                    Uknjiženost: ${listings.legalised}<br><br>
-                    Površina: ${listings.m2}&nbsp;m&sup2;<br><br>
-                    Cena po m&sup2;: ${pricePerM2 + '&euro;'} <br><br>
-                    Stanje: ${listings.state}<br><br>
-                    Ulica: ${listings.street}<br><br>
-                    Linije JGP: ${listings.publicTransport}
-                </div>
-            </div>
-            <div class="single-ad-seller">
-                <h4>Kontakt</h4>
-                <h3>${users.name}</h3>
-                Adresa: ${users.address}<br><br>
-                Mesto: ${users.city}<br><br>
-                Tel: ${users.telephone == null ? '/' : users.telephone}<br><br>
-                Tel: ${users.mobile}<br><br>
-                <button type="submit">Pošalji&nbsp;poruku</button><br><br>
-                <i class="fas fa-exclamation-triangle fa-lg" title="Prijavi grešku"></i>
-                <i class="fas fa-print fa-lg" id="printAd" onclick="printAd()" title="Odštampaj oglas"></i>
-                <i class="fas fa-share-alt fa-lg" title="Podeli oglas"></i>
-                <span id="fav_${listings.id}"><i class="far fa-heart fa-lg offHeart" title="Dodaj u omiljene"></i></span>
-            </div>
-            <hr>
-            <div class="single-ad-detailed">
-                <h3>Dodatne&nbsp;informacije</h3>
-                ${listings.additionalinfo}
-            </div>
-            <hr>
-            <div class="single-ad-tour">
-                <h4>Zakažite obilazak</h4>
-                <div>Izaberite termin koji vama odgovara! Ostavite podatke i kontaktiraćemo vas u najkraćem mogućem
-                    roku.</div>
-                <div>
-                    <input type="text" placeholder="ime i prezime"><br>
-                    <input type="text" placeholder="email"><br>
-                    <input type="text" placeholder="telefon"><br>
-                    <button type="submit">Pošalji podatke</button>
-                </div>
-            </div>
-            <div class="single-ad-map" id="map-text">
-                <img src="img/jgp.PNG" alt="" srcset="">
-                Lokacija stana
-            </div>
-            <div class="single-ad-rest">
-                Šifra oglasa: ${listings.listingNumber}<br><br>
-                Datum kreiranja: ${listings.listingCreated}<br><br>
-                Oglas proverila agencija: ${listings.listingChecked}<br><br>
-                Godina izgradnje: ${listings.yearOfConstruction}<br><br>
-                Grejanje: ${listings.heating}<br><br>
-                Opremljenost: ${listings.options == null ? '' : listings.options}
-            </div>`);
-        $ad.appendTo($fullContainer);
-        animateFocus('.item6');
-        $(`#fav_${listings.id}`).on('click', addToFavorites);
-    }
+function fullAds(id) {
+    sessionStorage.setItem('idOfsmallAds', id);
+    window.open('ad.html', '', '');
 };
 
 const fav = {favorites: []};
@@ -166,7 +92,7 @@ function loadFavorites() {
             for (const ad of adsId) {
                 $(`#fav_${ad}`).html(`<i title="Dodato u omiljene" class="fas fa-heart fa-lg onHeart"></i>`);
             }
-        }}, 300);
+        }}, 400);
 };
 
 async function renderFavorites() {
@@ -186,87 +112,9 @@ async function renderFavorites() {
     } else {alert('Nemate dodate omiljene oglase');}
 };
 
-async function usersAds() {
-    const userListings = await getBase(`/listings?authorId=${localStorage.getItem('id')}`);
-    $('.item7').append(`<h1 class="ads-click-scroll">Korisnik: ${localStorage.getItem('user')} - oglasi:</h1>
-                        <div class="user-container"></div>`);
-    await _render_small(userListings, '.user-container');
-    animateFocus('.item7');
-    $('.ads').append(`<button class="editAd" type="submit">Izmeni&nbsp;oglas</button>
-                    <button class="deleteAd" type="submit">Obriši&nbsp;oglas</button><br>`);
-    $('.editAd').on('click', initialiseEdit);
-    $('.deleteAd').on('click', () => deleteAds('Uspesno ste obrisali vaš oglas!'));
-    $('#showFavorites').on('click', () => renderFavorites());
-};
-
-async function initialiseEdit() {
-    const ad = event.currentTarget.parentElement.id;
-    const editAds = await getBase(`/listings/${ad}`);
-    delete editAds.options;
-    sessionStorage.setItem('adForEdit', JSON.stringify(editAds));
-    sessionStorage.setItem('adCheckLoadValidity', true);
-    sessionStorage.setItem('adId', ad);
-    location.href = 'publish_ad.html';
-};
-
-function getAdForEditFromSessionStorage() {
-    $('#imgUrl').remove();
-    const ad = JSON.parse(sessionStorage.getItem('adForEdit'));
-
-    $('#writeAd').find(':checkbox').each(function () {
-        if (ad[this.id] === true) {
-            this.checked = true;
-        }
-    });
-    function populate(form, data) {
-        $.each(data, function (key, value) {
-            $(`[name = ${key}]`, form).val(value);
-        });
-    };
-    populate('#writeAd', ad);
-    sessionStorage.removeItem('adCheckLoadValidity');
-    sessionStorage.removeItem('adForEdit');
-    $('.item7 h2').html('Izmena oglasa');
-    $('#createObjects').remove();
-    $('button[type=reset]').after(`&nbsp;&nbsp;&nbsp;<button type="button" id="modifyObjects">Sačuvaj&nbsp;izmene</button>`);
-    $('#modifyObjects').on('click', patch_Ads);
-};
-
-function loadAdToForm() {
-    if (JSON.parse(sessionStorage.getItem('adCheckLoadValidity'))) {
-        $('html head').find('title').text(`Izmena oglasa`);
-        getAdForEditFromSessionStorage();
-    };
-};
-
-async function patch_Ads() {
-    const listing = createAdObjects(false);
-    await api.patch(`/listings/${sessionStorage.getItem('adId')}`, listing)
-        .then((response) => alert(`Uspešno ste izmenili oglas!`))
-        .catch((error) => alert(error));
-    sessionStorage.removeItem('adId');
-    location.href = 'user_panel.html';
-};
-
-async function deleteAds(message) {
-    const ad = event.currentTarget.parentElement.id;
-    if (confirm('Da li ste sigurni da želite da obrisete odabrani oglas ?')) {
-        return await api.delete(`/listings/${ad}`)
-            .then((response) => {alert(`${message}`); location.reload();})
-            .catch((error) => {
-                alert(error);
-            });
-    }
-};
-
 function advancedSearch() {
     $('.show').slideToggle(850);
     animateFocus('#aSearch');
-};
-
-function fullAds(id) {
-    sessionStorage.setItem('idOfsmallAds', id);
-    window.open('ad.html', '', '');
 };
 
 function animateFocus(toLocation) {
@@ -288,19 +136,6 @@ function animationsAll() {
             }, 850);
         });
     });
-};
-
-function createUser() {
-    const usersObj = {};
-    $("#writeAd").find("input, select").each(function () {
-        usersObj[this.name] = $(this).val();
-    });
-    delete usersObj.passwordRepeat;
-    usersObj['favorites'] = [];
-
-    const message = 'Uspesno ste se registrovali';
-    (async () => await postIntoBase('users', usersObj, message))();
-    setTimeout(() => {location.href = 'index.html';}, 500);
 };
 
 async function postIntoBase(location, obj, message) {
@@ -331,55 +166,6 @@ async function userLogIn() {
         $('#pass').css('border', '1.5px solid rgb(250, 100, 100)');
         $('#alert').html(`Nije dobar unos podataka za login`).css('color', 'rgb(250, 100, 100)');
     }
-};
-
-function createAdObjects(post = true) {
-    const listingsObj = {};
-    const option = [];
-    const imgUrls = [];
-
-    const currentDate = new Date();
-    const listingCreated = currentDate.toLocaleString('sr-RS');
-    const randomCheckingTime = Math.floor(Math.random() * Math.floor(24));
-    const listingChecked = new Date(currentDate.setHours(currentDate.getHours() + randomCheckingTime)).toLocaleString('sr-RS');
-    listingsObj['listingCreated'] = listingCreated;
-    listingsObj['listingChecked'] = listingChecked;
-
-    if (post) {
-        const listingNumber = Math.floor(Math.random() * 999);
-        listingsObj['listingNumber'] = listingNumber;
-    }
-    listingsObj['authorId'] = JSON.parse(localStorage.getItem('id'));
-
-    $('#writeAd').find('input:not(:checkbox), textarea, select').each(function () {
-        listingsObj[this.name] = $(this).val();
-    });
-    $('#writeAd').find('input[type="number"]').each(function () {
-        listingsObj[this.name] = Number($(this).val());
-    });
-    $('#writeAd').find(':checkbox').each(function () {
-        if ($(this).is(':checked')) {
-            listingsObj[this.id] = true;
-            option.push(this.value);
-            listingsObj['options'] = option.join(', ');
-        } else {
-            listingsObj[this.id] = false;
-        }
-    });
-    if (post) {
-        const files = $("#imgUrl")[0].files;
-        for (const i of files) {
-            imgUrls.push('img/' + i.name);
-            listingsObj.imgUrl = imgUrls;
-        }
-        const message = 'Uspesno ste dodali novi oglas';
-        (async () => await postIntoBase('listings', listingsObj, message))();
-    } else return listingsObj;
-};
-
-function checkUserLogIn() {
-    return localStorage.getItem('validation') ? location.href = 'publish_ad.html' :
-        alert('Da bi dodali novi oglas, morate biti ulogovani!');
 };
 
 function goToUserPanel() {
@@ -438,6 +224,18 @@ function printAd() {
     $('body').html(restorepage);
 };
 
+function onLoadHTML() {
+    if ($('body').hasClass('index_html')) {
+        return renderAds();
+    } else if ($('body').hasClass('ad_html')) {
+        return renderFullAds();
+    } else if ($('body').hasClass('publish_ad_html')) {
+        return loadAdToForm();
+    } else if ($('body').hasClass('user_panel_html')) {
+        return usersAds();
+    }
+};
+
 function eventsAll() {
     $('#ads_showAll').on('click', renderAllAds);
     $('#aSearch, #closeSearch').on('click', advancedSearch);
@@ -454,4 +252,6 @@ function eventsAll() {
         searchAds('.user-container', '.ads-click-scroll')
     });
 };
-$(document).on('load', addLogOut(), eventsAll(), animationsAll(), favorites(), loadFavorites());
+$(document).on('load', onLoadHTML(), addLogOut(), eventsAll(), animationsAll(), favorites(), loadFavorites());
+
+export {api, getBase, animateFocus, addToFavorites, printAd, postIntoBase, _render_small, renderFavorites};

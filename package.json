@@ -22,8 +22,9 @@
   },
   "homepage": "https://github.com/ucha-jedi-frontend/oglasi#readme",
   "dependencies": {
-    "lodash": "^4.17.11",
+    "@babel/polyfill": "^7.4.3",
     "acorn": "^6.1.1",
+    "lodash": "^4.17.11",
     "webpack-cli": "^3.3.0"
   },
   "devDependencies": {
