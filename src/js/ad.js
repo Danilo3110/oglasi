@@ -73,11 +73,13 @@ async function renderFullAds() {
                 Opremljenost: ${listings.options == null ? '' : listings.options}
             </div>`);
         $ad.appendTo($fullContainer);
-
-        listings.imgUrl.forEach(function (image, index) {
-            $('.single-ad-img').append(`<img src="${image}" alt="slika${index}">`);
-        });
-
+        if ((listings.imgUrl).length != 0) {
+            listings.imgUrl.forEach(function (image, index) {
+                $('.single-ad-img').append(`<img src="${image}" alt="slika${index}">`);
+            });
+        } else {
+            $('.single-ad-img').append(`<img src="./img/image-not-found.jpg" alt="nema slike">`);
+        }
         animateFocus('.item6');
         $('.fa-print').on('click', printAd);
         $(`#fav_${listings.id}`).on('click', addToFavorites);

@@ -41,7 +41,7 @@ async function _render_small(listings, location) {
                     <span id="fav_${ad.id}"><i title="Dodaj u omiljene" class="far fa-heart fa-lg offHeart"></i></span>
                     <i class="fas fa-map-marker-alt fa-lg"></i></h3>
                     </div>
-                    <img src="${ad.imgUrl[0]}" alt="" class="image_${ad.id}"><br>
+                    <img src="${ad.imgUrl[0] == undefined ? './img/image-not-found.jpg' : ad.imgUrl[0]}" alt="" class="image_${ad.id}"><br>
                     <h2 class="ads-descr" id="ads-height">${ad.title}</h2>
                     <h3 class="ads-descr">cena: ${Number(ad.price).toLocaleString('sr-RS') == null ? ad['price-other']
                                                 : Number(ad.price).toLocaleString('sr-RS') + '&euro;'}</h3>
