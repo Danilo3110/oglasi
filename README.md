@@ -7,7 +7,7 @@
 <br />
 <p align="center">
   <a href="">
-    <img src="./src/img/logo5.png" alt="Logo" width="200" height="65">
+    <img src="./src/img/logo5.png" alt="Logo" width="200" height="65" style="background:rgba(55, 66, 82, 0.7)">
   </a>
 
   <h3 align="center">Web sajt za oglasavanje i prodaju nekretnina</h3><br>
