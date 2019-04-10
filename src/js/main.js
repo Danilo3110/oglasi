@@ -225,13 +225,14 @@ function printAd() {
 };
 
 function onLoadHTML() {
-    if ($('body').hasClass('index_html')) {
+    const page = location.href;
+    if (page.search('/index.html') >= 0) {
         return renderAds();
-    } else if ($('body').hasClass('ad_html')) {
+    } else if (page.search('/ad.html') >= 0) {
         return renderFullAds();
-    } else if ($('body').hasClass('publish_ad_html')) {
+    } else if (page.search('/publish_ad.html') >= 0) {
         return loadAdToForm();
-    } else if ($('body').hasClass('user_panel_html')) {
+    } else if (page.search('/user_panel.html') >= 0) {
         return usersAds();
     }
 };
