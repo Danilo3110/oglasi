@@ -10,8 +10,7 @@
     <img src="./logoE.jpg" alt="Logo" width="240" height="60">
   </a>
 
-  <h3 align="center">Web sajt za oglasavanje i prodaju nekretnina</h3><br>
-
+  <h3 align="center">Web sajt za oglasavanje i prodaju nekretnina</h3>
 
 ## Project
 
@@ -22,18 +21,16 @@
 <p align="center">
     <img src="./visualstudiocode.png" alt="Logo" width="300" height="150">
 
-[![][html]]()&nbsp;&nbsp;
-[![][css]]()&nbsp;&nbsp;
-[![][js]]()&nbsp;&nbsp;
-[![][jquery]](https://jquery.com)&nbsp;&nbsp;
-[![][json]]()&nbsp;&nbsp;
-[![][webpack]](https://webpack.js.org/)&nbsp;&nbsp;
-[![][axios]](https://www.npmjs.com/package/axios)&nbsp;&nbsp;
-<br>
+![][html]&nbsp;
+![][css]&nbsp;
+![][js]&nbsp;
+[![][jquery]](https://jquery.com)&nbsp;
+[![][json]](https://my-json-server.typicode.com/)&nbsp;
+[![][webpack]](https://webpack.js.org/)&nbsp;
+[![][axios]](https://www.npmjs.com/package/axios)
 <br>
 <p align="center">
-    <img src="./vscode.png" alt="Logo" width="800" height="400">
-<br>
+    <img src="./vscode.png" alt="Logo" width="700" height="350">
 <br>
 
 ## Installation
@@ -50,7 +47,6 @@ npm install or npm i
 ```sh
 npm run server
 ```
-<br>
 
 ## Project structure
 ```sh
@@ -86,7 +82,6 @@ npm run server
 └── webpack.config.js
 ```
 
-
 ## Developers on this project
 
 [@ Darko Mingovski](https://github.com/darkomingovski)<br>
@@ -95,8 +90,6 @@ npm run server
 
 Project Link: [Git Hub Repo - Oglasi](https://github.com/darkomingovski/oglasi)
 <br>
-<br>
-
 
 ## Acknowledgements
 
@@ -112,7 +105,6 @@ Project Link: [Git Hub Repo - Oglasi](https://github.com/darkomingovski/oglasi)
 * [JVectorMap](http://jvectormap.com)
 * [Font Awesome](https://fontawesome.com)
 
-
 <!-- LINKS & IMAGES -->
 [build-shield]: https://img.shields.io/badge/build-passing-brightgreen.svg?style=popout
 [code-clean]: https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=popout
@@ -121,7 +113,7 @@ Project Link: [Git Hub Repo - Oglasi](https://github.com/darkomingovski/oglasi)
 [css]: https://img.shields.io/badge/CSS-v3-blue.svg?style=popout&logo=css3
 [js]: https://img.shields.io/badge/JavaScript-ES6-yellow.svg?style=popout&logo=javascript
 [jquery]: https://img.shields.io/badge/jQuery-v3.3.1-violet.svg?style=popout&logo=jquery
-[json]: https://img.shields.io/badge/JSON-v^0.14.2-green.svg?style=popout&logo=json
+[json]: https://img.shields.io/badge/JSON-v0.14.2-green.svg?style=popout&logo=json
 [webpack]: https://img.shields.io/badge/WebPack-v4.29.6-blue.svg?style=popout&logo=webpack
-[axios]: https://img.shields.io/badge/AXIOS-v^0.18.0-lightblue.svg?style=popout&logo=codesandbox
+[axios]: https://img.shields.io/badge/AXIOS-v0.18-lightblue.svg?style=popout&logo=codesandbox
 [product-screenshot]: ./ss.jpg
