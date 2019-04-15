@@ -12,15 +12,16 @@ module.exports = {
         rules: [{
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader"
-                }
+                use: { loader: "babel-loader" }
             },
             {
                 test: /\.css$/,
                 use: [
-                    "style-loader", // creates style nodes from JS strings
-                    "css-loader" // translates CSS into CommonJS
+                    { loader: "style-loader" }, // creates style nodes from JS strings
+                    { loader: "css-loader" }, // translates CSS into CommonJS
+                    { loader: "postcss-loader",
+                        options: { config: { path: `${__dirname}/postcss.config.js` } } 
+                    }
                 ]
             }
         ]
