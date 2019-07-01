@@ -86,7 +86,6 @@ npm run server
 
 [@ Darko Mingovski](https://github.com/darkomingovski)<br>
 [@ Danilo Lukic](https://github.com/Danilo3110)<br>
-[@ Nikola Muncan](https://github.com/dzoniD)
 
 Project Link: [Git Hub Repo - Oglasi](https://github.com/darkomingovski/oglasi)
 <br>
